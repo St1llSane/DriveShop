@@ -63,17 +63,17 @@
       align-items: center;
       column-gap: 40px;
 
-			&_address {
-				display: flex;
-				align-items: center;
-				justify-content: flex-end;
-				gap: 2px;
-				flex: 1;		
+      &_address {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 2px;
+        flex: 1;
 
-				svg {
-					font-size: $f-huge;
-				}
-			}
+        svg {
+          font-size: $f-huge;
+        }
+      }
 
       &_list li a {
         transition: $def-transition;
@@ -136,7 +136,7 @@
           transition: $def-transition;
 
           &:hover {
-            text-shadow: 0 0 0 $c-main;
+            text-shadow: $text-sh-def;
           }
 
           &:hover::after {

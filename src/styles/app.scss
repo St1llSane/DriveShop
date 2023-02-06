@@ -13,13 +13,8 @@ body {
 }
 
 .app {
-  min-height: 500vh;
 	width: 100%;
 	max-width: 1230px;
 	margin: 0 auto;
 	padding: 0 15px;
-
-	&-first-screen {
-		min-height: 100vh;
-	}
 }
