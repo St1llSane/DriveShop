@@ -13,7 +13,45 @@ const introSlider = [
 const Intro = () => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0)
   const [sliderWidth, setSliderWidth] = useState(0)
+  const [days, setDays] = useState(0)
+  const [hours, setHours] = useState(0)
+  const [minutes, setMinutes] = useState(0)
+  const [seconds, setSeconds] = useState(0)
   const sliderRef = useRef(null)
+  const introStockTimerId = useRef(null)
+
+  const introStockTimer = () => {
+    const endPoint = new Date('February 20, 2023, 00:00:00').getTime()
+
+    introStockTimerId.current = setInterval(() => {
+      const now = new Date().getTime()
+      const distance = endPoint - now
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+        .toString()
+        .padStart(2, '0')
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      )
+        .toString()
+        .padStart(2, '0')
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+        .toString()
+        .padStart(2, '0')
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+        .toString()
+        .padStart(2, '0')
+
+      if (distance < 0) {
+        return clearInterval(introStockTimerId.current)
+      }
+
+      setDays(days)
+      setHours(hours)
+      setMinutes(minutes)
+      setSeconds(seconds)
+    }, 1000)
+  }
 
   useEffect(() => {
     setSliderWidth(sliderRef.current.clientWidth)
@@ -23,8 +61,12 @@ const Intro = () => {
     }
 
     window.addEventListener('resize', resizeHandler)
-    return () => removeEventListener('resize', resizeHandler)
-  }, [sliderWidth])
+    introStockTimer()
+    return () => {
+      removeEventListener('resize', resizeHandler)
+      clearInterval(introStockTimerId.current)
+    }
+  }, [sliderWidth, seconds])
 
   const prevSlideHandler = () => {
     if (activeSlideIndex === 0) {
@@ -82,7 +124,31 @@ const Intro = () => {
           </button>
         </div>
       </div>
-      <div className="intro-stock">Stock</div>
+      <div className="intro-stock">
+        <div className="intro-stock__top">
+          <span className="intro-stock__top_text">Акция</span>
+          <div className="intro-stock__top_price">
+            <p>190 000 p</p>
+            <span>225 000 p</span>
+          </div>
+        </div>
+        <div className="intro-stock__content">
+          <img src="./images/items/engine2.png" alt="engine" />
+          <h5>Лодочный мотор Suzuki DF9.9BRS</h5>
+        </div>
+        <div className="intro-stock__bottom">
+          <p>До конца акции:</p>
+          <ul className="intro-stock__bottom_timer">
+            <li>{days}</li>
+            <li>:</li>
+            <li>{hours}</li>
+            <li>:</li>
+            <li>{minutes}</li>
+            <li>:</li>
+            <li>{seconds}</li>
+          </ul>
+        </div>
+      </div>
     </section>
   )
 }
