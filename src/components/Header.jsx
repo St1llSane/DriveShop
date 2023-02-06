@@ -4,6 +4,7 @@ import {
   AiOutlineUser,
   AiOutlineShoppingCart,
 } from 'react-icons/ai'
+import { IoLocationOutline } from 'react-icons/io5'
 import '../styles/c_styles/header.scss'
 
 const Header = () => {
@@ -28,8 +29,11 @@ const Header = () => {
           </a>
         </div>
         <div className="header-top__right">
-          <address>Калининград, ул. Пушкина 28</address>
-          <ul>
+          <div className="header-top__right_address">
+						<IoLocationOutline />
+            <address>Калининград, ул. Пушкина 28</address>
+          </div>
+          <ul className="header-top__right_list">
             <li>
               <a href="#">
                 <AiOutlineHeart />
@@ -52,28 +56,44 @@ const Header = () => {
       <nav className="nav">
         <ul>
           <li>
-            <a href="#" data-nav-color='blue'>Катера</a>
+            <a href="#" data-nav-color="blue">
+              Катера
+            </a>
           </li>
           <li>
-            <a href="#" data-nav-color='blue'>Гидроциклы</a>
+            <a href="#" data-nav-color="blue">
+              Гидроциклы
+            </a>
           </li>
           <li>
-            <a href="#" data-nav-color='blue'>Лодки</a>
+            <a href="#" data-nav-color="blue">
+              Лодки
+            </a>
           </li>
           <li>
-            <a href="#" data-nav-color='red'>Вездеходы</a>
+            <a href="#" data-nav-color="red">
+              Вездеходы
+            </a>
           </li>
           <li>
-            <a href="#" data-nav-color='red'>Квадроциклы</a>
+            <a href="#" data-nav-color="red">
+              Квадроциклы
+            </a>
           </li>
           <li>
-            <a href="#" data-nav-color='white'>Снегоходы</a>
+            <a href="#" data-nav-color="white">
+              Снегоходы
+            </a>
           </li>
           <li>
-            <a href="#" data-nav-color='brown'>Двигатели</a>
+            <a href="#" data-nav-color="brown">
+              Двигатели
+            </a>
           </li>
           <li>
-            <a href="#" data-nav-color='brown'>Запчасти</a>
+            <a href="#" data-nav-color="brown">
+              Запчасти
+            </a>
           </li>
         </ul>
       </nav>

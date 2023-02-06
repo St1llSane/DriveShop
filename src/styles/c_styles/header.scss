@@ -10,14 +10,13 @@
     margin-bottom: 25px;
 
     .menu,
-    .logo,
     &__right {
       flex: 1;
     }
 
     .menu {
       display: flex;
-      gap: 35px;
+      column-gap: 35px;
 
       li {
         a {
@@ -60,13 +59,23 @@
     }
 
     &__right {
-      text-align: right;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 25px;
+      column-gap: 40px;
 
-      ul li a {
+			&_address {
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				gap: 2px;
+				flex: 1;		
+
+				svg {
+					font-size: $f-huge;
+				}
+			}
+
+      &_list li a {
         transition: $def-transition;
 
         &:hover {
@@ -74,7 +83,7 @@
         }
       }
 
-      ul {
+      &_list {
         display: flex;
         gap: 7px;
         margin-right: 13px;
