@@ -131,10 +131,10 @@ const Intro = () => {
             <span>225 000 p</span>
           </div>
         </div>
-        <div className="intro-stock__content">
+        <a className="intro-stock__content" href="#">
           <img src="./images/items/engine2.png" alt="engine" />
           <h5>Лодочный мотор Suzuki DF9.9BRS</h5>
-        </div>
+        </a>
         <div className="intro-stock__bottom">
           <p>До конца акции:</p>
           <ul className="intro-stock__bottom_timer">

@@ -120,7 +120,7 @@
   }
 
 	&-stock {
-		border: 2px solid $c-d-grey;
+		border: 1px solid $c-d-grey;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -164,6 +164,10 @@
 		&__content {
 			text-align: center;
 
+			&:hover h5 {
+				color: $c-accent-blue;
+			}
+
 			img {
 				width: 230px;
 			}
@@ -173,6 +177,7 @@
 				font-weight: 700;
 				max-width: 200px;
 				margin: 0 auto;
+				transition: $def-transition;
 			}
 		}
 

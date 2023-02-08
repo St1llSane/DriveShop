@@ -1,5 +1,6 @@
 import Intro from '../components/Intro'
 import Search from '../components/Search'
+import Categories from '../components/Categories'
 import '../styles/c_styles/main.scss'
 
 const Main = () => {
@@ -9,6 +10,7 @@ const Main = () => {
         <Search />
         <Intro />
       </div>
+			<Categories />
     </main>
   )
 }

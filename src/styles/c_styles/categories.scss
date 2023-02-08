@@ -1,0 +1,61 @@
+@import '../vars.scss';
+
+.categories {
+  padding: 0 0 50px 0;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(350px, 1fr));
+    grid-template-rows: repeat(2, 130px);
+		justify-content: space-between;
+		gap: 30px;
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid $c-d-grey;
+      border-radius: $b-r-small;
+      padding: 17px;
+			transition: $def-transition;
+
+			&:hover {
+				box-shadow: 0 1px 15px $c-d-grey;
+				border-color: transparent;
+			}
+
+      &:hover &_info h5 {
+        color: $c-accent-blue;
+      }
+
+			&:hover &_info span svg {
+				transform: translateX(4px);
+			}
+
+      &_info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        h5 {
+          font-size: $f-huge;
+          transition: $def-transition;
+        }
+
+        span {
+          color: $c-d-grey;
+          font-size: $f-small;
+					display: flex;
+					align-items: center;
+
+					svg {
+						font-size: $f-small;
+						transition: $def-transition;
+					}
+        }
+      }
+    }
+  }
+}
