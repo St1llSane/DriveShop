@@ -20,6 +20,23 @@ const Intro = () => {
   const sliderRef = useRef(null)
   const introStockTimerId = useRef(null)
 
+  const prevSlideHandler = () => {
+    clearTimeout(sliderAnimationTimerId.current)
+    if (activeSlideIndex === 0) {
+      setActiveSlideIndex(introSlider.length - 1)
+    } else {
+      setActiveSlideIndex((prev) => prev - 1)
+    }
+  }
+  const nextSlideHandler = () => {
+    clearTimeout(sliderAnimationTimerId.current)
+    if (activeSlideIndex === introSlider.length - 1) {
+      setActiveSlideIndex(0)
+    } else {
+      setActiveSlideIndex((prev) => prev + 1)
+    }
+  }
+
   const introStockTimer = () => {
     const endPoint = new Date('February 20, 2023, 00:00:00').getTime()
 
@@ -27,20 +44,16 @@ const Intro = () => {
       const now = new Date().getTime()
       const distance = endPoint - now
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24))
-        .toString()
-        .padStart(2, '0')
-      const hours = Math.floor(
+      const calcTime = (value) => {
+        return Math.floor(value).toString().padStart(2, '0')
+      }
+
+      const days = calcTime(distance / (1000 * 60 * 60 * 24))
+      const hours = calcTime(
         (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
       )
-        .toString()
-        .padStart(2, '0')
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-        .toString()
-        .padStart(2, '0')
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000)
-        .toString()
-        .padStart(2, '0')
+      const minutes = calcTime((distance % (1000 * 60 * 60)) / (1000 * 60))
+      const seconds = calcTime((distance % (1000 * 60)) / 1000)
 
       if (distance < 0) {
         return clearInterval(introStockTimerId.current)
@@ -62,26 +75,12 @@ const Intro = () => {
 
     window.addEventListener('resize', resizeHandler)
     introStockTimer()
+
     return () => {
       removeEventListener('resize', resizeHandler)
       clearInterval(introStockTimerId.current)
     }
   }, [sliderWidth, seconds])
-
-  const prevSlideHandler = () => {
-    if (activeSlideIndex === 0) {
-      setActiveSlideIndex(introSlider.length - 1)
-    } else {
-      setActiveSlideIndex((prev) => prev - 1)
-    }
-  }
-  const nextSlideHandler = () => {
-    if (activeSlideIndex === introSlider.length - 1) {
-      setActiveSlideIndex(0)
-    } else {
-      setActiveSlideIndex((prev) => prev + 1)
-    }
-  }
 
   return (
     <section className="intro">
