@@ -1,5 +1,5 @@
 $c-white: #fff;
-$c-white-op: rgba(255, 255, 255, .7);
+$c-white-op: rgba(255, 255, 255, 0.7);
 $c-main: #092838;
 $c-main-gradient: linear-gradient(180deg, #ecf5fc 10%, #dce7f1 100%);
 $c-grey: #e7ebf3;
@@ -14,10 +14,63 @@ $f-small: 1.4rem;
 $f-def: 1.6rem;
 $f-big: 1.8rem;
 $f-huge: 2.2rem;
+$f-biggest: 2.6rem;
 
 $b-r-small: 2px;
+$b-r-big: 10px;
 $b-r-max: 999px;
 
 $text-sh-def: 0 0 0 $c-main;
 
-$def-transition: all .15s ease;
+$def-transition: all 0.15s ease;
+
+%hover-underline {
+  position: relative;
+  transition: $def-transition;
+
+  &:hover {
+    text-shadow: $text-sh-def;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &[data-nav-color='blue']::after {
+    background-color: $c-accent-d-blue;
+  }
+  &[data-nav-color='red']::after {
+    background-color: $c-red;
+  }
+  &[data-nav-color='white']::after {
+    background-color: $c-d-grey;
+  }
+  &[data-nav-color='brown']::after {
+    background-color: $c-brown;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    transition: $def-transition;
+  }
+}
+
+%hover-card {
+  transition: $def-transition;
+
+  &:hover {
+    box-shadow: 0 1px 18px $c-d-grey;
+    border-color: transparent;
+  }
+}
+
+%title {
+  font-size: $f-biggest;
+  font-weight: 700;
+  margin-bottom: 25px;
+}

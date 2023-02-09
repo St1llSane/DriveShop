@@ -132,39 +132,7 @@
         a {
           display: block;
           padding: 10px 0;
-          position: relative;
-          transition: $def-transition;
-
-          &:hover {
-            text-shadow: $text-sh-def;
-          }
-
-          &:hover::after {
-            width: 100%;
-          }
-
-          &[data-nav-color='blue']::after {
-            background-color: $c-accent-d-blue;
-          }
-          &[data-nav-color='red']::after {
-            background-color: $c-red;
-          }
-          &[data-nav-color='white']::after {
-            background-color: $c-d-grey;
-          }
-          &[data-nav-color='brown']::after {
-            background-color: $c-brown;
-          }
-
-          &::after {
-            position: absolute;
-            content: '';
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            transition: $def-transition;
-          }
+          @extend %hover-underline
         }
       }
     }

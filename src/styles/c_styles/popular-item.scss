@@ -1,0 +1,98 @@
+@import '../vars.scss';
+
+.popular-item {
+  width: 270px;
+  border: 1px solid $c-d-grey;
+  border-radius: $b-r-small;
+  @extend %hover-card;
+
+  &:hover &__content h5 {
+    color: $c-accent-blue;
+  }
+
+  &:hover &__bottom span {
+    color: $c-accent-blue;
+  }
+
+  &__top {
+    padding: 12px;
+    margin-bottom: 10px;
+		text-align: right;
+    position: relative;
+
+    span {
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      color: $c-white;
+      text-transform: uppercase;
+      background-color: $c-accent-blue;
+      border-radius: $b-r-small 0 0 0;
+      height: 30px;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-fav {
+			display: inline-block;
+      font-size: 2.4rem;
+      transition: $def-transition;
+
+			svg {
+				display: block;
+			}
+
+      &:hover {
+        color: $c-accent-blue;
+      }
+    }
+  }
+
+  &__content {
+    text-align: center;
+    display: block;
+
+    img {
+      width: 200px;
+    }
+
+    h5 {
+      font-size: $f-def;
+      font-weight: 500;
+      max-width: 220px;
+      margin: 0 auto;
+			transition: $def-transition;
+    }
+  }
+
+  &__bottom {
+    text-align: center;
+    padding: 25px 0;
+    position: relative;
+
+    span {
+      font-size: $f-huge;
+      font-weight: 500;
+			transition: $def-transition;
+    }
+
+    &-incart {
+      position: absolute;
+      right: -1px;
+      bottom: -1px;
+      padding: 6px 15px;
+      display: flex;
+      color: $c-white;
+      font-size: $f-huge;
+      background-color: $c-accent-blue;
+      border-radius: $b-r-big 0 $b-r-small 0;
+      transition: $def-transition;
+
+      &:hover {
+        background-color: $c-accent-d-blue;
+      }
+    }
+  }
+}

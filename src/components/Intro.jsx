@@ -21,7 +21,6 @@ const Intro = () => {
   const introStockTimerId = useRef(null)
 
   const prevSlideHandler = () => {
-    clearTimeout(sliderAnimationTimerId.current)
     if (activeSlideIndex === 0) {
       setActiveSlideIndex(introSlider.length - 1)
     } else {
@@ -29,7 +28,6 @@ const Intro = () => {
     }
   }
   const nextSlideHandler = () => {
-    clearTimeout(sliderAnimationTimerId.current)
     if (activeSlideIndex === introSlider.length - 1) {
       setActiveSlideIndex(0)
     } else {
