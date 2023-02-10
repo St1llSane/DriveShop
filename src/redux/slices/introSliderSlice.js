@@ -10,6 +10,9 @@ export const introSliderSlice = createSlice({
   name: 'introSlider',
   initialState,
   reducers: {
+    setTotalSlides: (state, action) => {
+      state.totalSlides = action.payload
+    },
     nextSlide: (state) => {
       state.currentSlideIndex === state.totalSlides - 1
         ? (state.currentSlideIndex = 0)
@@ -28,6 +31,7 @@ export const introSliderSlice = createSlice({
 
 export const introSliderSelector = (state) => state.introSliderSlice
 
-export const { nextSlide, prevSlide, setSlide } = introSliderSlice.actions
+export const { setTotalSlides, nextSlide, prevSlide, setSlide } =
+  introSliderSlice.actions
 
 export default introSliderSlice.reducer

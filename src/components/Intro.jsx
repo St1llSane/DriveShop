@@ -6,7 +6,9 @@ import {
   nextSlide,
   prevSlide,
   setSlide,
+  setTotalSlides,
 } from '../redux/slices/introSliderSlice'
+import IntroStock from './IntroStock'
 import '../styles/c_styles/intro.scss'
 
 const introSlider = [
@@ -19,14 +21,9 @@ const introSlider = [
 
 const Intro = () => {
   const dispatch = useDispatch()
-  const { currentSlideIndex } = useSelector(introSliderSelector)
-  const sliderRef = useRef(null)
+  const { totalSlides, currentSlideIndex } = useSelector(introSliderSelector)
   const [sliderWidth, setSliderWidth] = useState(0)
-  const [days, setDays] = useState(0)
-  const [hours, setHours] = useState(0)
-  const [minutes, setMinutes] = useState(0)
-  const [seconds, setSeconds] = useState(0)
-  const introStockTimerId = useRef(null)
+  const sliderRef = useRef(null)
 
   const nextSlideHandler = () => {
     dispatch(nextSlide())
@@ -38,50 +35,19 @@ const Intro = () => {
     dispatch(setSlide(index))
   }
 
-  const introStockTimer = () => {
-    const endPoint = new Date('February 20, 2023, 00:00:00').getTime()
-
-    introStockTimerId.current = setInterval(() => {
-      const now = new Date().getTime()
-      const distance = endPoint - now
-
-      const calcTime = (value) => {
-        return Math.floor(value).toString().padStart(2, '0')
-      }
-
-      const days = calcTime(distance / (1000 * 60 * 60 * 24))
-      const hours = calcTime(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      )
-      const minutes = calcTime((distance % (1000 * 60 * 60)) / (1000 * 60))
-      const seconds = calcTime((distance % (1000 * 60)) / 1000)
-
-      if (distance < 0) {
-        return clearInterval(introStockTimerId.current)
-      }
-
-      setDays(days)
-      setHours(hours)
-      setMinutes(minutes)
-      setSeconds(seconds)
-    }, 1000)
-  }
-
   useEffect(() => {
+    dispatch(setTotalSlides(introSlider.length))
     setSliderWidth(sliderRef.current.clientWidth)
 
     const resizeHandler = () => {
       setSliderWidth(sliderRef.current.clientWidth)
     }
-
     window.addEventListener('resize', resizeHandler)
-    introStockTimer()
 
     return () => {
       removeEventListener('resize', resizeHandler)
-      clearInterval(introStockTimerId.current)
     }
-  }, [sliderWidth, seconds])
+  }, [sliderWidth])
 
   return (
     <section className="intro">
@@ -89,7 +55,7 @@ const Intro = () => {
         <div
           className="intro-slider__wrapper"
           style={{
-            width: `calc(100% * ${introSlider.length})`,
+            width: `calc(100% * ${totalSlides})`,
             transform: `translateX(calc(-${sliderWidth}px * ${currentSlideIndex}))`,
           }}
         >
@@ -124,31 +90,7 @@ const Intro = () => {
           </button>
         </div>
       </div>
-      <div className="intro-stock">
-        <div className="intro-stock__top">
-          <span className="intro-stock__top_text">Акция</span>
-          <div className="intro-stock__top_price">
-            <p>190 000 p</p>
-            <span>225 000 p</span>
-          </div>
-        </div>
-        <a className="intro-stock__content" href="#">
-          <img src="./images/items/engine2.png" alt="engine" />
-          <h5>Лодочный мотор Suzuki DF9.9BRS</h5>
-        </a>
-        <div className="intro-stock__bottom">
-          <p>До конца акции:</p>
-          <ul className="intro-stock__bottom_timer">
-            <li>{days}</li>
-            <li>:</li>
-            <li>{hours}</li>
-            <li>:</li>
-            <li>{minutes}</li>
-            <li>:</li>
-            <li>{seconds}</li>
-          </ul>
-        </div>
-      </div>
+      <IntroStock />
     </section>
   )
 }

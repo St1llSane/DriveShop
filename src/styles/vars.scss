@@ -61,6 +61,31 @@ $slow-transition: all 0.25s ease;
   }
 }
 
+%card-content-hover {
+	position: relative;
+
+	&:hover span {
+		opacity: 1;
+	}
+
+	span {
+		position: absolute;
+		top: 40%;
+		transform: translateY(-40%);
+		left: 0;
+		right: 0;
+		width: 240px;
+		margin: 0 auto;
+		background-color: rgba(255, 255, 255, 0.95);
+		border-radius: $b-r-small;
+		box-shadow: 0 1px 15px $c-d-grey;
+		padding: 14px 0;
+		text-transform: uppercase;
+		opacity: 0;
+		transition: $slow-transition;
+	}
+}
+
 %hover-card {
   transition: $def-transition;
 
