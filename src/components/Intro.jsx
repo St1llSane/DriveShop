@@ -1,5 +1,12 @@
 import { useState, useRef, useEffect } from 'react'
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  introSliderSelector,
+  nextSlide,
+  prevSlide,
+  setSlide,
+} from '../redux/slices/introSliderSlice'
 import '../styles/c_styles/intro.scss'
 
 const introSlider = [
@@ -11,28 +18,24 @@ const introSlider = [
 ]
 
 const Intro = () => {
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0)
+  const dispatch = useDispatch()
+  const { currentSlideIndex } = useSelector(introSliderSelector)
+  const sliderRef = useRef(null)
   const [sliderWidth, setSliderWidth] = useState(0)
   const [days, setDays] = useState(0)
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
   const [seconds, setSeconds] = useState(0)
-  const sliderRef = useRef(null)
   const introStockTimerId = useRef(null)
 
-  const prevSlideHandler = () => {
-    if (activeSlideIndex === 0) {
-      setActiveSlideIndex(introSlider.length - 1)
-    } else {
-      setActiveSlideIndex((prev) => prev - 1)
-    }
-  }
   const nextSlideHandler = () => {
-    if (activeSlideIndex === introSlider.length - 1) {
-      setActiveSlideIndex(0)
-    } else {
-      setActiveSlideIndex((prev) => prev + 1)
-    }
+    dispatch(nextSlide())
+  }
+  const prevSlideHandler = () => {
+    dispatch(prevSlide())
+  }
+  const setSlideHandler = (index) => {
+    dispatch(setSlide(index))
   }
 
   const introStockTimer = () => {
@@ -87,7 +90,7 @@ const Intro = () => {
           className="intro-slider__wrapper"
           style={{
             width: `calc(100% * ${introSlider.length})`,
-            transform: `translateX(calc(-${sliderWidth}px * ${activeSlideIndex}))`,
+            transform: `translateX(calc(-${sliderWidth}px * ${currentSlideIndex}))`,
           }}
         >
           {introSlider.map((slide) => (
@@ -100,8 +103,8 @@ const Intro = () => {
           {introSlider.map((slide, index) => (
             <li key={slide}>
               <button
-                className={`${activeSlideIndex === index ? 'active' : ''}`}
-                onClick={() => setActiveSlideIndex(index)}
+                className={`${currentSlideIndex === index ? 'active' : ''}`}
+                onClick={() => setSlideHandler(index)}
               ></button>
             </li>
           ))}
