@@ -10,10 +10,6 @@
 	justify-content: space-between;
   @extend %hover-card;
 
-  &:hover &__bottom span {
-    color: $c-accent-blue;
-  }
-
   &__top {
     padding: 10px;
     margin-bottom: 10px;

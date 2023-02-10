@@ -39,15 +39,20 @@ const Intro = () => {
     dispatch(setTotalSlides(introSlider.length))
     setSliderWidth(sliderRef.current.clientWidth)
 
+		const timer = setTimeout(() => {
+			dispatch(nextSlide())
+		}, 5000);
+
     const resizeHandler = () => {
       setSliderWidth(sliderRef.current.clientWidth)
     }
     window.addEventListener('resize', resizeHandler)
 
     return () => {
+			clearTimeout(timer)
       removeEventListener('resize', resizeHandler)
     }
-  }, [sliderWidth])
+  }, [sliderWidth, currentSlideIndex])
 
   return (
     <section className="intro">
