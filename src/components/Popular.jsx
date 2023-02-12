@@ -1,20 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
-import PopularItem from './PopularItem'
+import PopularSlider from './PopularSlider'
 import '../styles/c_styles/popular.scss'
 
 const Popular = () => {
-  const [sliderWidth, setSliderWidth] = useState(0)
-  const sliderRef = useRef(null)
-
-  useEffect(() => {
-    const resizeHandler = () => {
-      console.log(sliderRef.current.clientWidth)
-      setSliderWidth(sliderRef.current.clientWidth)
-    }
-
-    window.addEventListener('resize', resizeHandler)
-  }, [sliderWidth])
-
   return (
     <section className="popular">
       <div className="popular__top">
@@ -62,16 +49,7 @@ const Popular = () => {
           </li>
         </ul>
       </div>
-      <div className="popular__items" ref={sliderRef}>
-        <div
-          className="popular__items-wrapper"
-          style={{ width: `calc(100% + (310px * 4))` }}
-        >
-          {[...new Array(8).keys()].map((key) => (
-            <PopularItem key={key} />
-          ))}
-        </div>
-      </div>
+      <PopularSlider />
       <a className="popular__more" href="#">
         Показать еще
       </a>

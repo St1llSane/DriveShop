@@ -1,0 +1,33 @@
+@import '../vars.scss';
+
+.popular-slider {
+  position: relative;
+  z-index: 10;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    border: none;
+    font-size: $f-biggest;
+    transition: $def-transition;
+
+    &:hover {
+      color: $c-accent-blue;
+    }
+
+    &--left {
+      left: -35px;
+    }
+
+    &--right {
+      right: -35px;
+    }
+  }
+}
