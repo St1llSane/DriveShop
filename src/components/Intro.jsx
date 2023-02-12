@@ -6,6 +6,7 @@ import {
   nextSlide,
   prevSlide,
   setSlide,
+  setSliderWidth,
   setTotalSlides,
 } from '../redux/slices/introSliderSlice'
 import IntroStock from './IntroStock'
@@ -21,9 +22,32 @@ const introSlider = [
 
 const Intro = () => {
   const dispatch = useDispatch()
-  const { totalSlides, currentSlideIndex } = useSelector(introSliderSelector)
-  const [sliderWidth, setSliderWidth] = useState(0)
+  const { sliderWidth, totalSlides, currentSlideIndex } =
+    useSelector(introSliderSelector)
   const sliderRef = useRef(null)
+
+  useEffect(() => {
+    dispatch(setTotalSlides(introSlider.length))
+
+    const resizeHandler = () => {
+      dispatch(setSliderWidth(sliderRef.current.clientWidth))
+    }
+
+    window.addEventListener('resize', resizeHandler)
+    return () => {
+      removeEventListener('resize', resizeHandler)
+    }
+  }, [sliderWidth])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      dispatch(nextSlide())
+    }, 5000)
+
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [currentSlideIndex])
 
   const nextSlideHandler = () => {
     dispatch(nextSlide())
@@ -34,25 +58,6 @@ const Intro = () => {
   const setSlideHandler = (index) => {
     dispatch(setSlide(index))
   }
-
-  useEffect(() => {
-    dispatch(setTotalSlides(introSlider.length))
-    setSliderWidth(sliderRef.current.clientWidth)
-
-		const timer = setTimeout(() => {
-			dispatch(nextSlide())
-		}, 5000);
-
-    const resizeHandler = () => {
-      setSliderWidth(sliderRef.current.clientWidth)
-    }
-    window.addEventListener('resize', resizeHandler)
-
-    return () => {
-			clearTimeout(timer)
-      removeEventListener('resize', resizeHandler)
-    }
-  }, [sliderWidth, currentSlideIndex])
 
   return (
     <section className="intro">

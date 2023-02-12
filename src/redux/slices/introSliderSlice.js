@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
+  sliderWidth: 870,
   totalSlides: 5,
   startSlideIndex: 0,
   currentSlideIndex: 0,
@@ -10,6 +11,9 @@ export const introSliderSlice = createSlice({
   name: 'introSlider',
   initialState,
   reducers: {
+    setSliderWidth: (state, action) => {
+      state.sliderWidth = action.payload
+    },
     setTotalSlides: (state, action) => {
       state.totalSlides = action.payload
     },
@@ -31,7 +35,12 @@ export const introSliderSlice = createSlice({
 
 export const introSliderSelector = (state) => state.introSliderSlice
 
-export const { setTotalSlides, nextSlide, prevSlide, setSlide } =
-  introSliderSlice.actions
+export const {
+  setSliderWidth,
+  setTotalSlides,
+  nextSlide,
+  prevSlide,
+  setSlide,
+} = introSliderSlice.actions
 
 export default introSliderSlice.reducer
