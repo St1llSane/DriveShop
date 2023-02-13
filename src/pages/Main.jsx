@@ -13,8 +13,8 @@ const Main = () => {
         <Intro />
       </div>
       <Categories />
-      <Popular />
 			<SaleBanner />
+      <Popular />
     </main>
   )
 }

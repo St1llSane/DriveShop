@@ -26,6 +26,13 @@ $text-sh-def: 0 0 0 $c-main;
 $def-transition: all 0.15s ease;
 $slow-transition: all 0.25s ease;
 
+%container {
+	width: 100%;
+	max-width: 1270px;
+	margin: 0 auto;
+	padding: 0 35px;
+}
+
 %hover-underline {
   position: relative;
   transition: $def-transition;

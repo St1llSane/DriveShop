@@ -1,0 +1,88 @@
+@import '../vars.scss';
+
+.footer {
+  background-color: $c-grey;
+  padding: 40px 0;
+  font-size: $f-small;
+	margin-top: 40px;
+
+  &__wrapper {
+    @extend %container;
+    display: flex;
+    justify-content: space-between;
+
+    &-form {
+      label {
+        font-weight: 500;
+        display: inline-block;
+        max-width: 260px;
+        margin-bottom: 30px;
+      }
+    }
+
+    &-nav {
+      width: 100%;
+      max-width: 340px;
+      display: flex;
+      justify-content: space-between;
+      column-gap: 10px;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+
+        li {
+          h6 {
+            font-size: $f-small;
+          }
+
+          a {
+            transition: $def-transition;
+
+            &:hover {
+              color: $c-accent-blue;
+            }
+          }
+        }
+      }
+    }
+
+    &-socials {
+      display: flex;
+      align-items: center;
+      column-gap: 20px;
+
+      li {
+        font-size: $f-biggest;
+
+        a {
+          display: flex;
+          transition: $def-transition;
+
+          &:hover {
+            color: $c-accent-blue;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    @extend %container;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 50px;
+		margin-top: 55px;
+
+    a {
+			font-size: $f-tiny;
+      transition: $def-transition;
+
+      &:hover {
+        color: $c-accent-blue;
+      }
+    }
+  }
+}

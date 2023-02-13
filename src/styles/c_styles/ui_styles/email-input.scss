@@ -1,0 +1,36 @@
+@import '../../vars.scss';
+
+.email-input {
+  display: flex;
+
+  input,
+  button {
+    border: none;
+    height: 36px;
+    padding: 0 17px;
+  }
+
+  input {
+    width: 240px;
+    background-color: $c-white;
+    border-radius: $b-r-small 0 0 $b-r-small;
+
+    &::placeholder {
+      color: $c-d-grey;
+    }
+  }
+
+  button {
+    color: $c-white;
+		font-size: $f-small;
+		letter-spacing: 0.03rem;
+    text-transform: uppercase;
+    background-color: $c-accent-blue;
+    border-radius: 0 $b-r-small $b-r-small 0;
+		transition: $def-transition;
+
+		&:hover {
+			background-color: $c-accent-d-blue;
+		}
+  }
+}
