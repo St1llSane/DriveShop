@@ -9,18 +9,6 @@
     &-title {
       @extend %title;
     }
-
-    &-categories {
-      display: flex;
-      column-gap: 10px;
-
-      li {
-        a {
-          padding: 10px 12px;
-          @extend %hover-underline;
-        }
-      }
-    }
   }
 
   &__more {
