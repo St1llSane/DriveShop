@@ -3,6 +3,7 @@ import Search from '../components/Search'
 import Categories from '../components/Categories'
 import Popular from '../components/Popular'
 import '../styles/c_styles/main.scss'
+import SaleBanner from '../components/SaleBanner'
 
 const Main = () => {
   return (
@@ -13,6 +14,7 @@ const Main = () => {
       </div>
       <Categories />
       <Popular />
+			<SaleBanner />
     </main>
   )
 }
