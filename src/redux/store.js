@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import introSliderSlice from './slices/introSliderSlice'
+import picturesSliderSlice from './slices/picturesSliderSlice'
 import popularSliderSlice from './slices/popularSliderSlice'
 
 export const store = configureStore({
   reducer: {
-    introSliderSlice,
+    picturesSliderSlice,
     popularSliderSlice,
   },
 })

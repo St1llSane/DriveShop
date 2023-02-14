@@ -7,8 +7,8 @@ const initialState = {
   currentSlideIndex: 0,
 }
 
-export const introSliderSlice = createSlice({
-  name: 'introSlider',
+export const picturesSliderSlice = createSlice({
+  name: 'picturesSlider',
   initialState,
   reducers: {
     setSliderWidth: (state, action) => {
@@ -33,7 +33,7 @@ export const introSliderSlice = createSlice({
   },
 })
 
-export const introSliderSelector = (state) => state.introSliderSlice
+export const picturesSliderSelector = (state) => state.picturesSliderSlice
 
 export const {
   setSliderWidth,
@@ -41,6 +41,6 @@ export const {
   nextSlide,
   prevSlide,
   setSlide,
-} = introSliderSlice.actions
+} = picturesSliderSlice.actions
 
-export default introSliderSlice.reducer
+export default picturesSliderSlice.reducer
