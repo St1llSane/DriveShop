@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
 import { useDispatch, useSelector } from 'react-redux'
 import {
+  fetchPopularItems,
   nextSlide,
   popularSliderSelector,
   prevSlide,
@@ -24,18 +25,21 @@ const slider = [
 
 const PopularSlider = () => {
   const dispatch = useDispatch()
-  const { sliderWidth, slideIndex } = useSelector(popularSliderSelector)
+  const { items, sliderWidth, slideIndex } = useSelector(popularSliderSelector)
   const sliderRef = useRef(null)
   const sliderWrapperRef = useRef(null)
+  console.log(items)
 
   useEffect(() => {
+    dispatch(fetchPopularItems())
+
     const resizeHandler = () => {
       console.log(sliderRef.current.clientWidth)
       dispatch(setSliderWidth(sliderRef.current.clientWidth))
     }
 
     window.addEventListener('resize', resizeHandler)
-		return () => removeEventListener('resize', resizeHandler)
+    return () => removeEventListener('resize', resizeHandler)
   }, [sliderWidth])
 
   const nextSlideHandler = () => {
