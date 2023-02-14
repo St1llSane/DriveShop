@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
-import '../styles/c_styles/intro-stock.scss'
+import '../styles/c_styles/stock.scss'
 
-const IntroStock = () => {
+const Stock = () => {
   const [days, setDays] = useState(0)
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
   const [seconds, setSeconds] = useState(0)
-  const introStockTimerId = useRef(null)
+  const stockTimerId = useRef(null)
 
-  const introStockTimer = () => {
+  const stockTimer = () => {
     const endPoint = new Date('February 20, 2023, 00:00:00').getTime()
 
-    introStockTimerId.current = setInterval(() => {
+    stockTimerId.current = setInterval(() => {
       const now = new Date().getTime()
       const distance = endPoint - now
 
@@ -27,7 +27,7 @@ const IntroStock = () => {
       const seconds = calcTime((distance % (1000 * 60)) / 1000)
 
       if (distance < 0) {
-        return clearInterval(introStockTimerId.current)
+        return clearInterval(stockTimerId.current)
       }
 
       setDays(days)
@@ -38,29 +38,29 @@ const IntroStock = () => {
   }
 
   useEffect(() => {
-    introStockTimer()
+    stockTimer()
     return () => {
-      clearInterval(introStockTimerId.current)
+      clearInterval(stockTimerId.current)
     }
   }, [seconds])
 
   return (
-    <div className="intro-stock">
-      <div className="intro-stock__top">
-        <span className="intro-stock__top_text">Акция</span>
-        <div className="intro-stock__top_price">
+    <div className="stock">
+      <div className="stock__top">
+        <span className="stock__top_text">Акция</span>
+        <div className="stock__top_price">
           <p>190 000 p</p>
           <span>225 000 p</span>
         </div>
       </div>
-      <a className="intro-stock__content" href="#">
+      <a className="stock__content" href="#">
         <img src="./images/items/engine2.png" alt="engine" />
         <h5>Лодочный мотор Suzuki DF9.9BRS</h5>
 				<span>посмотреть товар</span>
       </a>
-      <div className="intro-stock__bottom">
+      <div className="stock__bottom">
         <p>До конца акции:</p>
-        <ul className="intro-stock__bottom_timer">
+        <ul className="stock__bottom_timer">
           <li>{days}</li>
           <li>:</li>
           <li>{hours}</li>
@@ -74,4 +74,4 @@ const IntroStock = () => {
   )
 }
 
-export default IntroStock
+export default Stock
