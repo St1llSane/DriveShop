@@ -2,11 +2,11 @@ import PopularNav from './UI/PopularNav'
 import PopularSlider from './PopularSlider'
 import '../styles/c_styles/popular.scss'
 
-const Popular = () => {
+const Popular = (props) => {
   return (
     <section className="popular">
       <div className="popular__top">
-        <h3 className="popular__top-title">Популярные товары</h3>
+        <h3 className="popular__top-title">{props.children}</h3>
         <PopularNav />
       </div>
       <PopularSlider />

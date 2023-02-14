@@ -1,9 +1,9 @@
 import Intro from '../components/Intro'
 import Search from '../components/Search'
 import Categories from '../components/Categories'
+import SaleBanner from '../components/SaleBanner'
 import Popular from '../components/Popular'
 import '../styles/c_styles/main.scss'
-import SaleBanner from '../components/SaleBanner'
 
 const Main = () => {
   return (
@@ -13,8 +13,8 @@ const Main = () => {
         <Intro />
       </div>
       <Categories />
-			<SaleBanner />
-      <Popular />
+      <SaleBanner />
+      <Popular>Популярные товары</Popular>
     </main>
   )
 }
