@@ -1,12 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchStockItem, stockSliceSelector } from '../redux/slices/stockSlice'
 import '../styles/c_styles/stock.scss'
 
 const Stock = () => {
+	const dispatch = useDispatch()
   const [days, setDays] = useState(0)
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
   const [seconds, setSeconds] = useState(0)
+  const { stockItem } = useSelector(stockSliceSelector)
   const stockTimerId = useRef(null)
+
+	useEffect(() => {
+		dispatch(fetchStockItem())
+	}, [])
 
   const stockTimer = () => {
     const endPoint = new Date('February 20, 2023, 00:00:00').getTime()
@@ -49,14 +57,14 @@ const Stock = () => {
       <div className="stock__top">
         <span className="stock__top_text">Акция</span>
         <div className="stock__top_price">
-          <p>190 000 p</p>
-          <span>225 000 p</span>
+          <p>{stockItem.price} p</p>
+          <span>98 000 p</span>
         </div>
       </div>
       <a className="stock__content" href="#">
-        <img src="./images/items/engine2.png" alt="engine" />
-        <h5>Лодочный мотор Suzuki DF9.9BRS</h5>
-				<span>посмотреть товар</span>
+        <img src={stockItem.img} alt="engine" />
+        <h5>{stockItem.title}</h5>
+        <span>посмотреть товар</span>
       </a>
       <div className="stock__bottom">
         <p>До конца акции:</p>
