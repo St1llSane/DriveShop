@@ -7,7 +7,6 @@
   border-radius: $b-r-small;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
   @extend %hover-card;
 
   &__top {
@@ -49,6 +48,7 @@
   &__content {
     text-align: center;
     display: block;
+		margin-top: 10px;
 		@extend %card-content-hover;
 
 		&:hover h5 {
@@ -70,7 +70,8 @@
 
   &__bottom {
     text-align: center;
-    padding: 25px 0;
+    padding-bottom: 27px;
+		margin-top: auto;
     position: relative;
 
     span {

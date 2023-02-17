@@ -4,7 +4,7 @@ import { fetchStockItem, stockSliceSelector } from '../redux/slices/stockSlice'
 import '../styles/c_styles/stock.scss'
 
 const Stock = () => {
-	const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const [days, setDays] = useState(0)
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
@@ -12,9 +12,9 @@ const Stock = () => {
   const { stockItem } = useSelector(stockSliceSelector)
   const stockTimerId = useRef(null)
 
-	useEffect(() => {
-		dispatch(fetchStockItem())
-	}, [])
+  useEffect(() => {
+    dispatch(fetchStockItem())
+  }, [])
 
   const stockTimer = () => {
     const endPoint = new Date('February 20, 2023, 00:00:00').getTime()
