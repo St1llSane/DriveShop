@@ -17,7 +17,7 @@ const initialState = {
   currentSlideIndex: 0,
 }
 
-export const picturesSliderSlice = createSlice({
+const picturesSliderSlice = createSlice({
   name: 'picturesSlider',
   initialState,
   reducers: {

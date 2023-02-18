@@ -63,14 +63,14 @@ const PicturesSlider = () => {
         }}
       >
         {pictures.map((slide) => (
-          <div className="pictures-slider__wrapper_item" key={slide}>
-            <img src={slide} alt="pictures-slider" />
+          <div className="pictures-slider__wrapper_item" key={slide.id}>
+            <img src={slide.img} alt="pictures-slider-img" />
           </div>
         ))}
       </div>
       <ul className="pictures-slider__pagination">
         {pictures.map((slide, index) => (
-          <li key={slide}>
+          <li key={slide.id}>
             <button
               className={`${currentSlideIndex === index ? 'active' : ''}`}
               onClick={() => setSlideHandler(index)}
