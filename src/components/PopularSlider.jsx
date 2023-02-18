@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -12,23 +11,11 @@ import {
 import PopularItem from './PopularItem'
 import '../styles/c_styles/popular-slider.scss'
 
-const slider = [
-  'Водонепроницаемый рюкзак111',
-  'Водонепроницаемый рюкзак222',
-  'Водонепроницаемый рюкзак333',
-  'Водонепроницаемый рюкзак444',
-  'Водонепроницаемый рюкзак555',
-  'Водонепроницаемый рюкзак666',
-  'Водонепроницаемый рюкзак777',
-  'Водонепроницаемый рюкзак888',
-]
-
 const PopularSlider = () => {
   const dispatch = useDispatch()
   const { items, sliderWidth, slideIndex } = useSelector(popularSliderSelector)
   const sliderRef = useRef(null)
   const sliderWrapperRef = useRef(null)
-  console.log(items)
 
   useEffect(() => {
     dispatch(fetchPopularItems())

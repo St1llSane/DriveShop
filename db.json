@@ -6,6 +6,7 @@
       "title": "Водонепроницаемый рюкзак",
       "price": "4 500",
       "popularity": 2,
+			"onSale": true,
       "inFav": false,
       "inStock": true
     },
@@ -15,6 +16,7 @@
       "title": "Спасательный жилет BRP Men's Airflow PFD",
       "price": "3 100",
       "popularity": 2,
+			"onSale": false,
       "inFav": false,
       "inStock": true
     },
@@ -24,6 +26,7 @@
       "title": "Спасательное снаряжение",
       "price": "8 000",
       "popularity": 3,
+			"onSale": false,
       "inFav": false,
       "inStock": false
     },
@@ -33,6 +36,7 @@
       "title": "Лодочный мотор Suzuki DF9.9BRS",
       "price": "72 000",
       "popularity": 1,
+			"onSale": true,
       "inFav": false,
       "inStock": true
     },
@@ -42,6 +46,7 @@
       "title": "Garmin Echomap Plus 62cv",
       "price": "9 400",
       "popularity": 4,
+			"onSale": false,
       "inFav": false,
       "inStock": true
     },
@@ -51,6 +56,7 @@
       "title": "Harin Echomap Plus 40c",
       "price": "8 700",
       "popularity": 5,
+			"onSale": false,
       "inFav": false,
       "inStock": false
     },
@@ -60,6 +66,7 @@
       "title": "Мужской гидрокостюм 3мм",
       "price": "6 300",
       "popularity": 3,
+			"onSale": true,
       "inFav": false,
       "inStock": false
     },
@@ -69,8 +76,16 @@
       "title": "Мужской гидрокостюм 3.5мм",
       "price": "6 500",
       "popularity": 4,
+			"onSale": false,
       "inFav": false,
       "inStock": true
     }
+  ],
+  "picturesSlider": [
+    "./images/intro-slider/intro-slider1.jpg",
+    "./images/intro-slider/intro-slider2.jpg",
+    "./images/intro-slider/intro-slider3.jpg",
+    "./images/intro-slider/intro-slider4.jpg",
+    "./images/intro-slider/intro-slider5.jpg"
   ]
 }
