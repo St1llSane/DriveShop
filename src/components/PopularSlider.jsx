@@ -60,7 +60,7 @@ const PopularSlider = () => {
           .concat(items)
           .slice(slideIndex, slideIndex + 4)
           .map((item) => (
-            <PopularItem item={item} />
+            <PopularItem item={item} key={item.id} />
           ))}
       </div>
       <button

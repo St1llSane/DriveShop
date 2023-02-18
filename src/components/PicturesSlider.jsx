@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
 import { useDispatch, useSelector } from 'react-redux'
 import {
+  fetchPictures,
   picturesSliderSelector,
   nextSlide,
   prevSlide,
@@ -11,22 +12,16 @@ import {
 } from '../redux/slices/picturesSliderSlice'
 import '../styles/c_styles/pictures-slider.scss'
 
-const picturesSlider = [
-  './images/intro-slider/intro-slider1.jpg',
-  './images/intro-slider/intro-slider2.jpg',
-  './images/intro-slider/intro-slider3.jpg',
-  './images/intro-slider/intro-slider4.jpg',
-  './images/intro-slider/intro-slider5.jpg',
-]
-
 const PicturesSlider = () => {
   const dispatch = useDispatch()
-  const { sliderWidth, totalSlides, currentSlideIndex } =
-    useSelector(picturesSliderSelector)
+  const { pictures, sliderWidth, totalSlides, currentSlideIndex } = useSelector(
+    picturesSliderSelector
+  )
   const sliderRef = useRef(null)
 
   useEffect(() => {
-    dispatch(setTotalSlides(picturesSlider.length))
+    dispatch(fetchPictures())
+    dispatch(setTotalSlides(pictures.length))
 
     const resizeHandler = () => {
       dispatch(setSliderWidth(sliderRef.current.clientWidth))
@@ -67,14 +62,14 @@ const PicturesSlider = () => {
           transform: `translateX(calc(-${sliderWidth}px * ${currentSlideIndex}))`,
         }}
       >
-        {picturesSlider.map((slide) => (
+        {pictures.map((slide) => (
           <div className="pictures-slider__wrapper_item" key={slide}>
             <img src={slide} alt="pictures-slider" />
           </div>
         ))}
       </div>
       <ul className="pictures-slider__pagination">
-        {picturesSlider.map((slide, index) => (
+        {pictures.map((slide, index) => (
           <li key={slide}>
             <button
               className={`${currentSlideIndex === index ? 'active' : ''}`}
