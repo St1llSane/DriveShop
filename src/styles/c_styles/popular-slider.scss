@@ -3,31 +3,50 @@
 .popular-slider {
   position: relative;
   z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &__wrapper {
+    padding: 20px 15px;
+    overflow-x: hidden;
+  }
+
+  &__inner {
     display: flex;
-    justify-content: space-between;
+    gap: 30px;
+    transition: transform 0.4s ease;
   }
 
   &__arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 20;
     display: flex;
     border: none;
     font-size: $f-biggest;
     transition: $def-transition;
+
+    &.inactive {
+      color: $c-d-grey;
+      cursor: default;
+
+      &:hover {
+        color: $c-d-grey;
+      }
+    }
 
     &:hover {
       color: $c-accent-blue;
     }
 
     &--left {
-      left: -35px;
+      left: -25px;
     }
 
     &--right {
-      right: -35px;
+      right: -25px;
     }
   }
 }

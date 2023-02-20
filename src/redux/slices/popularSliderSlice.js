@@ -12,8 +12,7 @@ export const fetchPopularItems = createAsyncThunk(
 const initialState = {
   items: [],
   sliderWidth: 1200,
-  totalSlides: 8,
-  slideIndex: 0,
+  currentSlideIndex: 0,
 }
 
 const popularSliderSlice = createSlice({
@@ -24,11 +23,14 @@ const popularSliderSlice = createSlice({
       state.sliderWidth = action.payload
     },
     nextSlide: (state) => {
-      state.slideIndex = (state.slideIndex + 1) % state.totalSlides
+      state.currentSlideIndex === state.items.length - 4
+        ? (state.currentSlideIndex = state.currentSlideIndex)
+        : (state.currentSlideIndex = state.currentSlideIndex + 1)
     },
     prevSlide: (state) => {
-      state.slideIndex =
-        (state.slideIndex + state.totalSlides - 1) % state.totalSlides
+      state.currentSlideIndex === 0
+        ? (state.currentSlideIndex = state.currentSlideIndex)
+        : (state.currentSlideIndex = state.currentSlideIndex - 1)
     },
   },
   extraReducers: (builder) => {

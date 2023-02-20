@@ -19,7 +19,7 @@ const Categories = () => {
     <section className="categories">
       <div className="categories__wrapper">
         {items.map((item) => (
-          <a className="categories__wrapper-item" href="#">
+          <a className="categories__wrapper-item" href="#" key={item.id}>
             <div className="categories__wrapper-item_info">
               <h5>{item.name}</h5>
               <span>

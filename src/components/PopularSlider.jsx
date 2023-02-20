@@ -13,7 +13,9 @@ import '../styles/c_styles/popular-slider.scss'
 
 const PopularSlider = () => {
   const dispatch = useDispatch()
-  const { items, sliderWidth, slideIndex } = useSelector(popularSliderSelector)
+  const { items, sliderWidth, currentSlideIndex } = useSelector(
+    popularSliderSelector
+  )
   const sliderRef = useRef(null)
   const sliderWrapperRef = useRef(null)
 
@@ -36,35 +38,33 @@ const PopularSlider = () => {
     dispatch(prevSlide())
   }
 
-  // useEffect(() => {
-  //   sliderWrapperRef.current.scrollTo({
-  //     left: sliderWrapperRef.current.offsetWidth,
-  //     behavior: 'smooth',
-  //   })
-  // }, [slideIndex])
-
   return (
     <div className="popular-slider" ref={sliderRef}>
       <button
-        className="popular-slider__arrow popular-slider__arrow--left"
+        className={`popular-slider__arrow popular-slider__arrow--left ${
+          currentSlideIndex === 0 && 'inactive'
+        }`}
         onClick={prevSlideHandler}
       >
         <SlArrowLeft />
       </button>
-      <div
-        className="popular-slider__wrapper"
-        // style={{ width: `calc(100% + 310px * 2)` }}
-        ref={sliderWrapperRef}
-      >
-        {items
-          .concat(items)
-          .slice(slideIndex, slideIndex + 4)
-          .map((item) => (
+      <div className="popular-slider__wrapper" ref={sliderWrapperRef}>
+        <div
+          className="popular-slider__inner"
+          style={{
+            width: `calc((270px * ${items.length}) + (30px * (${items.length} - 1)) + 30px)`,
+            transform: `translateX(calc((-300px) * ${currentSlideIndex}))`,
+          }}
+        >
+          {items.map((item) => (
             <PopularItem item={item} key={item.id} />
           ))}
+        </div>
       </div>
       <button
-        className="popular-slider__arrow popular-slider__arrow--right"
+        className={`popular-slider__arrow popular-slider__arrow--right ${
+          currentSlideIndex === items.length - 4 && 'inactive'
+        }`}
         onClick={nextSlideHandler}
       >
         <SlArrowRight />
