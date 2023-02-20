@@ -87,5 +87,37 @@
     { "id": 1, "img": "./images/intro-slider/intro-slider3.jpg" },
     { "id": 1, "img": "./images/intro-slider/intro-slider4.jpg" },
     { "id": 1, "img": "./images/intro-slider/intro-slider5.jpg" }
+  ],
+  "categories": [
+    {
+      "id": 1,
+			"name": "Катера",
+			"img": "./images/categories/boat.png"
+    },
+    {
+      "id": 2,
+			"name": "Гидроциклы",
+			"img": "./images/categories/hydrocycle.png"
+    },
+    {
+      "id": 3,
+			"name": "Двигатели",
+			"img": "./images/categories/engine.png"
+    },
+    {
+      "id": 4,
+			"name": "Вездеходы",
+			"img": "./images/categories/rover.png"
+    },
+    {
+      "id": 5,
+			"name": "Квадроциклы",
+			"img": "./images/categories/atv.png"
+    },
+    {
+      "id": 6,
+			"name": "Снегоходы",
+			"img": "./images/categories/snowmobile.png"
+    }
   ]
 }

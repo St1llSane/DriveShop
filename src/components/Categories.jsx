@@ -1,70 +1,35 @@
+import { useEffect } from 'react'
 import { IoIosArrowForward } from 'react-icons/io'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  categoriesSliceSelector,
+  fetchCategories,
+} from '../redux/slices/categoriesSlice'
 import '../styles/c_styles/categories.scss'
 
 const Categories = () => {
+  const dispatch = useDispatch()
+  const { items } = useSelector(categoriesSliceSelector)
+
+  useEffect(() => {
+    dispatch(fetchCategories())
+  }, [])
+
   return (
     <section className="categories">
       <div className="categories__wrapper">
-        <a className="categories__wrapper-item" href="#">
-          <div className="categories__wrapper-item_info">
-            <h5>Квадроциклы</h5>
-            <span>
-              Подробее
-              <IoIosArrowForward />
-            </span>
-          </div>
-          <img src="./images/categories/atv.png" alt="atv" />
-        </a>
-        <a className="categories__wrapper-item" href="#">
-          <div className="categories__wrapper-item_info">
-            <h5>Квадроциклы</h5>
-            <span>
-              Подробее
-              <IoIosArrowForward />
-            </span>
-          </div>
-          <img src="./images/categories/atv.png" alt="atv" />
-        </a>
-        <a className="categories__wrapper-item" href="#">
-          <div className="categories__wrapper-item_info">
-            <h5>Квадроциклы</h5>
-            <span>
-              Подробее
-              <IoIosArrowForward />
-            </span>
-          </div>
-          <img src="./images/categories/atv.png" alt="atv" />
-        </a>
-        <a className="categories__wrapper-item" href="#">
-          <div className="categories__wrapper-item_info">
-            <h5>Квадроциклы</h5>
-            <span>
-              Подробее
-              <IoIosArrowForward />
-            </span>
-          </div>
-          <img src="./images/categories/atv.png" alt="atv" />
-        </a>
-        <a className="categories__wrapper-item" href="#">
-          <div className="categories__wrapper-item_info">
-            <h5>Квадроциклы</h5>
-            <span>
-              Подробее
-              <IoIosArrowForward />
-            </span>
-          </div>
-          <img src="./images/categories/atv.png" alt="atv" />
-        </a>
-        <a className="categories__wrapper-item" href="#">
-          <div className="categories__wrapper-item_info">
-            <h5>Квадроциклы</h5>
-            <span>
-              Подробее
-              <IoIosArrowForward />
-            </span>
-          </div>
-          <img src="./images/categories/atv.png" alt="atv" />
-        </a>
+        {items.map((item) => (
+          <a className="categories__wrapper-item" href="#">
+            <div className="categories__wrapper-item_info">
+              <h5>{item.name}</h5>
+              <span>
+                Подробее
+                <IoIosArrowForward />
+              </span>
+            </div>
+            <img src={item.img} alt={item.name} />
+          </a>
+        ))}
       </div>
     </section>
   )
