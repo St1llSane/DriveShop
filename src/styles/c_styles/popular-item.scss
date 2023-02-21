@@ -74,10 +74,21 @@
 		margin-top: auto;
     position: relative;
 
-    span {
+    &-cost {
       font-size: $f-huge;
       font-weight: 500;
 			transition: $def-transition;
+			position: relative;
+
+			span:nth-child(2) {
+				color: $c-d-grey;
+				font-size: $f-def;
+				text-decoration: line-through;
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: -15px;
+			}
     }
 
     &-incart {

@@ -1,4 +1,4 @@
-import PagesHistory from './UI/PagesHistory'
+import PagesHistory from './UI/PageHistory'
 
 const ProductPage = () => {
   return (

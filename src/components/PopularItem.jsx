@@ -16,9 +16,10 @@ const PopularItem = ({ item }) => {
         <span>посмотреть товар</span>
       </a>
       <div className="popular-item__bottom">
-        <span className="popular-item__bottom-cost">
-          {item.inStock ? `${item.price} ₽` : 'Нет в наличии'}
-        </span>
+        <div className="popular-item__bottom-cost">
+          <span>{item.inStock ? `${item.price} ₽` : 'Нет в наличии'}</span>
+					<span>{item.onSale && item.inStock && `${item.oldPrice} ₽`}</span>
+        </div>
         {item.inStock && (
           <a className="popular-item__bottom-incart" href="#">
             <AiOutlineShoppingCart />
