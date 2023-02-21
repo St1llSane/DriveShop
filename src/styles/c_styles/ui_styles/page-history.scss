@@ -3,17 +3,37 @@
 .page-history {
   display: flex;
   align-items: center;
-	margin: 30px 0;
+  margin: 30px 0;
 
-	li {
-		color: $c-d-grey;
-		font-size: $f-small;
-		display: flex;
-		align-items: center;
+  li {
+    color: $c-d-grey;
+    font-size: $f-small;
+    display: flex;
+    align-items: center;
 
-		svg {
-			height: 16px;
-			margin: 0 4px;
+		a {
+			position: relative;
+
+			&::after {
+				position: absolute;
+				content: '';
+				left: 0;
+				right: 0;
+				bottom: 1px;
+				height: 1px;
+				background-color: $c-d-grey;
+				opacity: 0;
+				transition: $def-transition;
+			}
 		}
-	}
+
+    a:hover::after {
+      opacity: 1;
+    }
+
+    svg {
+      height: 16px;
+      margin: 0 4px;
+    }
+  }
 }

@@ -57,44 +57,44 @@ const Header = () => {
       <nav className="nav">
         <ul>
           <li>
-            <a href="#" data-nav-color="blue">
+            <Link to="speedboat" data-nav-color="blue">
               Катера
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" data-nav-color="blue">
+            <Link to="hydrocycles" data-nav-color="blue">
               Гидроциклы
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" data-nav-color="blue">
+            <Link to="boats" data-nav-color="blue">
               Лодки
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" data-nav-color="red">
+            <Link to="rovers" data-nav-color="red">
               Вездеходы
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" data-nav-color="red">
+            <Link to="atvs" data-nav-color="red">
               Квадроциклы
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" data-nav-color="white">
+            <Link to="snowmobiles" data-nav-color="white">
               Снегоходы
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" data-nav-color="brown">
+            <Link to="engines" data-nav-color="brown">
               Двигатели
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" data-nav-color="brown">
+            <Link to="spare-parts" data-nav-color="brown">
               Запчасти
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
