@@ -33,6 +33,14 @@ $slow-transition: all 0.25s ease;
 	padding: 0 35px;
 }
 
+%full-screen-h{
+	min-height: calc(100vh - 146px);
+}
+
+%full-screen-hf {
+	min-height: calc(100vh - (146px + 254px + 40px));
+}
+
 %hover-underline {
   position: relative;
   transition: $def-transition;

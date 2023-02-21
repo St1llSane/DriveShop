@@ -1,0 +1,7 @@
+@import '../../vars.scss';
+
+.main {
+  &__first-screen {
+    @extend %full-screen-h;
+  }
+}

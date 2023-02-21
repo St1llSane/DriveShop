@@ -3,7 +3,7 @@ import Search from '../components/Search'
 import Categories from '../components/Categories'
 import SaleBanner from '../components/SaleBanner'
 import Popular from '../components/Popular'
-import '../styles/c_styles/main.scss'
+import '../styles/c_styles/p_styles/main.scss'
 
 const Main = () => {
   return (
