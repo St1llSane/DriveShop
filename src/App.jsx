@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Main from './pages/Main'
 import Favorites from './pages/Favorites'
 import Footer from './components/Footer'
+import ProductPage from './components/ProductPage'
 import './styles/app.scss'
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/favorites" element={<Favorites />} />
+          <Route path="favorites/*" element={<Favorites />}>
+            <Route path="product-page" element={<ProductPage />} />
+          </Route>
         </Routes>
       </div>
       <Footer />

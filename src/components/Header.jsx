@@ -5,6 +5,7 @@ import {
   AiOutlineShoppingCart,
 } from 'react-icons/ai'
 import { IoLocationOutline } from 'react-icons/io5'
+import { Link } from 'react-router-dom'
 import '../styles/c_styles/header.scss'
 
 const Header = () => {
@@ -23,21 +24,21 @@ const Header = () => {
           </li>
         </ul>
         <div className="logo">
-          <a href="#">
+          <Link to="/">
             <MdOutlineSpeed />
             <h2>Drive Shop</h2>
-          </a>
+          </Link>
         </div>
         <div className="header-top__right">
           <div className="header-top__right_address">
-						<IoLocationOutline />
+            <IoLocationOutline />
             <address>Калининград, ул. Пушкина 28</address>
           </div>
           <ul className="header-top__right_list">
             <li>
-              <a href="#">
+              <Link to="/favorites">
                 <AiOutlineHeart />
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#">

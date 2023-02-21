@@ -1,15 +1,7 @@
 @import '../../vars.scss';
 
 .favorites {
-  @extend %full-screen-hf;
-
 	&__wrapper {
-		&-history {
-			display: flex;
-			align-items: center;
-			gap: 5px
-		}
-		
 		&-top {
 			h3 {
 				@extend %title;
