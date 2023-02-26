@@ -1,5 +1,107 @@
 @import '../../vars.scss';
 
 .header-filters {
-	
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__labels {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    li {
+      font-size: $f-small;
+      font-weight: 300;
+      padding: 3px 7px 2px 7px;
+      background-color: $c-grey;
+      border-radius: $b-r-small;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+    &-sort {
+      position: relative;
+
+      &--active {
+        border: 1px solid $c-d-grey;
+        border-radius: $b-r-small;
+        padding: 5px 35px 6px 15px;
+        position: relative;
+        z-index: 10;
+        transition: $def-transition;
+
+        &:hover {
+          border-color: $c-accent-blue;
+        }
+
+        svg {
+          position: absolute;
+          top: 8px;
+          transform: rotate(90deg);
+          right: 10px;
+          cursor: pointer;
+        }
+      }
+
+      ul {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 32px;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid $c-d-grey;
+        border-top: none;
+        border-radius: 0 0 $b-r-small $b-r-small;
+				background-color: $c-grey;
+				padding: 6px 0;
+        opacity: 0;
+        pointer-events: none;
+        user-select: none;
+
+        &.active {
+          opacity: 1;
+          pointer-events: unset;
+          user-select: unset;
+        }
+
+        li {
+          button {
+            width: 100%;
+            padding: 10px 0 10px 15px;
+            border: none;
+            text-align: left;
+            transition: $def-transition;
+
+            &:hover {
+              color: $c-accent-blue;
+            }
+          }
+        }
+      }
+    }
+
+    &-grids {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      button {
+        display: inherit;
+        font-size: $f-big;
+        border: none;
+        transition: $def-transition;
+
+        &:hover {
+          color: $c-accent-blue;
+        }
+      }
+    }
+  }
 }
