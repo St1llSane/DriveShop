@@ -22,17 +22,22 @@
   &__actions {
     display: flex;
     align-items: center;
-    gap: 35px;
+    gap: 30px;
 
-    &-sort {
+    &-sort {		
       position: relative;
 
       &--active {
+				min-width: 190px;
+        padding: 5px 10px 6px 15px;
         border: 1px solid $c-d-grey;
         border-radius: $b-r-small;
-        padding: 5px 35px 6px 15px;
+				display: block;
         position: relative;
         z-index: 10;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
         transition: $def-transition;
 
         &:hover {
@@ -40,10 +45,7 @@
         }
 
         svg {
-          position: absolute;
-          top: 8px;
           transform: rotate(90deg);
-          right: 10px;
           cursor: pointer;
         }
       }
@@ -59,11 +61,12 @@
         border: 1px solid $c-d-grey;
         border-top: none;
         border-radius: 0 0 $b-r-small $b-r-small;
-				background-color: $c-grey;
-				padding: 6px 0;
+        background-color: $c-grey;
+        padding: 6px 0;
         opacity: 0;
         pointer-events: none;
         user-select: none;
+        transition: $def-transition;
 
         &.active {
           opacity: 1;
@@ -76,11 +79,12 @@
             width: 100%;
             padding: 10px 0 10px 15px;
             border: none;
-            text-align: left;
+            text-align: left;					
             transition: $def-transition;
 
             &:hover {
-              color: $c-accent-blue;
+              color: $c-white;
+              background-color: $c-accent-blue;
             }
           }
         }
@@ -92,14 +96,21 @@
       align-items: center;
       gap: 12px;
 
-      button {
-        display: inherit;
-        font-size: $f-big;
-        border: none;
-        transition: $def-transition;
+      li {
+        button {
+          display: inherit;
+          font-size: $f-big;
+          border: none;
+					color: $c-d-grey;
+          transition: $def-transition;
 
-        &:hover {
-          color: $c-accent-blue;
+          &:hover {
+            color: $c-accent-blue;
+          }
+
+					&.active {
+						color: $c-accent-blue;
+					}
         }
       }
     }
