@@ -4,11 +4,12 @@ import { IoIosArrowForward } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   HeaderFiltersSliceSelector,
-  setActiveSortId,
   setSortIsActive,
+  setActiveSortId,
   setActiveGridId,
 } from '../../redux/slices/HeaderFiltersSlice'
 import '../../styles/c_styles/ui_styles/header-filters.scss'
+import { useEffect, useRef } from 'react'
 
 const sortItems = [
   { id: 1, name: 'По полулярности' },
@@ -33,9 +34,23 @@ const HeaderFilters = () => {
   const { sortIsActive, activeSortId, activeGridId } = useSelector(
     HeaderFiltersSliceSelector
   )
+  const sortMenuRef = useRef(null)
+
+  useEffect(() => {
+    const outsideSortMenuClick = (e) => {
+      if (!e.composedPath().includes(sortMenuRef.current)) {
+        dispatch(setSortIsActive(false))
+      }
+    }
+
+    if (sortIsActive) {
+      window.addEventListener('click', outsideSortMenuClick)
+    }
+    return () => window.removeEventListener('click', outsideSortMenuClick)
+  }, [sortIsActive])
 
   const setSortIsActiveHandler = () => {
-    dispatch(setSortIsActive())
+    dispatch(setSortIsActive(!sortIsActive))
   }
 
   const setActiveSortHandler = (id) => {
@@ -56,7 +71,7 @@ const HeaderFilters = () => {
         <li>еще</li>
       </ul>
       <div className="header-filters__actions">
-        <div className="header-filters__actions-sort">
+        <div className="header-filters__actions-sort" ref={sortMenuRef}>
           <button
             className="header-filters__actions-sort--active"
             onClick={setSortIsActiveHandler}

@@ -10,8 +10,8 @@ export const HeaderFiltersSlice = createSlice({
   name: 'HeaderFilters',
   initialState,
   reducers: {
-    setSortIsActive: (state) => {
-      state.sortIsActive = !state.sortIsActive
+    setSortIsActive: (state, action) => {
+      state.sortIsActive = action.payload
     },
     setActiveSortId: (state, action) => {
       state.activeSortId = action.payload
