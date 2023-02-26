@@ -1,0 +1,7 @@
+@import '../../vars.scss';
+
+.page-top {
+	&__title {
+		@extend %title;
+	}
+}

@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom'
 import PageHistory from '../components/UI/PageHistory'
+import PageTop from '../components/UI/PageTop'
 import '../styles/c_styles/p_styles/favorites.scss'
 
 const Favorites = () => {
@@ -13,12 +14,8 @@ const Favorites = () => {
           <Outlet />
         ) : (
           <>
-            <div className="favorites__wrapper-top">
-              <h3>Закладки</h3>
-            </div>
-            <div className="favorites__wrapper-content">
-							
-						</div>
+            <PageTop>Закладки</PageTop>
+            <div className="favorites__wrapper-content"></div>
           </>
         )}
       </div>
