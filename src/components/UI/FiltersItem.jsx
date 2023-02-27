@@ -1,8 +1,19 @@
+import React from 'react'
+import FiltersCheckbox from './FiltersCheckbox'
+
 const FiltersItem = (props) => {
+  const { type } = props
+  const name = props.children[0]
+  const params = props.children.slice(1)
+
   return (
     <div className="filters-item">
       <button>{props.children[0]}</button>
-      <div className="filters-item__wrapper">{props.children.slice(1)}</div>
+      {React.Children.map(params, (item) => (
+        <FiltersCheckbox type={type} name={name}>
+          {item}
+        </FiltersCheckbox>
+      ))}
     </div>
   )
 }

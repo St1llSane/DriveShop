@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FiltersCheckbox = (props) => {
-  const { name, type, children } = props
+  const { type, name, children } = props
 
   return (
     <label className="filters-checkbox">
