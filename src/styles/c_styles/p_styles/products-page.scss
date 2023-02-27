@@ -1,5 +1,12 @@
 @import '../../vars.scss';
 
-.products-page {
-  
+.products {
+  &-page {
+
+	}
+	&-wrapper {
+		display: grid;
+		grid-template-columns: 280px 1fr;
+		column-gap: 10px;
+	}
 }

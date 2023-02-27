@@ -1,0 +1,25 @@
+@import '../../vars.scss';
+
+.filters-item {
+  &__top {
+		margin-bottom: 10px;
+		
+		svg {
+			transform: rotate(90deg);
+			color: $c-d-grey;
+		}
+		
+    button {
+      display: block;
+      border: none;
+    }
+  }
+
+	&__checkboxes {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		column-gap: 18px;
+		row-gap: 10px;
+	}
+}

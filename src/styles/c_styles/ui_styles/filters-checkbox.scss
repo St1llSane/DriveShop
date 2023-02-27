@@ -1,0 +1,49 @@
+@import '../../vars.scss';
+
+.filters-checkbox {
+  position: relative;
+
+  input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    & + span {
+      &::before {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        content: '';
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border: 1px solid $c-main;
+        border-radius: $b-r-small;
+        background-repeat: no-repeat;
+				background-position: center center;
+				background-size: 10px;
+				transition: $def-transition;
+      }
+    }
+
+    &:hover + span {
+      &::before {
+        border-color: $c-accent-blue;
+      }
+    }
+
+    &:checked + span {
+      &::before {
+        background-color: $c-accent-blue;
+        border-color: $c-accent-blue;
+        background-image: url('../../../../images/icons/check-mark.svg');
+      }
+    }
+  }
+
+  span {
+    font-size: $f-small;
+    margin-left: 20px;
+  }
+}

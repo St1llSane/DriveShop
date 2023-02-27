@@ -1,8 +1,9 @@
 import FiltersItem from './FiltersItem'
+import '../../styles/c_styles/ui_styles/filters-parameters.scss'
 
 const checkboxes = {
   availability: ['Наличие', 'В наличии', 'Под заказ'],
-  show: ['Показать', 'Все', 'Новинки', 'Акции'],
+  show: ['Фильтр', 'Все', 'Новинки', 'Акции'],
 }
 
 const FiltersParameters = () => {
