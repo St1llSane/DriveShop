@@ -1,8 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  filtersParametersSliceSelector,
+  onChangeCheckbox,
+} from '../../redux/slices/filtersParametersSlice'
 import '../../styles/c_styles/ui_styles/filters-checkbox.scss'
 
 const FiltersCheckbox = (props) => {
-  const { type, name, children } = props
+  const dispatch = useDispatch()
+  const { type, engName, children } = props
+  const { defValue, filters } = useSelector(filtersParametersSliceSelector)
+  console.log(filters)
+
+  const onChangeCheckboxHandler = (e) => {
+    dispatch(onChangeCheckbox({ name: e.target.name, value: e.target.value }))
+  }
 
   return (
     <label className="filters-checkbox">
@@ -10,9 +22,10 @@ const FiltersCheckbox = (props) => {
         <>
           <input
             type={type}
-            name={name}
+            name={engName}
             value={item}
-            // checked={item === 'Все' ? true : false}
+            defaultChecked={children === defValue}
+            onChange={onChangeCheckboxHandler}
           />
           <span>{item}</span>
         </>

@@ -3,17 +3,17 @@ import '../../styles/c_styles/ui_styles/filters-parameters.scss'
 
 const checkboxes = {
   availability: ['Наличие', 'В наличии', 'Под заказ'],
-  show: ['Фильтр', 'Все', 'Новинки', 'Акции'],
+  filter: ['Фильтр', 'Все', 'Новинки', 'Акции'],
 }
 
 const FiltersParameters = () => {
   return (
     <form className="filters-parameters">
-      <FiltersItem type="radio">
+      <FiltersItem type="radio" engName="availability">
         {checkboxes.availability}
       </FiltersItem>
-      <FiltersItem type="radio">
-        {checkboxes.show}
+      <FiltersItem type="radio" engName="filter">
+        {checkboxes.filter}
       </FiltersItem>
     </form>
   )
