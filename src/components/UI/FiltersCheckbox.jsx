@@ -10,7 +10,7 @@ const FiltersCheckbox = (props) => {
   const dispatch = useDispatch()
   const { type, engName, children } = props
   const { defValue, filters } = useSelector(filtersParametersSliceSelector)
-  console.log(filters)
+  // console.log(filters)
 
   const onChangeCheckboxHandler = (e) => {
     dispatch(onChangeCheckbox({ name: e.target.name, value: e.target.value }))

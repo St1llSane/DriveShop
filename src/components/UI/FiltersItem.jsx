@@ -3,9 +3,10 @@ import FiltersCheckbox from './FiltersCheckbox'
 import '../../styles/c_styles/ui_styles/filters-item.scss'
 
 const FiltersItem = (props) => {
-  const { type, engName } = props
   const name = props.children[0]
-  const params = props.children.slice(1)
+  const engName = props.children[1]
+  const type = props.children[2]
+  const params = props.children.slice(3)
 
   return (
     <div className="filters-item">
