@@ -5,6 +5,7 @@ import stockSlice from './slices/stockSlice'
 import categoriesSlice from './slices/categoriesSlice'
 import HeaderFiltersSlice from './slices/HeaderFiltersSlice'
 import filtersParametersSlice from './slices/filtersParametersSlice'
+import ProductPageSlice from './slices/ProductPageSlice'
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     categoriesSlice,
     HeaderFiltersSlice,
     filtersParametersSlice,
+		ProductPageSlice
   },
 })

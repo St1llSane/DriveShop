@@ -13,7 +13,7 @@ const ProductsPage = () => {
       <HeaderFilters />
       <div className="products-wrapper">
         <Filters />
-        <Products />
+        <Products /> 
       </div>
     </section>
   )
