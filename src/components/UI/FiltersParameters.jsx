@@ -2,19 +2,20 @@ import FiltersItem from './FiltersItem'
 import '../../styles/c_styles/ui_styles/filters-parameters.scss'
 
 const filters = [
-  ['Наличие', 'availability', 'radio', 'В наличии', 'Под заказ'],
+  ['Наличие', 'availability', 'radio', 'Все', 'В наличии', 'Под заказ'],
   ['Фильтр', 'filter', 'radio', 'Все', 'Новинки', 'Акции'],
-  ['Бренд', 'brand', 'checkbox', 'BRP', 'Spark 2', 'Spark 3 '],
+  ['Бренд', 'brand', 'radio', 'Все', 'BRP', 'Spark 2', 'Spark 3'],
   [
     'Модель',
     'model',
-    'checkbox',
+    'radio',
+    'Все',
     'Sea-doo Spark 2',
     'SeaDoo Spark 90',
     'SeaDoo GTI 155',
     'SeaDoo GTR 230',
   ],
-  ['Страны', 'countries', 'checkbox', 'Россия', 'Германия', 'Китай', 'CША'],
+  ['Страны', 'countries', 'radio', 'Все', 'Россия', 'Германия', 'Китай', 'CША'],
 ]
 
 const FiltersParameters = () => {

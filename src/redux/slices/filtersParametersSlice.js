@@ -4,7 +4,10 @@ const initialState = {
   defValue: 'Все',
   filters: {
     availability: '',
-    filter: 'Все',
+    filter: '',
+    brand: '',
+    model: '',
+    countries: '',
   },
 }
 
@@ -13,6 +16,9 @@ export const filtersParametersSlice = createSlice({
   initialState,
   reducers: {
     onChangeCheckbox: (state, action) => {
+      state.filters = action.payload
+    },
+    onChangeCheckboxRadio: (state, action) => {
       state.filters = {
         ...state.filters,
         [action.payload.name]: action.payload.value,
@@ -24,6 +30,7 @@ export const filtersParametersSlice = createSlice({
 export const filtersParametersSliceSelector = (state) =>
   state.filtersParametersSlice
 
-export const { onChangeCheckbox } = filtersParametersSlice.actions
+export const { onChangeCheckbox, onChangeCheckboxRadio } =
+  filtersParametersSlice.actions
 
 export default filtersParametersSlice.reducer
