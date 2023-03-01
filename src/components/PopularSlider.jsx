@@ -8,7 +8,7 @@ import {
   prevSlide,
   setSliderWidth,
 } from '../redux/slices/popularSliderSlice'
-import PopularItem from './PopularItem'
+import ProductItem from './ProductItem'
 import '../styles/c_styles/popular-slider.scss'
 
 const PopularSlider = () => {
@@ -57,7 +57,7 @@ const PopularSlider = () => {
           }}
         >
           {items.map((item) => (
-            <PopularItem item={item} key={item.id} />
+            <ProductItem item={item} key={item.id} />
           ))}
         </div>
       </div>

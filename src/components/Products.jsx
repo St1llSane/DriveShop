@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  fetchProducts,
+	fetchProducts,
   ProductPageSliceSelector,
 } from '../redux/slices/ProductPageSlice'
+import ProductItem from './ProductItem'
 import '../styles/c_styles/products.scss'
 
 const Products = () => {
@@ -15,7 +16,15 @@ const Products = () => {
     dispatch(fetchProducts())
   }, [])
 
-  return <div className="products"></div>
+  return (
+    <div className="products">
+      <div className="products__wrapper">
+        {products.map((item) => (
+          <ProductItem item={item} key={item.id}/>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 export default Products

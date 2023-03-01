@@ -1,27 +1,27 @@
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
-import '../styles/c_styles/popular-item.scss'
+import '../styles/c_styles/product-item.scss'
 
-const PopularItem = ({ item }) => {
+const ProductItem = ({ item }) => {
   return (
-    <div className="popular-item">
-      <div className="popular-item__top">
+    <div className="product-item">
+      <div className="product-item__top">
         {item.onSale && item.inStock && <span>Скидка</span>}
-        <a className="popular-item__top-fav" href="#">
+        <a className="product-item__top-fav" href="#">
           <AiOutlineHeart />
         </a>
       </div>
-      <a className="popular-item__content" href="#">
+      <a className="product-item__content" href="#">
         <img src={item.img} alt="backpack" />
         <h5>{item.title}</h5>
         <span>посмотреть товар</span>
       </a>
-      <div className="popular-item__bottom">
-        <div className="popular-item__bottom-cost">
+      <div className="product-item__bottom">
+        <div className="product-item__bottom-cost">
           <span>{item.inStock ? `${item.price} ₽` : 'Нет в наличии'}</span>
-					<span>{item.onSale && item.inStock && `${item.oldPrice} ₽`}</span>
+          <span>{item.onSale && item.inStock && `${item.oldPrice} ₽`}</span>
         </div>
         {item.inStock && (
-          <a className="popular-item__bottom-incart" href="#">
+          <a className="product-item__bottom-incart" href="#">
             <AiOutlineShoppingCart />
           </a>
         )}
@@ -30,4 +30,4 @@ const PopularItem = ({ item }) => {
   )
 }
 
-export default PopularItem
+export default ProductItem
