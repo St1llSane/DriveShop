@@ -1,1 +1,13 @@
 @import '../vars.scss';
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  justify-content: space-between;
+  column-gap: 25px;
+  row-gap: 25px;
+
+  .product-item {
+    width: 100%;
+  }
+}

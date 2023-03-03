@@ -18,11 +18,9 @@ const Products = () => {
 
   return (
     <div className="products">
-      <div className="products__wrapper">
         {products.map((item) => (
           <ProductItem item={item} key={item.id}/>
         ))}
-      </div>
     </div>
   )
 }

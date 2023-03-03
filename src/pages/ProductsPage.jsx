@@ -11,7 +11,7 @@ const ProductsPage = () => {
       <PageHistory />
       <PageTop>Гидроциклы</PageTop>
       <HeaderFilters />
-      <div className="products-wrapper">
+      <div className="products-page__wrapper">
         <Filters />
         <Products /> 
       </div>
