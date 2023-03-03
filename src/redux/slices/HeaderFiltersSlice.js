@@ -6,8 +6,8 @@ const initialState = {
   activeGridId: 1,
 }
 
-export const HeaderFiltersSlice = createSlice({
-  name: 'HeaderFilters',
+export const headerFiltersSlice = createSlice({
+  name: 'headerFilters',
   initialState,
   reducers: {
     setSortIsActive: (state, action) => {
@@ -22,9 +22,9 @@ export const HeaderFiltersSlice = createSlice({
   },
 })
 
-export const HeaderFiltersSliceSelector = (state) => state.HeaderFiltersSlice
+export const headerFiltersSliceSelector = (state) => state.headerFiltersSlice
 
 export const { setSortIsActive, setActiveSortId, setActiveGridId } =
-  HeaderFiltersSlice.actions
+headerFiltersSlice.actions
 
-export default HeaderFiltersSlice.reducer
+export default headerFiltersSlice.reducer

@@ -3,11 +3,11 @@ import { ImList } from 'react-icons/im'
 import { IoIosArrowForward } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  HeaderFiltersSliceSelector,
+  headerFiltersSliceSelector,
   setSortIsActive,
   setActiveSortId,
   setActiveGridId,
-} from '../../redux/slices/HeaderFiltersSlice'
+} from '../../redux/slices/headerFiltersSlice'
 import '../../styles/c_styles/ui_styles/header-filters.scss'
 import { useEffect, useRef } from 'react'
 
@@ -32,7 +32,7 @@ const grids = [
 const HeaderFilters = () => {
   const dispatch = useDispatch()
   const { sortIsActive, activeSortId, activeGridId } = useSelector(
-    HeaderFiltersSliceSelector
+    headerFiltersSliceSelector
   )
   const sortMenuRef = useRef(null)
 

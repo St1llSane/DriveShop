@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 export const fetchProducts = createAsyncThunk(
-  'fetchProducts/ProductPageSlice',
+  'fetchProducts/productPageSlice',
   async () => {
     const res = await axios.get('http://localhost:3000/hydrocycles')
     return res.data
@@ -13,8 +13,8 @@ const initialState = {
   products: [],
 }
 
-const ProductPageSlice = createSlice({
-  name: 'ProductPage',
+const productPageSlice = createSlice({
+  name: 'productPage',
   initialState,
   reducers: {},
 	extraReducers: (builder) => {
@@ -30,6 +30,6 @@ const ProductPageSlice = createSlice({
 	}
 })
 
-export const ProductPageSliceSelector = (state) => state.ProductPageSlice
+export const productPageSliceSelector = (state) => state.productPageSlice
 
-export default ProductPageSlice.reducer
+export default productPageSlice.reducer

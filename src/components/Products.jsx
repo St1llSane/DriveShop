@@ -2,14 +2,14 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
 	fetchProducts,
-  ProductPageSliceSelector,
-} from '../redux/slices/ProductPageSlice'
+  productPageSliceSelector,
+} from '../redux/slices/productPageSlice'
 import ProductItem from './ProductItem'
 import '../styles/c_styles/products.scss'
 
 const Products = () => {
   const dispatch = useDispatch()
-  const { products } = useSelector(ProductPageSliceSelector)
+  const { products } = useSelector(productPageSliceSelector)
   console.log(products)
 
   useEffect(() => {
