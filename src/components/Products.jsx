@@ -1,26 +1,27 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-	fetchProducts,
+  fetchProducts,
   productPageSliceSelector,
 } from '../redux/slices/productPageSlice'
+import { useLocation } from 'react-router-dom'
 import ProductItem from './ProductItem'
 import '../styles/c_styles/products.scss'
 
 const Products = () => {
   const dispatch = useDispatch()
+  const location = useLocation().pathname.slice(1)
   const { products } = useSelector(productPageSliceSelector)
-  console.log(products)
 
   useEffect(() => {
-    dispatch(fetchProducts())
-  }, [])
+    dispatch(fetchProducts(location))
+  }, [location])
 
   return (
     <div className="products">
-        {products.map((item) => (
-          <ProductItem item={item} key={item.id}/>
-        ))}
+      {products.map((item) => (
+        <ProductItem item={item} key={item.id} />
+      ))}
     </div>
   )
 }

@@ -6,9 +6,67 @@ import {
 } from 'react-icons/ai'
 import { IoLocationOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import '../styles/c_styles/header.scss'
 
+const nav = [
+  {
+    id: 1,
+    name: 'Катера',
+    location: 'speedboats',
+    color: 'blue',
+  },
+  {
+    id: 2,
+    name: 'Гидроциклы',
+    location: 'hydrocycles',
+    color: 'blue',
+  },
+  {
+    id: 3,
+    name: 'Лодки',
+    location: 'boats',
+    color: 'blue',
+  },
+  {
+    id: 4,
+    name: 'Вездеходы',
+    location: 'rovers',
+    color: 'red',
+  },
+  {
+    id: 5,
+    name: 'Квадроциклы',
+    location: 'atvs',
+    color: 'red',
+  },
+  {
+    id: 6,
+    name: 'Снегоходы',
+    location: 'snowmobiles',
+    color: 'white',
+  },
+  {
+    id: 7,
+    name: 'Двигатели',
+    location: 'engines',
+    color: 'brown',
+  },
+  {
+    id: 8,
+    name: 'Запчасти',
+    location: 'spareParts',
+    color: 'brown',
+  },
+]
+
 const Header = () => {
+  const [activeNav, setActiveNav] = useState(null)
+
+  const setActiveNavHandler = (id) => {
+    setActiveNav(id)
+  }
+
   return (
     <header className="header">
       <div className="header-top">
@@ -56,46 +114,18 @@ const Header = () => {
       </div>
       <nav className="nav">
         <ul>
-          <li>
-            <Link to="speedboat" data-nav-color="blue">
-              Катера
-            </Link>
-          </li>
-          <li>
-            <Link to="hydrocycles" data-nav-color="blue">
-              Гидроциклы
-            </Link>
-          </li>
-          <li>
-            <Link to="boats" data-nav-color="blue">
-              Лодки
-            </Link>
-          </li>
-          <li>
-            <Link to="rovers" data-nav-color="red">
-              Вездеходы
-            </Link>
-          </li>
-          <li>
-            <Link to="atvs" data-nav-color="red">
-              Квадроциклы
-            </Link>
-          </li>
-          <li>
-            <Link to="snowmobiles" data-nav-color="white">
-              Снегоходы
-            </Link>
-          </li>
-          <li>
-            <Link to="engines" data-nav-color="brown">
-              Двигатели
-            </Link>
-          </li>
-          <li>
-            <Link to="spare-parts" data-nav-color="brown">
-              Запчасти
-            </Link>
-          </li>
+          {nav.map((item) => (
+            <li key={item.id}>
+              <Link
+                className={item.id === activeNav ? 'active' : ''}
+                to={item.location}
+                data-nav-color={item.color}
+                onClick={() => setActiveNavHandler(item.id)}
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>

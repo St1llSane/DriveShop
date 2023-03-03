@@ -18,14 +18,14 @@ const PageHistory = () => {
             {(item === 'favorites' && 'Закладки') ||
               (item === 'product-page' && 'Страница продукта') ||
               (item === 'cart' && 'Корзина') ||
-              (item === 'speedboat' && 'Катера') ||
+              (item === 'speedboats' && 'Катера') ||
               (item === 'hydrocycles' && 'Гидроциклы') ||
               (item === 'boats' && 'Лодки') ||
               (item === 'rovers' && 'Вездеходы') ||
               (item === 'atvs' && 'Квадроциклы') ||
               (item === 'snowmobiles' && 'Снегоходы') ||
               (item === 'engines' && 'Двигатели') ||
-              (item === 'spare-parts' && 'Детали')}
+              (item === 'spareParts' && 'Детали')}
           </Link>
         </li>
       ))}

@@ -3,8 +3,8 @@ import axios from 'axios'
 
 export const fetchProducts = createAsyncThunk(
   'fetchProducts/productPageSlice',
-  async () => {
-    const res = await axios.get('http://localhost:3000/hydrocycles')
+  async (value) => {
+    const res = await axios.get(`http://localhost:3000/${value}`)
     return res.data
   }
 )
@@ -17,17 +17,17 @@ const productPageSlice = createSlice({
   name: 'productPage',
   initialState,
   reducers: {},
-	extraReducers: (builder) => {
-		builder.addCase(fetchProducts.pending, (state) => {
-			state.products = []
-		}),
-		builder.addCase(fetchProducts.fulfilled, (state, action) => {
-			state.products = action.payload
-		}),
-		builder.addCase(fetchProducts.rejected, (state) => {
-			state.products = []
-		})
-	}
+  extraReducers: (builder) => {
+    builder.addCase(fetchProducts.pending, (state) => {
+      state.products = []
+    }),
+      builder.addCase(fetchProducts.fulfilled, (state, action) => {
+        state.products = action.payload
+      }),
+      builder.addCase(fetchProducts.rejected, (state) => {
+        state.products = []
+      })
+  },
 })
 
 export const productPageSliceSelector = (state) => state.productPageSlice

@@ -27,19 +27,27 @@ $def-transition: all 0.15s ease;
 $slow-transition: all 0.25s ease;
 
 %container {
-	width: 100%;
-	max-width: 1270px;
-	margin: 0 auto;
-	padding: 0 35px;
+  width: 100%;
+  max-width: 1270px;
+  margin: 0 auto;
+  padding: 0 35px;
 }
 
-%full-screen-h{
-	min-height: calc(100vh - 146px);
+%full-screen-h {
+  min-height: calc(100vh - 146px);
 }
 
 %hover-underline {
   position: relative;
   transition: $def-transition;
+
+  &.active {
+    text-shadow: $text-sh-def;
+  }
+
+  &.active::after {
+    width: 100%;
+  }
 
   &:hover {
     text-shadow: $text-sh-def;
@@ -74,35 +82,35 @@ $slow-transition: all 0.25s ease;
 }
 
 %card-content-hover {
-	position: relative;
+  position: relative;
 
-	&:hover span {
-		opacity: 1;
-	}
+  &:hover span {
+    opacity: 1;
+  }
 
-	span {
-		position: absolute;
-		top: 40%;
-		transform: translateY(-40%);
-		left: 0;
-		right: 0;
-		width: 240px;
-		margin: 0 auto;
-		background-color: rgba(255, 255, 255, 0.95);
-		border-radius: $b-r-small;
-		box-shadow: 0 1px 15px $c-d-grey;
-		padding: 14px 0;
-		text-transform: uppercase;
-		opacity: 0;
-		transition: $slow-transition;
-	}
+  span {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-40%);
+    left: 0;
+    right: 0;
+    width: 240px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: $b-r-small;
+    box-shadow: 0 1px 15px $c-d-grey;
+    padding: 14px 0;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: $slow-transition;
+  }
 }
 
 %hover-card {
   transition: $def-transition;
 
   &:hover {
-    box-shadow: 0 1px 18px $c-d-grey;
+    box-shadow: 0 1px 12px $c-d-grey;
     border-color: transparent;
   }
 }
