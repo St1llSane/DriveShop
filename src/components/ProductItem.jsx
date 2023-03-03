@@ -17,8 +17,21 @@ const ProductItem = ({ item }) => {
       </a>
       <div className="product-item__bottom">
         <div className="product-item__bottom-cost">
-          <span>{item.inStock ? `${item.price} ₽` : 'Нет в наличии'}</span>
-          <span>{item.onSale && item.inStock && `${item.oldPrice} ₽`}</span>
+          {item.inStock ? (
+            <div className="product-item__bottom-cost_instock">
+              <span>{item.price} ₽</span>
+              {item.inStock && (
+                <span>
+                  {item.onSale && item.inStock && `${item.oldPrice} ₽`}
+                </span>
+              )}
+            </div>
+          ) : (
+            <div className="product-item__bottom-cost_nostock">
+              <span>Нет в наличии</span>
+              <button>Сообщить о поступлении</button>
+            </div>
+          )}
         </div>
         {item.inStock && (
           <a className="product-item__bottom-incart" href="#">
