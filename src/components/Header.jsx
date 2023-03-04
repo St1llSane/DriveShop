@@ -5,9 +5,14 @@ import {
   AiOutlineShoppingCart,
 } from 'react-icons/ai'
 import { IoLocationOutline } from 'react-icons/io5'
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import '../styles/c_styles/header.scss'
+import {
+  activePageSelector,
+  setActivePage,
+} from '../redux/slices/activePageSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 const nav = [
   {
@@ -61,10 +66,16 @@ const nav = [
 ]
 
 const Header = () => {
-  const [activeNav, setActiveNav] = useState(null)
+  const dispatch = useDispatch()
+  const location = useLocation().pathname.slice(1)
+  const { activePage } = useSelector(activePageSelector)
 
-  const setActiveNavHandler = (id) => {
-    setActiveNav(id)
+  useEffect(() => {
+    dispatch(setActivePage(location))
+  }, [location])
+
+  const setActiveNavHandler = () => {
+    dispatch(setActivePage(location))
   }
 
   return (
@@ -117,10 +128,10 @@ const Header = () => {
           {nav.map((item) => (
             <li key={item.id}>
               <Link
-                className={item.id === activeNav ? 'active' : ''}
+                className={item.location === activePage ? 'active' : ''}
                 to={item.location}
                 data-nav-color={item.color}
-                onClick={() => setActiveNavHandler(item.id)}
+                onClick={() => setActiveNavHandler}
               >
                 {item.name}
               </Link>
