@@ -31,6 +31,7 @@
     }
 
     &-fav {
+			border: none;
       display: inline-block;
       font-size: 2.4rem;
       transition: $def-transition;

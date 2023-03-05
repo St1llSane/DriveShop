@@ -1,30 +1,42 @@
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
+import { useDispatch } from 'react-redux'
+import { fetchFavItem, setFavItem } from '../redux/slices/favoriteItemSlice'
 import '../styles/c_styles/product-item.scss'
 
 const ProductItem = ({ item }) => {
+  const dispatch = useDispatch()
+  const { id, img, title, price, oldPrice, onSale, inFav, inStock } = item
+
+  const setFavItemHandler = () => {
+    const favItem = { id, img, title, price, onSale, inStock }
+
+    dispatch(setFavItem(favItem))
+    dispatch(fetchFavItem(favItem))
+  }
+
   return (
     <div className="product-item">
       <div className="product-item__top">
-        {item.onSale && item.inStock && <span>Скидка</span>}
-        <a className="product-item__top-fav" href="#">
+        {onSale && inStock && <span>Скидка</span>}
+        <button
+          className="product-item__top-fav"
+          href="#"
+          onClick={setFavItemHandler}
+        >
           <AiOutlineHeart />
-        </a>
+        </button>
       </div>
       <a className="product-item__content" href="#">
-        <img src={item.img} alt="backpack" />
-        <h5>{item.title}</h5>
+        <img src={img} alt="backpack" />
+        <h5>{title}</h5>
         <span>посмотреть товар</span>
       </a>
       <div className="product-item__bottom">
         <div className="product-item__bottom-cost">
-          {item.inStock ? (
+          {inStock ? (
             <div className="product-item__bottom-cost_instock">
-              <span>{item.price} ₽</span>
-              {item.inStock && (
-                <span>
-                  {item.onSale && item.inStock && `${item.oldPrice} ₽`}
-                </span>
-              )}
+              <span>{price} ₽</span>
+              {inStock && <span>{onSale && inStock && `${oldPrice} ₽`}</span>}
             </div>
           ) : (
             <div className="product-item__bottom-cost_nostock">
@@ -33,7 +45,7 @@ const ProductItem = ({ item }) => {
             </div>
           )}
         </div>
-        {item.inStock && (
+        {inStock && (
           <a className="product-item__bottom-incart" href="#">
             <AiOutlineShoppingCart />
           </a>

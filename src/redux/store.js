@@ -7,6 +7,7 @@ import headerFiltersSlice from './slices/headerFiltersSlice'
 import filtersParametersSlice from './slices/filtersParametersSlice'
 import productPageSlice from './slices/productPageSlice'
 import activePageSlice from './slices/activePageSlice'
+import favoriteItemSlice from './slices/favoriteItemSlice'
 
 export const store = configureStore({
   reducer: {
@@ -16,7 +17,8 @@ export const store = configureStore({
     categoriesSlice,
     headerFiltersSlice,
     filtersParametersSlice,
-		activePageSlice,
-		productPageSlice
+    activePageSlice,
+    productPageSlice,
+    favoriteItemSlice,
   },
 })
