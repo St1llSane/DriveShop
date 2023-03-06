@@ -31,17 +31,21 @@
     }
 
     &-fav {
-			border: none;
+      border: none;
       display: inline-block;
       font-size: 2.4rem;
       transition: $def-transition;
 
-      svg {
-        display: block;
+      &.active {
+        color: $c-accent-blue;
       }
 
       &:hover {
         color: $c-accent-blue;
+      }
+
+      svg {
+        display: block;
       }
     }
   }
@@ -104,8 +108,8 @@
           border: none;
           font-size: $f-small;
           color: $c-accent-blue;
-					width: fit-content;
-					margin: 0 auto;
+          width: fit-content;
+          margin: 0 auto;
           position: relative;
           transition: $def-transition;
 
