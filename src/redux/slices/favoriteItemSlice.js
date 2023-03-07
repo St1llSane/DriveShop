@@ -1,11 +1,17 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-export const fetchFavItem = createAsyncThunk(
-  'favoriteItem/fetchFavItem',
+export const fetchGetFavItem = createAsyncThunk(
+  'favoriteItem/fetchGetFavItem',
+  async () => {
+    const res = await axios.get('http://localhost:3000/favorites')
+    return res.data
+  }
+)
+export const fetchPostFavItem = createAsyncThunk(
+  'favoriteItem/fetchPostFavItem',
   async (obj) => {
     const res = await axios.post('http://localhost:3000/favorites', obj)
-    console.log(res.data)
     return res.data
   }
 )
@@ -20,6 +26,7 @@ export const fetchDeleteFavItem = createAsyncThunk(
 
 const initialState = {
   favItems: [],
+	fetchedItems: []
 }
 
 export const favoriteItemSlice = createSlice({
@@ -34,6 +41,13 @@ export const favoriteItemSlice = createSlice({
         return item !== action.payload
       })
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchGetFavItem.pending, (state) => {}),
+      builder.addCase(fetchGetFavItem.fulfilled, (state, action) => {
+        state.fetchedItems = action.payload
+      }),
+      builder.addCase(fetchGetFavItem.rejected, (state) => {})
   },
 })
 

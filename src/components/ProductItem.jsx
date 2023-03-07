@@ -3,26 +3,26 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   deleteFavItem,
   favoriteItemSelector,
+  fetchPostFavItem,
   fetchDeleteFavItem,
-  fetchFavItem,
   setFavItems,
 } from '../redux/slices/favoriteItemSlice'
 import '../styles/c_styles/product-item.scss'
 
 const ProductItem = ({ item }) => {
   const dispatch = useDispatch()
-  const { id, img, title, price, oldPrice, onSale, inFav, inStock } = item
+  const { id, img, title, price, oldPrice, onSale, inStock } = item
   const { favItems } = useSelector(favoriteItemSelector)
 
   const setFavItemHandler = () => {
-    const favItem = { id, img, title, price, onSale, inStock }
+    const favItem = { id, img, title, price, oldPrice, onSale, inStock }
 
     if (favItems.includes(title)) {
       dispatch(deleteFavItem(title))
       dispatch(fetchDeleteFavItem(id))
     } else {
       dispatch(setFavItems(title))
-      dispatch(fetchFavItem(favItem))
+      dispatch(fetchPostFavItem(favItem))
     }
   }
 

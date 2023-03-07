@@ -8,7 +8,6 @@
       "oldPrice": "5 200",
       "popularity": 2,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -18,7 +17,6 @@
       "price": "3 100",
       "popularity": 2,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -28,7 +26,6 @@
       "price": "8 000",
       "popularity": 3,
       "onSale": false,
-      "inFav": false,
       "inStock": false
     },
     {
@@ -39,7 +36,6 @@
       "oldPrice": "83 000",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -49,7 +45,6 @@
       "price": "9 400",
       "popularity": 4,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -59,7 +54,6 @@
       "price": "8 700",
       "popularity": 5,
       "onSale": false,
-      "inFav": false,
       "inStock": false
     },
     {
@@ -70,7 +64,6 @@
       "oldPrice": "7 000",
       "popularity": 3,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     },
     {
@@ -80,7 +73,6 @@
       "price": "6 500",
       "popularity": 4,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     }
   ],
@@ -147,7 +139,6 @@
       "oldPrice": "1 200 990",
       "popularity": 2,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -158,7 +149,6 @@
       "oldPrice": "1 200 990",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -169,7 +159,6 @@
       "oldPrice": "1 410 420",
       "popularity": 4,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -180,7 +169,6 @@
       "oldPrice": "1 180 790",
       "popularity": 2,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     },
     {
@@ -190,7 +178,6 @@
       "price": "1 543 000",
       "popularity": 3,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -201,7 +188,6 @@
       "oldPrice": "832 190",
       "popularity": 5,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -211,7 +197,6 @@
       "price": "857 666",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     }
   ],
@@ -223,7 +208,6 @@
       "price": "1 049 500",
       "popularity": 2,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -234,7 +218,6 @@
       "oldPrice": "1 200 990",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -245,7 +228,6 @@
       "oldPrice": "1 410 420",
       "popularity": 4,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -256,7 +238,6 @@
       "oldPrice": "1 180 790",
       "popularity": 2,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     },
     {
@@ -266,7 +247,6 @@
       "price": "1 543 000",
       "popularity": 3,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -277,7 +257,6 @@
       "oldPrice": "832 190",
       "popularity": 5,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -287,7 +266,6 @@
       "price": "857 666",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     },
     {
@@ -297,7 +275,6 @@
       "price": "1 049 500",
       "popularity": 2,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -308,7 +285,6 @@
       "oldPrice": "1 200 990",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -319,7 +295,6 @@
       "oldPrice": "1 410 420",
       "popularity": 4,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -330,7 +305,6 @@
       "oldPrice": "1 180 790",
       "popularity": 2,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     },
     {
@@ -340,7 +314,6 @@
       "price": "1 543 000",
       "popularity": 3,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -351,7 +324,6 @@
       "oldPrice": "832 190",
       "popularity": 5,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -361,7 +333,6 @@
       "price": "857 666",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     }
   ],
@@ -373,7 +344,6 @@
       "price": "1 049 500",
       "popularity": 2,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -384,7 +354,6 @@
       "oldPrice": "1 200 990",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -395,7 +364,6 @@
       "oldPrice": "1 410 420",
       "popularity": 4,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -406,7 +374,6 @@
       "oldPrice": "1 180 790",
       "popularity": 2,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     },
     {
@@ -416,7 +383,6 @@
       "price": "1 543 000",
       "popularity": 3,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -427,7 +393,6 @@
       "oldPrice": "832 190",
       "popularity": 5,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -437,7 +402,6 @@
       "price": "857 666",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     }
   ],
@@ -449,7 +413,6 @@
       "price": "1 049 500",
       "popularity": 2,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -460,7 +423,6 @@
       "oldPrice": "1 200 990",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -471,7 +433,6 @@
       "oldPrice": "1 410 420",
       "popularity": 4,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -482,7 +443,6 @@
       "oldPrice": "1 180 790",
       "popularity": 2,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     },
     {
@@ -492,7 +452,6 @@
       "price": "1 543 000",
       "popularity": 3,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -503,7 +462,6 @@
       "oldPrice": "832 190",
       "popularity": 5,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -513,7 +471,6 @@
       "price": "857 666",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     }
   ],
@@ -525,7 +482,6 @@
       "price": "1 049 500",
       "popularity": 2,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -536,7 +492,6 @@
       "oldPrice": "1 200 990",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -547,7 +502,6 @@
       "oldPrice": "1 410 420",
       "popularity": 4,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -558,7 +512,6 @@
       "oldPrice": "1 180 790",
       "popularity": 2,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     },
     {
@@ -568,7 +521,6 @@
       "price": "1 543 000",
       "popularity": 3,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -579,7 +531,6 @@
       "oldPrice": "832 190",
       "popularity": 5,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -589,7 +540,6 @@
       "price": "857 666",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     }
   ],
@@ -601,7 +551,6 @@
       "price": "1 049 500",
       "popularity": 2,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -612,7 +561,6 @@
       "oldPrice": "1 200 990",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -623,7 +571,6 @@
       "oldPrice": "1 410 420",
       "popularity": 4,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -634,7 +581,6 @@
       "oldPrice": "1 180 790",
       "popularity": 2,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     },
     {
@@ -644,7 +590,6 @@
       "price": "1 543 000",
       "popularity": 3,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -655,7 +600,6 @@
       "oldPrice": "832 190",
       "popularity": 5,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -665,7 +609,6 @@
       "price": "857 666",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     }
   ],
@@ -677,7 +620,6 @@
       "price": "1 049 500",
       "popularity": 2,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -688,7 +630,6 @@
       "oldPrice": "1 200 990",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -699,7 +640,6 @@
       "oldPrice": "1 410 420",
       "popularity": 4,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -710,7 +650,6 @@
       "oldPrice": "1 180 790",
       "popularity": 2,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     },
     {
@@ -720,7 +659,6 @@
       "price": "1 543 000",
       "popularity": 3,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -731,7 +669,6 @@
       "oldPrice": "832 190",
       "popularity": 5,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -741,7 +678,6 @@
       "price": "857 666",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     }
   ],
@@ -753,7 +689,6 @@
       "price": "1 049 500",
       "popularity": 2,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -764,7 +699,6 @@
       "oldPrice": "1 200 990",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -775,7 +709,6 @@
       "oldPrice": "1 410 420",
       "popularity": 4,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -786,7 +719,6 @@
       "oldPrice": "1 180 790",
       "popularity": 2,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     },
     {
@@ -796,7 +728,6 @@
       "price": "1 543 000",
       "popularity": 3,
       "onSale": false,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -807,7 +738,6 @@
       "oldPrice": "832 190",
       "popularity": 5,
       "onSale": true,
-      "inFav": false,
       "inStock": true
     },
     {
@@ -817,9 +747,52 @@
       "price": "857 666",
       "popularity": 1,
       "onSale": true,
-      "inFav": false,
       "inStock": false
     }
   ],
-  "favorites": []
+  "favorites": [
+    {
+      "id": 311,
+      "img": "./images/hydrocycles/hydrocycle1.png",
+      "title": "Гидроцикл BRP SeaDoo GTI 130hp SE Black\\Mango",
+      "price": "1 049 500",
+      "onSale": false,
+      "inStock": true
+    },
+    {
+      "id": 312,
+      "img": "./images/hydrocycles/hydrocycle2.png",
+      "title": "Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic",
+      "price": "1 100 475",
+      "oldPrice": "1 200 990",
+      "onSale": true,
+      "inStock": true
+    },
+    {
+      "id": 313,
+      "img": "./images/hydrocycles/hydrocycle3.png",
+      "title": "Гидроцикл BRP SeaDoo GTR 230hp X California green ",
+      "price": "1 323 700",
+      "oldPrice": "1 410 420",
+      "onSale": true,
+      "inStock": true
+    },
+    {
+      "id": 315,
+      "img": "./images/hydrocycles/hydrocycle5.png",
+      "title": "Гидроцикл BRP SeaDoo GTX 300hp LTD Liquid Metal",
+      "price": "1 543 000",
+      "onSale": false,
+      "inStock": true
+    },
+    {
+      "id": 314,
+      "img": "./images/hydrocycles/hydrocycle4.png",
+      "title": "Гидроцикл BRP SeaDoo GTR 230hp STD Black / Gulfstream",
+      "price": "1 150 785",
+      "oldPrice": "1 180 790",
+      "onSale": true,
+      "inStock": false
+    }
+  ]
 }
