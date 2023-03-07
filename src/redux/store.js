@@ -12,6 +12,7 @@ import filtersParametersSlice from './slices/filtersParametersSlice'
 import productPageSlice from './slices/productPageSlice'
 import activePageSlice from './slices/activePageSlice'
 import favoriteItemSlice from './slices/favoriteItemSlice'
+import cartSlice from './slices/cartSlice'
 import {
   persistStore,
   persistReducer,
@@ -34,6 +35,7 @@ const rootReducer = combineReducers({
   activePageSlice,
   productPageSlice,
   favoriteItemSlice,
+	cartSlice
 })
 
 const persistConfig = {

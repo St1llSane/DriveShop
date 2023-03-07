@@ -794,5 +794,6 @@
       "onSale": true,
       "inStock": false
     }
-  ]
+  ],
+  "cart": []
 }

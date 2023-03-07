@@ -43,11 +43,15 @@ export const favoriteItemSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchGetFavItem.pending, (state) => {}),
+    builder.addCase(fetchGetFavItem.pending, (state) => {
+			state.fetchedItems = []
+		}),
       builder.addCase(fetchGetFavItem.fulfilled, (state, action) => {
         state.fetchedItems = action.payload
       }),
-      builder.addCase(fetchGetFavItem.rejected, (state) => {})
+      builder.addCase(fetchGetFavItem.rejected, (state) => {
+				state.fetchedItems = []
+			})
   },
 })
 

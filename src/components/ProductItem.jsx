@@ -1,6 +1,13 @@
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import {
+  cartSelector,
+  deleteCartItem,
+  fetchDeleteCartItem,
+  fetchPostCartItem,
+  setCartItem,
+} from '../redux/slices/cartSlice'
+import {
   deleteFavItem,
   favoriteItemSelector,
   fetchPostFavItem,
@@ -13,16 +20,26 @@ const ProductItem = ({ item }) => {
   const dispatch = useDispatch()
   const { id, img, title, price, oldPrice, onSale, inStock } = item
   const { favItems } = useSelector(favoriteItemSelector)
+  const sendItem = { id, img, title, price, oldPrice, onSale, inStock }
+  const { cart } = useSelector(cartSelector)
 
   const setFavItemHandler = () => {
-    const favItem = { id, img, title, price, oldPrice, onSale, inStock }
-
     if (favItems.includes(title)) {
       dispatch(deleteFavItem(title))
       dispatch(fetchDeleteFavItem(id))
     } else {
       dispatch(setFavItems(title))
-      dispatch(fetchPostFavItem(favItem))
+      dispatch(fetchPostFavItem(sendItem))
+    }
+  }
+
+  const setCartItemHandler = () => {
+    if (cart.includes(title)) {
+      dispatch(deleteCartItem(title))
+      dispatch(fetchDeleteCartItem(id))
+    } else {
+      dispatch(setCartItem(title))
+      dispatch(fetchPostCartItem(sendItem))
     }
   }
 
@@ -34,7 +51,6 @@ const ProductItem = ({ item }) => {
           className={`product-item__top-fav ${
             favItems.includes(title) ? 'active' : ''
           }`}
-          href="#"
           onClick={setFavItemHandler}
         >
           <AiOutlineHeart />
@@ -60,9 +76,12 @@ const ProductItem = ({ item }) => {
           )}
         </div>
         {inStock && (
-          <a className="product-item__bottom-incart" href="#">
+          <button
+            className="product-item__bottom-incart"
+            onClick={setCartItemHandler}
+          >
             <AiOutlineShoppingCart />
-          </a>
+          </button>
         )}
       </div>
     </div>
