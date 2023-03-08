@@ -6,7 +6,7 @@ import {
 } from 'react-icons/ai'
 import { IoLocationOutline } from 'react-icons/io5'
 import { Link, useLocation } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import '../styles/c_styles/header.scss'
 import {
   activePageSelector,
