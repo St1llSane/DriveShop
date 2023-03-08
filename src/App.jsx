@@ -25,6 +25,7 @@ function App() {
           <Route path="cart/*" element={<Cart />}>
             <Route path={currentProduct.engTitle} element={<CurrentProduct />} />
           </Route>
+					<Route path={currentProduct.engTitle} element={<CurrentProduct />} />
           <Route path=":category/*" element={<ProductsPage />} />
         </Routes>
       </div>
