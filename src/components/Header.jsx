@@ -13,6 +13,8 @@ import {
   setActivePage,
 } from '../redux/slices/activePageSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { cartSelector } from '../redux/slices/cartSlice'
+import { favoriteItemSelector } from '../redux/slices/favoriteItemSlice'
 
 const nav = [
   {
@@ -69,6 +71,8 @@ const Header = () => {
   const dispatch = useDispatch()
   const location = useLocation().pathname.slice(1)
   const { activePage } = useSelector(activePageSelector)
+  const { favItems } = useSelector(favoriteItemSelector)
+  const { cart } = useSelector(cartSelector)
 
   useEffect(() => {
     dispatch(setActivePage(location))
@@ -107,6 +111,7 @@ const Header = () => {
             <li>
               <Link to="/favorites">
                 <AiOutlineHeart />
+                <span>{favItems.length}</span>
               </Link>
             </li>
             <li>
@@ -117,7 +122,7 @@ const Header = () => {
             <li>
               <Link to="/cart">
                 <AiOutlineShoppingCart />
-                <span>0</span>
+                <span>{cart.length}</span>
               </Link>
             </li>
           </ul>

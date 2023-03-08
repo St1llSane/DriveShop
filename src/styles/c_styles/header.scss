@@ -75,14 +75,6 @@
         }
       }
 
-      &_list li a {
-        transition: $def-transition;
-
-        &:hover {
-          color: $c-accent-d-blue;
-        }
-      }
-
       &_list {
         display: flex;
         gap: 7px;
@@ -91,11 +83,20 @@
         li {
           position: relative;
 
+					&:first-child {
+						margin-right: 14px;
+					}
+
           a {
             font-size: $f-huge;
             height: 22px;
             display: block;
             position: relative;
+            transition: $def-transition;
+
+            &:hover {
+              color: $c-accent-d-blue;
+            }
 
             span {
               position: absolute;
@@ -132,7 +133,7 @@
         a {
           display: block;
           padding: 10px 0;
-          @extend %hover-underline
+          @extend %hover-underline;
         }
       }
     }

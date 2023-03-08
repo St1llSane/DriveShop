@@ -8,8 +8,8 @@ import {
   setActiveSortId,
   setActiveGridId,
 } from '../../redux/slices/headerFiltersSlice'
-import '../../styles/c_styles/ui_styles/header-filters.scss'
 import { useEffect, useRef } from 'react'
+import '../../styles/c_styles/ui_styles/header-filters.scss'
 
 const sortItems = [
   { id: 1, name: 'По полулярности' },
