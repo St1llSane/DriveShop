@@ -2,9 +2,10 @@ import { Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import Main from './pages/Main'
 import Favorites from './pages/Favorites'
-import Footer from './components/Footer'
+import Cart from './pages/Cart'
 import CurrentProduct from './pages/CurrentProduct'
 import ProductsPage from './pages/ProductsPage'
+import Footer from './components/Footer'
 import './styles/app.scss'
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="favorites/*" element={<Favorites />}>
+            <Route path="current-product" element={<CurrentProduct />} />
+          </Route>
+          <Route path="cart/*" element={<Cart />}>
             <Route path="current-product" element={<CurrentProduct />} />
           </Route>
           <Route path=":category/*" element={<ProductsPage />} />

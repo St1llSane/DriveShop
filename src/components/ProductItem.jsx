@@ -77,7 +77,9 @@ const ProductItem = ({ item }) => {
         </div>
         {inStock && (
           <button
-            className="product-item__bottom-incart"
+            className={`product-item__bottom-incart ${
+              cart.includes(title) ? 'active' : ''
+            }`}
             onClick={setCartItemHandler}
           >
             <AiOutlineShoppingCart />

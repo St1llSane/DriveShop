@@ -35,13 +35,13 @@ const rootReducer = combineReducers({
   activePageSlice,
   productPageSlice,
   favoriteItemSlice,
-	cartSlice
+  cartSlice,
 })
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['favoriteItemSlice'],
+  whitelist: ['favoriteItemSlice', 'cartSlice'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

@@ -4,21 +4,21 @@ import axios from 'axios'
 export const fetchGetCartItem = createAsyncThunk(
   'favoriteItem/fetchGetFavItem',
   async () => {
-    const res = await axios.get('http://localhost:3000/favorites')
+    const res = await axios.get('http://localhost:3000/cart')
     return res.data
   }
 )
 export const fetchPostCartItem = createAsyncThunk(
   'favoriteItem/fetchPostFavItem',
   async (obj) => {
-    const res = await axios.post('http://localhost:3000/favorites', obj)
+    const res = await axios.post('http://localhost:3000/cart', obj)
     return res.data
   }
 )
 export const fetchDeleteCartItem = createAsyncThunk(
   'favoriteItem/fetchDeleteFavItem',
   async (id) => {
-    const res = await axios.delete(`http://localhost:3000/favorites/${id}`)
+    const res = await axios.delete(`http://localhost:3000/cart/${id}`)
     console.log(res.data)
     return res.data
   }

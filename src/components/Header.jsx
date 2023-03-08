@@ -115,10 +115,10 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a href="#">
+              <Link to="/cart">
                 <AiOutlineShoppingCart />
                 <span>0</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

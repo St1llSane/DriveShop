@@ -7,6 +7,7 @@
   border-radius: $b-r-small;
   display: flex;
   flex-direction: column;
+	align-self: center;
   @extend %hover-card;
 
   &__top {
@@ -141,13 +142,21 @@
       right: -1px;
       bottom: -1px;
       padding: 6px 15px;
-			border: none;
+      border: none;
       display: flex;
       color: $c-white;
       font-size: $f-huge;
       background-color: $c-accent-blue;
       border-radius: $b-r-big 0 $b-r-small 0;
       transition: $def-transition;
+
+      &.active {
+        background-color: $c-red;
+
+				&:hover {
+					background-color: $c-red;
+				}
+      }
 
       &:hover {
         background-color: $c-accent-d-blue;
