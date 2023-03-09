@@ -110,31 +110,37 @@
     {
       "id": 1,
       "name": "Катера",
+      "location": "speedboats",
       "img": "./images/categories/boat.png"
     },
     {
       "id": 2,
       "name": "Гидроциклы",
+      "location": "hydrocycles",
       "img": "./images/categories/hydrocycle.png"
     },
     {
       "id": 3,
       "name": "Двигатели",
+      "location": "engines",
       "img": "./images/categories/engine.png"
     },
     {
       "id": 4,
       "name": "Вездеходы",
+      "location": "rovers",
       "img": "./images/categories/rover.png"
     },
     {
       "id": 5,
       "name": "Квадроциклы",
+      "location": "atvs",
       "img": "./images/categories/atv.png"
     },
     {
       "id": 6,
       "name": "Снегоходы",
+      "location": "snowmobiles",
       "img": "./images/categories/snowmobile.png"
     }
   ],
