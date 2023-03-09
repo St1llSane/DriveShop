@@ -23,7 +23,6 @@ const PopularSlider = () => {
     dispatch(fetchPopularItems())
 
     const resizeHandler = () => {
-      console.log(sliderRef.current.clientWidth)
       dispatch(setSliderWidth(sliderRef.current.clientWidth))
     }
 
