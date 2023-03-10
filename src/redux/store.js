@@ -1,8 +1,7 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import picturesSliderSlice from './slices/picturesSliderSlice'
-import { picturesSliderApi } from './apis/picturesSliderApi'
+import { DriveShopApi } from './api/DriveShopApi'
 import popularSliderSlice from './slices/popularSliderSlice'
-import stockSlice from './slices/stockSlice'
 import categoriesSlice from './slices/categoriesSlice'
 import headerFiltersSlice from './slices/headerFiltersSlice'
 import filtersParametersSlice from './slices/filtersParametersSlice'
@@ -14,10 +13,9 @@ import currentProductSlice from './slices/currentProductSlice'
 
 export const store = configureStore({
   reducer: {
+    [DriveShopApi.reducerPath]: DriveShopApi.reducer,
     picturesSliderSlice,
-    [picturesSliderApi.reducerPath]: picturesSliderApi.reducer,
     popularSliderSlice,
-    stockSlice,
     categoriesSlice,
     headerFiltersSlice,
     filtersParametersSlice,
@@ -28,5 +26,5 @@ export const store = configureStore({
     currentProductSlice,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(picturesSliderApi.middleware),
+    getDefaultMiddleware().concat(DriveShopApi.middleware),
 })

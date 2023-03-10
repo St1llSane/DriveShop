@@ -9,7 +9,7 @@ import {
   setSliderWidth,
   setTotalSlides,
 } from '../redux/slices/picturesSliderSlice'
-import { useGetPicturesSliderQuery } from '../redux/apis/picturesSliderApi'
+import { useGetPicturesSliderQuery } from '../redux/api/DriveShopApi'
 import '../styles/c_styles/pictures-slider.scss'
 
 const PicturesSlider = () => {
