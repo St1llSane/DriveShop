@@ -15,7 +15,18 @@ export const DriveShopApi = createApi({
         return res[0]
       },
     }),
+    getCategories: build.query({
+      query: () => `categories`,
+    }),
+    getPopularSlider: build.query({
+      query: () => `popular`,
+    }),
   }),
 })
 
-export const { useGetPicturesSliderQuery, useGetStockItemQuery } = DriveShopApi
+export const {
+  useGetPicturesSliderQuery,
+  useGetStockItemQuery,
+  useGetCategoriesQuery,
+  useGetPopularSliderQuery,
+} = DriveShopApi

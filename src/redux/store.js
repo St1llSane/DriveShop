@@ -2,7 +2,6 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import picturesSliderSlice from './slices/picturesSliderSlice'
 import { DriveShopApi } from './api/DriveShopApi'
 import popularSliderSlice from './slices/popularSliderSlice'
-import categoriesSlice from './slices/categoriesSlice'
 import headerFiltersSlice from './slices/headerFiltersSlice'
 import filtersParametersSlice from './slices/filtersParametersSlice'
 import productPageSlice from './slices/productPageSlice'
@@ -16,7 +15,6 @@ export const store = configureStore({
     [DriveShopApi.reducerPath]: DriveShopApi.reducer,
     picturesSliderSlice,
     popularSliderSlice,
-    categoriesSlice,
     headerFiltersSlice,
     filtersParametersSlice,
     activePageSlice,

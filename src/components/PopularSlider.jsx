@@ -2,25 +2,27 @@ import { useEffect, useRef } from 'react'
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  fetchPopularItems,
   nextSlide,
   popularSliderSelector,
   prevSlide,
+  setItemsCount,
   setSliderWidth,
 } from '../redux/slices/popularSliderSlice'
 import ProductItem from './ProductItem'
+import { useGetPopularSliderQuery } from '../redux/api/DriveShopApi'
 import '../styles/c_styles/popular-slider.scss'
 
 const PopularSlider = () => {
-  const dispatch = useDispatch()
-  const { items, sliderWidth, currentSlideIndex } = useSelector(
+	const dispatch = useDispatch()
+	const { data = [] } = useGetPopularSliderQuery()
+  const { itemsCount, sliderWidth, currentSlideIndex } = useSelector(
     popularSliderSelector
   )
   const sliderRef = useRef(null)
   const sliderWrapperRef = useRef(null)
 
   useEffect(() => {
-    dispatch(fetchPopularItems())
+    dispatch(setItemsCount(data.length))
 
     const resizeHandler = () => {
       dispatch(setSliderWidth(sliderRef.current.clientWidth))
@@ -28,7 +30,7 @@ const PopularSlider = () => {
 
     window.addEventListener('resize', resizeHandler)
     return () => removeEventListener('resize', resizeHandler)
-  }, [sliderWidth])
+  }, [data, sliderWidth])
 
   const nextSlideHandler = () => {
     dispatch(nextSlide())
@@ -51,18 +53,18 @@ const PopularSlider = () => {
         <div
           className="popular-slider__inner"
           style={{
-            width: `calc((270px * ${items.length}) + (30px * (${items.length} - 1)) + 30px)`,
+            width: `calc((270px * ${itemsCount}) + (30px * (${itemsCount} - 1)) + 30px)`,
             transform: `translateX(calc((-300px) * ${currentSlideIndex}))`,
           }}
         >
-          {items.map((item) => (
+          {data.map((item) => (
             <ProductItem item={item} key={item.id} />
           ))}
         </div>
       </div>
       <button
         className={`popular-slider__arrow popular-slider__arrow--right ${
-          currentSlideIndex === items.length - 4 && 'inactive'
+          currentSlideIndex === itemsCount - 4 && 'inactive'
         }`}
         onClick={nextSlideHandler}
       >
