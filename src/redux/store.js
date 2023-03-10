@@ -1,11 +1,7 @@
-import {
-  combineReducers,
-  configureStore,
-  getDefaultMiddleware,
-} from '@reduxjs/toolkit'
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import picturesSliderSlice from './slices/picturesSliderSlice'
+import { DriveShopApi } from './api/DriveShopApi'
 import popularSliderSlice from './slices/popularSliderSlice'
-import stockSlice from './slices/stockSlice'
 import categoriesSlice from './slices/categoriesSlice'
 import headerFiltersSlice from './slices/headerFiltersSlice'
 import filtersParametersSlice from './slices/filtersParametersSlice'
@@ -14,48 +10,21 @@ import activePageSlice from './slices/activePageSlice'
 import favoriteItemSlice from './slices/favoriteItemSlice'
 import cartSlice from './slices/cartSlice'
 import currentProductSlice from './slices/currentProductSlice'
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-
-const rootReducer = combineReducers({
-  picturesSliderSlice,
-  popularSliderSlice,
-  stockSlice,
-  categoriesSlice,
-  headerFiltersSlice,
-  filtersParametersSlice,
-  activePageSlice,
-  productPageSlice,
-  favoriteItemSlice,
-  cartSlice,
-  currentProductSlice,
-})
-
-const persistConfig = {
-  key: 'root',
-  storage,
-  whitelist: ['favoriteItemSlice', 'cartSlice', 'currentProductSlice'],
-}
-
-const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    [DriveShopApi.reducerPath]: DriveShopApi.reducer,
+    picturesSliderSlice,
+    popularSliderSlice,
+    categoriesSlice,
+    headerFiltersSlice,
+    filtersParametersSlice,
+    activePageSlice,
+    productPageSlice,
+    favoriteItemSlice,
+    cartSlice,
+    currentProductSlice,
+  },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+    getDefaultMiddleware().concat(DriveShopApi.middleware),
 })
-
-export const persistor = persistStore(store)

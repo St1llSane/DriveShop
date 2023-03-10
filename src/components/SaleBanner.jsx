@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import '../styles/c_styles/sale-banner.scss'
 
 const SaleBanner = () => {
@@ -30,12 +31,13 @@ const SaleBanner = () => {
         <p>
           <span>Скидки</span> на все запчасти до 70%
         </p>
-        <button
+        <Link
+          to={'spareParts'}
           onMouseEnter={mouseEnterHandler}
           onMouseLeave={mouseLeaveHandler}
         >
           Посмотреть все
-        </button>
+        </Link>
       </div>
     </div>
   )

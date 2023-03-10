@@ -2,7 +2,6 @@ import { useRef, useEffect } from 'react'
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  fetchPictures,
   picturesSliderSelector,
   nextSlide,
   prevSlide,
@@ -10,18 +9,19 @@ import {
   setSliderWidth,
   setTotalSlides,
 } from '../redux/slices/picturesSliderSlice'
+import { useGetPicturesSliderQuery } from '../redux/api/DriveShopApi'
 import '../styles/c_styles/pictures-slider.scss'
 
 const PicturesSlider = () => {
   const dispatch = useDispatch()
-  const { pictures, sliderWidth, totalSlides, currentSlideIndex } = useSelector(
+  const { data = [], isLoading } = useGetPicturesSliderQuery()
+  const { sliderWidth, totalSlides, currentSlideIndex } = useSelector(
     picturesSliderSelector
   )
   const sliderRef = useRef(null)
 
   useEffect(() => {
-    dispatch(fetchPictures())
-    dispatch(setTotalSlides(pictures.length))
+    dispatch(setTotalSlides(data.length))
 
     const resizeHandler = () => {
       dispatch(setSliderWidth(sliderRef.current.clientWidth))
@@ -31,12 +31,12 @@ const PicturesSlider = () => {
     return () => {
       removeEventListener('resize', resizeHandler)
     }
-  }, [sliderWidth])
+  }, [sliderWidth, isLoading])
 
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(nextSlide())
-    }, 5000)
+    }, 8000)
 
     return () => {
       clearTimeout(timer)
@@ -62,14 +62,14 @@ const PicturesSlider = () => {
           transform: `translateX(calc(-${sliderWidth}px * ${currentSlideIndex}))`,
         }}
       >
-        {pictures.map((slide) => (
+        {data.map((slide) => (
           <div className="pictures-slider__wrapper_item" key={slide.id}>
             <img src={slide.img} alt="pictures-slider-img" />
           </div>
         ))}
       </div>
       <ul className="pictures-slider__pagination">
-        {pictures.map((slide, index) => (
+        {data.map((slide, index) => (
           <li key={slide.id}>
             <button
               className={`${currentSlideIndex === index ? 'active' : ''}`}

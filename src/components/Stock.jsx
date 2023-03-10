@@ -1,20 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchStockItem, stockSliceSelector } from '../redux/slices/stockSlice'
+import { useGetStockItemQuery } from '../redux/api/DriveShopApi'
 import '../styles/c_styles/stock.scss'
 
 const Stock = () => {
-  const dispatch = useDispatch()
   const [days, setDays] = useState(0)
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
   const [seconds, setSeconds] = useState(0)
-  const { stockItem } = useSelector(stockSliceSelector)
+  const { data = {} } = useGetStockItemQuery()
   const stockTimerId = useRef(null)
-
-  useEffect(() => {
-    dispatch(fetchStockItem())
-  }, [])
 
   const stockTimer = () => {
     const endPoint = new Date('February 20, 2023, 00:00:00').getTime()
@@ -57,13 +51,13 @@ const Stock = () => {
       <div className="stock__top">
         <span className="stock__top_text">Акция</span>
         <div className="stock__top_price">
-          <p>{stockItem.price} p</p>
+          <p>{data.price} p</p>
           <span>98 000 p</span>
         </div>
       </div>
       <a className="stock__content" href="#">
-        <img src={stockItem.img} alt="engine" />
-        <h5>{stockItem.title}</h5>
+        <img src={data.img} alt="engine" />
+        <h5>{data.title}</h5>
         <span>посмотреть товар</span>
       </a>
       <div className="stock__bottom">
