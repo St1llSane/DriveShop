@@ -1,5 +1,18 @@
 @import '../../vars.scss';
 
 .current-product {
+  &__content {
+    display: grid;
+    grid-template-columns: 500px 570px;
+		justify-content: space-between;
 
+    &-left {
+    }
+
+    &_img {
+      img {
+        width: 100%;
+      }
+    }
+  }
 }
