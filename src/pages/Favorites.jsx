@@ -6,7 +6,6 @@ import '../styles/c_styles/p_styles/favorites.scss'
 
 const Favorites = () => {
   const { data = [] } = useGetFavoritesQuery()
-  console.log(data)
 
   return (
     <PageBase>
