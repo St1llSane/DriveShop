@@ -2,6 +2,10 @@ import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {
+  useAddFavoriteMutation,
+  useDeleteFavoriteMutation,
+} from '../redux/api/DriveShopApi'
+import {
   cartSelector,
   deleteCartItem,
   fetchDeleteCartItem,
@@ -12,8 +16,6 @@ import { setCurrentProduct } from '../redux/slices/currentProductSlice'
 import {
   deleteFavItem,
   favoriteItemSelector,
-  fetchPostFavItem,
-  fetchDeleteFavItem,
   setFavItems,
 } from '../redux/slices/favoriteItemSlice'
 import '../styles/c_styles/product-item.scss'
@@ -23,15 +25,26 @@ const ProductItem = ({ item }) => {
   const { id, img, title, engTitle, price, oldPrice, onSale, inStock } = item
   const { favItems } = useSelector(favoriteItemSelector)
   const { cart } = useSelector(cartSelector)
-  const sendItem = { id, img, title, engTitle, price, oldPrice, onSale, inStock }
+  const [addFavorite] = useAddFavoriteMutation()
+  const [deleteFavorite] = useDeleteFavoriteMutation()
+  const sendItem = {
+    id,
+    img,
+    title,
+    engTitle,
+    price,
+    oldPrice,
+    onSale,
+    inStock,
+  }
 
-  const setFavItemHandler = () => {
+  const setFavItemHandler = async () => {
     if (favItems.includes(title)) {
       dispatch(deleteFavItem(title))
-      dispatch(fetchDeleteFavItem(id))
+      await deleteFavorite(id)
     } else {
       dispatch(setFavItems(title))
-      dispatch(fetchPostFavItem(sendItem))
+      await addFavorite(sendItem)
     }
   }
 

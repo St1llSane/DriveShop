@@ -1,26 +1,17 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import {
-  favoriteItemSelector,
-  fetchGetFavItem,
-} from '../redux/slices/favoriteItemSlice'
+import { useGetFavoritesQuery } from '../redux/api/DriveShopApi'
 import ProductItem from '../components/ProductItem'
 import PageTop from '../components/UI/PageTop'
 import PageBase from './PageBase'
 import '../styles/c_styles/p_styles/favorites.scss'
 
 const Favorites = () => {
-  const dispatch = useDispatch()
-  const { favItems, fetchedItems } = useSelector(favoriteItemSelector)
-
-  useEffect(() => {
-    dispatch(fetchGetFavItem())
-  }, [favItems])
+  const { data = [] } = useGetFavoritesQuery()
+  console.log(data)
 
   return (
     <PageBase>
       <PageTop>Закладки</PageTop>
-      {fetchedItems.map((item) => (
+      {data.map((item) => (
         <ProductItem item={item} key={item.id} />
       ))}
     </PageBase>
