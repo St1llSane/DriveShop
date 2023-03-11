@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const DriveShopApi = createApi({
   reducerPath: 'DriveShopApi',
-  tagTypes: ['Favorites'],
+  tagTypes: ['Favorites', 'Cart'],
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:3000/',
   }),
@@ -50,6 +50,31 @@ export const DriveShopApi = createApi({
       }),
       invalidatesTags: [{ type: 'Favorites', id: 'LIST' }],
     }),
+    getCart: build.query({
+      query: () => `cart`,
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: 'Cart', id })),
+              { type: 'Cart', id: 'LIST' },
+            ]
+          : [{ type: 'Cart', id: 'LIST' }],
+    }),
+    addCartItem: build.mutation({
+      query: (body) => ({
+        url: `cart`,
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: [{ type: 'Cart', id: 'LIST' }],
+    }),
+    deleteCartItem: build.mutation({
+      query: (id) => ({
+        url: `cart/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: [{ type: 'Cart', id: 'LIST' }],
+    }),
   }),
 })
 
@@ -62,4 +87,7 @@ export const {
   useGetFavoritesQuery,
   useAddFavoriteMutation,
   useDeleteFavoriteMutation,
+  useGetCartQuery,
+  useAddCartItemMutation,
+	useDeleteCartItemMutation
 } = DriveShopApi

@@ -2,14 +2,14 @@ import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {
+  useAddCartItemMutation,
   useAddFavoriteMutation,
+  useDeleteCartItemMutation,
   useDeleteFavoriteMutation,
 } from '../redux/api/DriveShopApi'
 import {
   cartSelector,
   deleteCartItem,
-  fetchDeleteCartItem,
-  fetchPostCartItem,
   setCartItem,
 } from '../redux/slices/cartSlice'
 import { setCurrentProduct } from '../redux/slices/currentProductSlice'
@@ -24,9 +24,11 @@ const ProductItem = ({ item }) => {
   const dispatch = useDispatch()
   const { id, img, title, engTitle, price, oldPrice, onSale, inStock } = item
   const { favItems } = useSelector(favoriteItemSelector)
-  const { cart } = useSelector(cartSelector)
   const [addFavorite] = useAddFavoriteMutation()
   const [deleteFavorite] = useDeleteFavoriteMutation()
+  const { cart } = useSelector(cartSelector)
+  const [addCartItem] = useAddCartItemMutation()
+  const [deleteFromCart] = useDeleteCartItemMutation()
   const sendItem = {
     id,
     img,
@@ -48,13 +50,13 @@ const ProductItem = ({ item }) => {
     }
   }
 
-  const setCartItemHandler = () => {
+  const setCartItemHandler = async () => {
     if (cart.includes(title)) {
       dispatch(deleteCartItem(title))
-      dispatch(fetchDeleteCartItem(id))
+      await deleteFromCart(id)
     } else {
       dispatch(setCartItem(title))
-      dispatch(fetchPostCartItem(sendItem))
+      await addCartItem(sendItem)
     }
   }
 
