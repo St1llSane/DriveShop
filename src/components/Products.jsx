@@ -4,15 +4,17 @@ import ProductItem from './ProductItem'
 import '../styles/c_styles/products.scss'
 
 const Products = () => {
-  const location = useLocation().pathname.slice(1)
-  const { data = [] } = useGetProductsQuery(location)
+  const location = useLocation()
+  const { data = [] } = useGetProductsQuery(location.pathname)
 
   return (
-    <div className="products">
-      {data.map((item) => (
-        <ProductItem item={item} key={item.id} />
-      ))}
-    </div>
+    <>
+      <div className="products">
+        {data.map((item) => (
+          <ProductItem item={item} key={item.id} />
+        ))}
+      </div>
+    </>
   )
 }
 

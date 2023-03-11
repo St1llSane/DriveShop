@@ -82,7 +82,7 @@ const ProductItem = ({ item }) => {
         to={engTitle}
         onClick={setCurrentProductHandler}
       >
-        <img src={img} alt="backpack" />
+        <img src={img} alt={title} />
         <h5>{title}</h5>
         <span>посмотреть товар</span>
       </Link>

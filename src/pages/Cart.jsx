@@ -1,5 +1,3 @@
-import { useSelector } from 'react-redux'
-import { cartSelector } from '../redux/slices/cartSlice'
 import { useGetCartQuery } from '../redux/api/DriveShopApi'
 import PageBase from './PageBase'
 import PageTop from '../components/UI/PageTop'
@@ -7,7 +5,6 @@ import ProductItem from '../components/ProductItem'
 import '../styles/c_styles/p_styles/cart.scss'
 
 const Cart = () => {
-  const { cart } = useSelector(cartSelector)
   const { data = [] } = useGetCartQuery()
 
   return (

@@ -1,9 +1,8 @@
 import PageHistory from '../components/UI/PageHistory'
 import HeaderFilters from '../components/UI/HeaderFilters'
-import Filters from '../components/UI/Filters'
-import Products from '../components/Products'
-import '../styles/c_styles/p_styles/products-page.scss'
 import PageTop from '../components/UI/PageTop'
+import ProductsBase from '../components/ProductsBase'
+import '../styles/c_styles/p_styles/products-page.scss'
 
 const ProductsPage = () => {
   return (
@@ -12,8 +11,7 @@ const ProductsPage = () => {
       <PageTop>Гидроциклы</PageTop>
       <HeaderFilters />
       <div className="products-page__wrapper">
-        <Filters />
-        <Products />
+        <ProductsBase />
       </div>
     </section>
   )
