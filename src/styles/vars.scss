@@ -120,3 +120,19 @@ $slow-transition: all 0.25s ease;
   font-weight: 700;
   margin-bottom: 20px;
 }
+
+%btn-hover-bg {
+  transition: $def-transition;
+
+  &:hover {
+    background-color: $c-accent-d-blue;
+  }
+}
+
+%btn-hover-text {
+  transition: $def-transition;
+
+  &:hover {
+    color: $c-accent-d-blue;
+  }
+}
