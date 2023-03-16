@@ -6,6 +6,7 @@ import { favoriteItemSelector } from '../redux/slices/favoriteItemSlice'
 import { cartSelector } from '../redux/slices/cartSlice'
 import { useFavButton } from '../hooks/useFavButton'
 import { useBuyButton } from '../hooks/useBuyButton'
+import PopularTop from '../components/UI/PopularTop'
 import PopularSlider from '../components/PopularSlider'
 import '../styles/c_styles/p_styles/current-product.scss'
 
@@ -239,6 +240,7 @@ const CurrentProduct = () => {
           </div>
         </div>
       </div>
+      <PopularTop />
       <PopularSlider />
     </section>
   )

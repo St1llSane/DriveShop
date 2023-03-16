@@ -5,7 +5,7 @@ import '../styles/c_styles/popular.scss'
 const Popular = () => {
   return (
     <section className="popular">
-      <PopularTop>Популярные товары</PopularTop>
+      <PopularTop />
       <PopularSlider />
       <a className="popular__more" href="#">
         Показать еще

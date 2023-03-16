@@ -34,10 +34,10 @@ const popularNav = [
   },
 ]
 
-const PopularTop = (props) => {
+const PopularTop = () => {
   return (
     <div className="popular__top">
-      <h3 className="popular__top-title">{props.children}</h3>
+      <h3 className="popular__top-title">Популярные товары</h3>
       <ul className="popular__nav">
         {popularNav.map((item) => (
           <li key={item.id}>
