@@ -2,11 +2,29 @@ import { useSelector } from 'react-redux'
 import { AiOutlineHeart, AiFillStar } from 'react-icons/ai'
 import { IoStatsChartSharp } from 'react-icons/io5'
 import { currentProductSelector } from '../redux/slices/currentProductSlice'
+import { favoriteItemSelector } from '../redux/slices/favoriteItemSlice'
+import { cartSelector } from '../redux/slices/cartSlice'
+import { useFavButton } from '../hooks/useFavButton'
+import { useBuyButton } from '../hooks/useBuyButton'
 import PopularSlider from '../components/PopularSlider'
 import '../styles/c_styles/p_styles/current-product.scss'
 
 const CurrentProduct = () => {
   const { currentProduct } = useSelector(currentProductSelector)
+  const { id, img, title, engTitle, price, oldPrice, onSale, inStock } =
+    currentProduct
+  const { favItems } = useSelector(favoriteItemSelector)
+  const { favButtonHandler } = useFavButton()
+  const { cart } = useSelector(cartSelector)
+  const { buyButtonHandler } = useBuyButton()
+
+  const setFavItemHandler = async () => {
+    favButtonHandler(title, id, currentProduct)
+  }
+
+  const setCartItemHandler = async () => {
+    buyButtonHandler(title, id, currentProduct)
+  }
 
   return (
     <section className="current-product">
@@ -15,12 +33,12 @@ const CurrentProduct = () => {
           <span className="current-product__content_sale">Скидка</span>
           <img
             className="current-product__content_img"
-            src={`.${currentProduct.img}`}
-            alt={currentProduct.title}
+            src={`.${img}`}
+            alt={title}
           />
           <div className="current-product__content_price">
-            <span>1 200 475 ₽</span>
-            <span>1 100 475 ₽</span>
+            <span>{oldPrice} ₽</span>
+            <span>{price} ₽</span>
             <button>Нашли дешевле? Снизим цену!</button>
           </div>
         </div>
@@ -30,7 +48,12 @@ const CurrentProduct = () => {
             <span>Код товара: 366666-2 </span>
             <ul>
               <li>
-                <button>
+                <button
+                  className={`current-product__content_header-fav ${
+                    favItems.includes(currentProduct.title) ? 'active' : ''
+                  }`}
+                  onClick={setFavItemHandler}
+                >
                   <AiOutlineHeart />
                 </button>
               </li>
@@ -83,13 +106,20 @@ const CurrentProduct = () => {
                 </li>
                 <li>
                   <span>Год выпуска</span>
-                  <span> 2018</span>
+                  <span>2018</span>
                 </li>
               </ul>
               <button>Показать еще</button>
             </div>
           </div>
-          <button className="current-product__content-right_buy">купить</button>
+          <button
+            className={`current-product__content-right_buy ${
+              cart.includes(currentProduct.title) ? 'active' : ''
+            }`}
+            onClick={setCartItemHandler}
+          >
+            Купить
+          </button>
         </div>
       </div>
       <div className="current-product__info">
@@ -170,26 +200,19 @@ const CurrentProduct = () => {
                 <h4>Количество</h4>
               </li>
               <li>1</li>
+              <li>2</li>
               <li>1</li>
-              <li>1</li>
-              <li>1</li>
+              <li>4</li>
             </ul>
             <ul className="current-product__info-content_pickup-buy">
               <li>
                 <h4>Купить</h4>
               </li>
-              <li>
-                <button>Купить</button>
-              </li>
-              <li>
-                <button>Купить</button>
-              </li>
-              <li>
-                <button>Купить</button>
-              </li>
-              <li>
-                <button>Купить</button>
-              </li>
+              {[...new Array(4).keys()].map((key) => (
+                <li key={key}>
+                  <button onClick={setCartItemHandler}>Купить</button>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -1,34 +1,20 @@
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import {
-  useAddCartItemMutation,
-  useAddFavoriteMutation,
-  useDeleteCartItemMutation,
-  useDeleteFavoriteMutation,
-} from '../redux/api/DriveShopApi'
-import {
-  cartSelector,
-  deleteCartItem,
-  setCartItem,
-} from '../redux/slices/cartSlice'
+import { useBuyButton } from '../hooks/useBuyButton'
+import { useFavButton } from '../hooks/useFavButton'
+import { cartSelector } from '../redux/slices/cartSlice'
 import { setCurrentProduct } from '../redux/slices/currentProductSlice'
-import {
-  deleteFavItem,
-  favoriteItemSelector,
-  setFavItems,
-} from '../redux/slices/favoriteItemSlice'
+import { favoriteItemSelector } from '../redux/slices/favoriteItemSlice'
 import '../styles/c_styles/product-item.scss'
 
 const ProductItem = ({ item }) => {
   const dispatch = useDispatch()
   const { id, img, title, engTitle, price, oldPrice, onSale, inStock } = item
   const { favItems } = useSelector(favoriteItemSelector)
-  const [addFavorite] = useAddFavoriteMutation()
-  const [deleteFavorite] = useDeleteFavoriteMutation()
+  const { favButtonHandler } = useFavButton()
   const { cart } = useSelector(cartSelector)
-  const [addCartItem] = useAddCartItemMutation()
-  const [deleteFromCart] = useDeleteCartItemMutation()
+  const { buyButtonHandler } = useBuyButton()
   const sendItem = {
     id,
     img,
@@ -41,23 +27,11 @@ const ProductItem = ({ item }) => {
   }
 
   const setFavItemHandler = async () => {
-    if (favItems.includes(title)) {
-      dispatch(deleteFavItem(title))
-      await deleteFavorite(id)
-    } else {
-      dispatch(setFavItems(title))
-      await addFavorite(sendItem)
-    }
+    favButtonHandler(title, id, sendItem)
   }
 
   const setCartItemHandler = async () => {
-    if (cart.includes(title)) {
-      dispatch(deleteCartItem(title))
-      await deleteFromCart(id)
-    } else {
-      dispatch(setCartItem(title))
-      await addCartItem(sendItem)
-    }
+    buyButtonHandler(title, id, sendItem)
   }
 
   const setCurrentProductHandler = () => {
