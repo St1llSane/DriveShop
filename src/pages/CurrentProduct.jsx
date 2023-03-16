@@ -59,7 +59,7 @@ const CurrentProduct = () => {
           </div>
           <div className="current-product__content_about">
             <div className="current-product__content_about-tabs">
-              <button className='active'>Характеристики</button>
+              <button className="active">Характеристики</button>
               <button>Наличие в магазине</button>
             </div>
             <div className="current-product__content_about-content">
@@ -103,7 +103,7 @@ const CurrentProduct = () => {
             <button>Отзывы</button>
           </li>
           <li>
-            <button>Самовывоз</button>
+            <button className='active'>Самовывоз</button>
           </li>
           <li>
             <button>Доставка</button>
@@ -116,12 +116,81 @@ const CurrentProduct = () => {
           </li>
         </ul>
         <div className="current-product__info-content">
-          <h1>fgdsfsdfsd</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
-            consequatur ab in qui recusandae, beatae sapiente iure, repellat
-            maxime ullam similique dignissimos nam, reprehenderit perferendis.
-          </p>
+          <div className="current-product__info-content_pickup">
+            <ul>
+              <li>
+                <h4>Адрес</h4>
+              </li>
+              <li>Москва, ул. Науки 25</li>
+              <li>Москва, ул. Южная 134</li>
+              <li>Санкт-Петербург, ул. Красная 19</li>
+              <li>Киев, ул Шевченко 167</li>
+            </ul>
+            <ul className="current-product__info-content_pickup-time">
+              <li>
+                <h4>Режим работы</h4>
+              </li>
+              <li>
+                <span>пн-сб:</span>
+                <span>08:00-19:00</span>
+                <span>вс:</span>
+                <span>09:00-17:00</span>
+              </li>
+              <li>
+                <span>пн-сб:</span>
+                <span>08:00-19:00</span>
+                <span>вс:</span>
+                <span>09:00-17:00</span>
+              </li>
+              <li>
+                <span>пн-сб:</span>
+                <span>08:00-19:00</span>
+                <span>вс:</span>
+                <span>09:00-17:00</span>
+              </li>
+              <li>
+                <span>пн-сб:</span>
+                <span>08:00-19:00</span>
+                <span>вс:</span>
+                <span>09:00-17:00</span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <h4>Доступно</h4>
+              </li>
+              <li>В наличии</li>
+              <li>В наличии</li>
+              <li>В наличии</li>
+              <li>В наличии</li>
+            </ul>
+            <ul>
+              <li>
+                <h4>Количество</h4>
+              </li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+            </ul>
+            <ul className="current-product__info-content_pickup-buy">
+              <li>
+                <h4>Купить</h4>
+              </li>
+              <li>
+                <button>Купить</button>
+              </li>
+              <li>
+                <button>Купить</button>
+              </li>
+              <li>
+                <button>Купить</button>
+              </li>
+              <li>
+                <button>Купить</button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>

@@ -6,6 +6,7 @@
     grid-template-columns: 500px 570px;
     grid-template-rows: 590px;
     justify-content: space-between;
+    margin-bottom: 90px;
 
     &-left {
       display: flex;
@@ -186,6 +187,93 @@
           &:hover {
             color: $c-accent-d-blue;
             border-color: $c-accent-d-blue;
+          }
+        }
+      }
+    }
+  }
+
+  &__info {
+    &-tabs {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      background-color: $c-grey;
+      margin-bottom: 45px;
+
+      li {
+        button {
+          border: none;
+          width: 100%;
+          padding: 16px 0;
+          transition: $def-transition;
+
+					&.active {
+						color: $c-white;
+            background-color: $c-accent-blue;
+					}
+
+          &:hover {
+            color: $c-white;
+            background-color: $c-accent-blue;
+          }
+        }
+      }
+    }
+
+    &-content {
+      &_pickup {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, auto));
+        justify-content: space-between;
+
+        ul {
+          display: grid;
+          grid-template-rows: repeat(5, minmax(25px, auto));
+
+          li {
+            h4 {
+              font-size: $f-big;
+              font-weight: 500;
+              margin-bottom: 35px;
+            }
+
+            &:not(:first-child) {
+              height: 100px;
+            }
+          }
+        }
+
+        &-time {
+          li {
+            &:not(:first-child) {
+              display: grid;
+              grid-template-columns: repeat(2, minmax(50px, auto));
+              grid-template-rows: repeat(2, 25px);
+            }
+
+            span {
+              &:nth-child(odd) {
+                width: 75px;
+              }
+            }
+          }
+        }
+
+        &-buy {
+          li {
+            h4 {
+							opacity: 0;
+							user-select: none;
+						}
+
+            button {
+              border: none;
+              color: $c-white;
+              background-color: $c-accent-blue;
+              padding: 10px 30px;
+              @extend %btn-hover-bg;
+            }
           }
         }
       }
