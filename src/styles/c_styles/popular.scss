@@ -3,14 +3,6 @@
 .popular {
   padding: 20px 0 40px 0;
 
-  &__top {
-    margin-bottom: 25px;
-
-    &-title {
-      @extend %title;
-    }
-  }
-
   &__more {
     text-transform: uppercase;
     background-color: $c-white;

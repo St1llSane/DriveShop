@@ -1,0 +1,23 @@
+@import '../../vars.scss';
+
+.popular {
+  &__top {
+    margin-bottom: 25px;
+
+    &-title {
+      @extend %title;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    column-gap: 30px;
+
+    li {
+      a {
+        padding: 10px 0;
+        @extend %hover-underline;
+      }
+    }
+  }
+}

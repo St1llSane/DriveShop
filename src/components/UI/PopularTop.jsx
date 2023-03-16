@@ -1,4 +1,4 @@
-import '../../styles/c_styles/ui_styles/popular-nav.scss'
+import '../../styles/c_styles/ui_styles/popular-top.scss'
 
 const popularNav = [
   {
@@ -34,18 +34,21 @@ const popularNav = [
   },
 ]
 
-const PopularNav = () => {
+const PopularTop = (props) => {
   return (
-    <ul className="popular-nav">
-      {popularNav.map((item) => (
-        <li key={item.id}>
-          <a href="$" data-nav-color={item.color}>
-            {item.name}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div className="popular__top">
+      <h3 className="popular__top-title">{props.children}</h3>
+      <ul className="popular__nav">
+        {popularNav.map((item) => (
+          <li key={item.id}>
+            <a href="#" data-nav-color={item.color}>
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
-export default PopularNav
+export default PopularTop
