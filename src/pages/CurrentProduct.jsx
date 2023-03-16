@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import { AiOutlineHeart, AiFillStar } from 'react-icons/ai'
 import { IoStatsChartSharp } from 'react-icons/io5'
 import { currentProductSelector } from '../redux/slices/currentProductSlice'
+import PopularSlider from '../components/PopularSlider'
 import '../styles/c_styles/p_styles/current-product.scss'
 
 const CurrentProduct = () => {
@@ -103,7 +104,7 @@ const CurrentProduct = () => {
             <button>Отзывы</button>
           </li>
           <li>
-            <button className='active'>Самовывоз</button>
+            <button className="active">Самовывоз</button>
           </li>
           <li>
             <button>Доставка</button>
@@ -193,6 +194,7 @@ const CurrentProduct = () => {
           </div>
         </div>
       </div>
+      <PopularSlider />
     </section>
   )
 }

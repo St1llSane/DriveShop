@@ -2,7 +2,7 @@
   "popular": [
     {
       "id": 111,
-      "img": "./images/items/backpack.png",
+      "img": "../images/items/backpack.png",
       "title": "Водонепроницаемый рюкзак",
       "engTitle": "WaterproofBackpack",
       "price": "4 500",
@@ -13,7 +13,7 @@
     },
     {
       "id": 112,
-      "img": "./images/items/jacket.png",
+      "img": "../images/items/jacket.png",
       "title": "Спасательный жилет BRP Men's Airflow PFD",
       "engTitle": "BRPMen'sAirflowPFD",
       "price": "3 100",
@@ -23,7 +23,7 @@
     },
     {
       "id": 113,
-      "img": "./images/items/rescue-equipment.png",
+      "img": "../images/items/rescue-equipment.png",
       "title": "Спасательное снаряжение",
       "engTitle": "RescueEquipment",
       "price": "8 000",
@@ -33,7 +33,7 @@
     },
     {
       "id": 114,
-      "img": "./images/items/engine2.png",
+      "img": "../images/items/engine2.png",
       "title": "Лодочный мотор Suzuki DF9.9BRS",
       "engTitle": "SuzukiDF99BRS",
       "price": "72 000",
@@ -44,7 +44,7 @@
     },
     {
       "id": 115,
-      "img": "./images/items/echomap1.png",
+      "img": "../images/items/echomap1.png",
       "title": "Garmin Echomap Plus 62cv",
       "engTitle": "GarminEchomapPlus62cv",
       "price": "9 400",
@@ -54,7 +54,7 @@
     },
     {
       "id": 116,
-      "img": "./images/items/echomap2.png",
+      "img": "../images/items/echomap2.png",
       "title": "Harin Echomap Plus 40c",
       "engTitle": "HarinEchomapPlus40c",
       "price": "8 700",
@@ -64,7 +64,7 @@
     },
     {
       "id": 117,
-      "img": "./images/items/suit1.png",
+      "img": "../images/items/suit1.png",
       "title": "Мужской гидрокостюм 3мм",
       "engTitle": "MensWetsuit3mm",
       "price": "6 300",
@@ -75,7 +75,7 @@
     },
     {
       "id": 118,
-      "img": "./images/items/suit2.png",
+      "img": "../images/items/suit2.png",
       "title": "Мужской гидрокостюм 3.5мм",
       "engTitle": "MensWetsuit3and5mm",
       "price": "6 500",

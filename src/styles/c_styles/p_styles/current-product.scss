@@ -199,7 +199,7 @@
       grid-template-columns: repeat(7, 1fr);
       text-align: center;
       background-color: $c-grey;
-      margin-bottom: 45px;
+      margin-bottom: 55px;
 
       li {
         button {
@@ -222,6 +222,8 @@
     }
 
     &-content {
+			margin-bottom: 25px;
+			
       &_pickup {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(120px, auto));
