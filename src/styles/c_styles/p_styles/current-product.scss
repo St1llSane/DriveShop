@@ -21,6 +21,13 @@
       padding: 7px 15px 6px 15px;
       border-radius: $b-r-small;
       width: fit-content;
+      opacity: 0;
+      user-select: none;
+
+      &.active {
+        opacity: 1;
+        user-select: unset;
+      }
     }
 
     &_img {
@@ -32,19 +39,17 @@
       flex-direction: column;
       align-items: center;
 
-      span {
-        &:first-child {
-          font-size: $f-huge;
-          font-weight: 300;
-          text-decoration: line-through;
-          margin-bottom: 2px;
-        }
+      &-oldprice {
+        font-size: $f-huge;
+        font-weight: 300;
+        text-decoration: line-through;
+        margin-bottom: 2px;
+      }
 
-        &:nth-child(2) {
-          font-size: 3rem;
-          font-weight: 500;
-          margin-bottom: 10px;
-        }
+      &-title {
+        font-size: 3rem;
+        font-weight: 500;
+        margin-bottom: 10px;
       }
 
       button {

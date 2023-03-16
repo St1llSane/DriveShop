@@ -11,8 +11,7 @@ import '../styles/c_styles/p_styles/current-product.scss'
 
 const CurrentProduct = () => {
   const { currentProduct } = useSelector(currentProductSelector)
-  const { id, img, title, engTitle, price, oldPrice, onSale, inStock } =
-    currentProduct
+  const { id, img, title, price, oldPrice, onSale, inStock } = currentProduct
   const { favItems } = useSelector(favoriteItemSelector)
   const { favButtonHandler } = useFavButton()
   const { cart } = useSelector(cartSelector)
@@ -30,16 +29,39 @@ const CurrentProduct = () => {
     <section className="current-product">
       <div className="current-product__content">
         <div className="current-product__content-left">
-          <span className="current-product__content_sale">Скидка</span>
+          <span
+            className={`current-product__content_sale ${
+              onSale && inStock && 'active'
+            }`}
+          >
+            Скидка
+          </span>
           <img
             className="current-product__content_img"
             src={`.${img}`}
             alt={title}
           />
           <div className="current-product__content_price">
-            <span>{oldPrice} ₽</span>
-            <span>{price} ₽</span>
-            <button>Нашли дешевле? Снизим цену!</button>
+            {inStock ? (
+              <>
+                {inStock && (
+                  <span className="current-product__content_price-oldprice">
+                    {onSale && inStock && `${oldPrice} ₽`}
+                  </span>
+                )}
+                <span className="current-product__content_price-title">
+                  {price} ₽
+                </span>
+                <button>Нашли дешевле? Снизим цену!</button>
+              </>
+            ) : (
+              <>
+                <span className="current-product__content_price-title">
+                  Нет в наличии
+                </span>
+                <button>Сообщить о поступлении</button>
+              </>
+            )}
           </div>
         </div>
         <div className="current-product__content-right">
