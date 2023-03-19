@@ -823,16 +823,6 @@
       "oldPrice": "1 200 990",
       "onSale": true,
       "inStock": true
-    },
-    {
-      "id": 313,
-      "img": "./images/hydrocycles/hydrocycle3.png",
-      "title": "Гидроцикл BRP SeaDoo GTR 230hp X California green",
-      "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "1 323 700",
-      "oldPrice": "1 410 420",
-      "onSale": true,
-      "inStock": true
     }
   ]
 }

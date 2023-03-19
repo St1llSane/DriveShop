@@ -61,30 +61,28 @@ const ProductItem = ({ item }) => {
         <span>посмотреть товар</span>
       </Link>
       <div className="product-item__bottom">
-        <div className="product-item__bottom-cost">
-          {inStock ? (
-            <div className="product-item__bottom-cost_instock">
-              <span>{price} ₽</span>
-              {inStock && <span>{onSale && inStock && `${oldPrice} ₽`}</span>}
-            </div>
-          ) : (
-            <div className="product-item__bottom-cost_nostock">
-              <span>Нет в наличии</span>
-              <button>Сообщить о поступлении</button>
-            </div>
-          )}
-        </div>
-        {inStock && (
-          <button
-            className={`product-item__bottom-incart ${
-              cart.includes(title) ? 'active' : ''
-            }`}
-            onClick={setCartItemHandler}
-          >
-            <AiOutlineShoppingCart />
-          </button>
+        {inStock ? (
+          <div className="product-item__bottom-instock">
+            <span>{price} ₽</span>
+            {inStock && <span>{onSale && inStock && `${oldPrice} ₽`}</span>}
+          </div>
+        ) : (
+          <div className="product-item__bottom-nostock">
+            <span>Нет в наличии</span>
+            <button>Сообщить о поступлении</button>
+          </div>
         )}
       </div>
+      {inStock && (
+        <button
+          className={`product-item__incart ${
+            cart.includes(title) ? 'active' : ''
+          }`}
+          onClick={setCartItemHandler}
+        >
+          <AiOutlineShoppingCart />
+        </button>
+      )}
     </div>
   )
 }
