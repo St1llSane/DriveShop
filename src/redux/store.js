@@ -12,6 +12,7 @@ import activePageSlice from './slices/activePageSlice'
 import favoriteItemSlice from './slices/favoriteItemSlice'
 import cartSlice from './slices/cartSlice'
 import currentProductSlice from './slices/currentProductSlice'
+import activeProductsGridSlice from './slices/activeProductsGridSlice'
 import {
   persistStore,
   persistReducer,
@@ -34,12 +35,18 @@ const rootReducer = combineReducers({
   favoriteItemSlice,
   cartSlice,
   currentProductSlice,
+  activeProductsGridSlice,
 })
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['favoriteItemSlice', 'cartSlice', 'currentProductSlice'],
+  whitelist: [
+    'favoriteItemSlice',
+    'cartSlice',
+    'currentProductSlice',
+    'activeProductsGridSlice',
+  ],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

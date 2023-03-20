@@ -40,49 +40,51 @@ const ProductItem = ({ item }) => {
 
   return (
     <div className="product-item">
-      <div className="product-item__top">
-        {onSale && inStock && <span>Скидка</span>}
-        <button
-          className={`product-item__top-fav ${
-            favItems.includes(title) ? 'active' : ''
-          }`}
-          onClick={setFavItemHandler}
+      <div className="product-item__wrapper">
+        <div className="product-item__top">
+          {onSale && inStock && <span>Скидка</span>}
+          <button
+            className={`product-item__top-fav ${
+              favItems.includes(title) ? 'active' : ''
+            }`}
+            onClick={setFavItemHandler}
+          >
+            <AiOutlineHeart />
+          </button>
+        </div>
+        <Link
+          className="product-item__content"
+          to={engTitle}
+          onClick={setCurrentProductHandler}
         >
-          <AiOutlineHeart />
-        </button>
-      </div>
-      <Link
-        className="product-item__content"
-        to={engTitle}
-        onClick={setCurrentProductHandler}
-      >
-        <img src={img} alt={title} />
-        <h5>{title}</h5>
-        <span>посмотреть товар</span>
-      </Link>
-      <div className="product-item__bottom">
-        {inStock ? (
-          <div className="product-item__bottom-instock">
-            <span>{price} ₽</span>
-            {inStock && <span>{onSale && inStock && `${oldPrice} ₽`}</span>}
-          </div>
-        ) : (
-          <div className="product-item__bottom-nostock">
-            <span>Нет в наличии</span>
-            <button>Сообщить о поступлении</button>
-          </div>
+          <img src={img} alt={title} />
+          <h5>{title}</h5>
+          <span>посмотреть товар</span>
+        </Link>
+        <div className="product-item__bottom">
+          {inStock ? (
+            <div className="product-item__bottom-instock">
+              <span>{price} ₽</span>
+              {inStock && <span>{onSale && inStock && `${oldPrice} ₽`}</span>}
+            </div>
+          ) : (
+            <div className="product-item__bottom-nostock">
+              <span>Нет в наличии</span>
+              <button>Сообщить о поступлении</button>
+            </div>
+          )}
+        </div>
+        {inStock && (
+          <button
+            className={`product-item__incart ${
+              cart.includes(title) ? 'active' : ''
+            }`}
+            onClick={setCartItemHandler}
+          >
+            <AiOutlineShoppingCart />
+          </button>
         )}
       </div>
-      {inStock && (
-        <button
-          className={`product-item__incart ${
-            cart.includes(title) ? 'active' : ''
-          }`}
-          onClick={setCartItemHandler}
-        >
-          <AiOutlineShoppingCart />
-        </button>
-      )}
     </div>
   )
 }
