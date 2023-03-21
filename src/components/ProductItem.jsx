@@ -26,6 +26,12 @@ const ProductItem = ({ item }) => {
     inStock,
   }
 
+  const numFormater = new Intl.NumberFormat(undefined, {
+    currency: 'RUB',
+    style: 'currency',
+    maximumFractionDigits: 0,
+  })
+
   const setFavItemHandler = async () => {
     favButtonHandler(title, id, sendItem)
   }
@@ -64,8 +70,12 @@ const ProductItem = ({ item }) => {
         <div className="product-item__bottom">
           {inStock ? (
             <div className="product-item__bottom-instock">
-              <span>{price} ₽</span>
-              {inStock && <span>{onSale && inStock && `${oldPrice} ₽`}</span>}
+              <span>{numFormater.format(price)}</span>
+              {inStock && (
+                <span>
+                  {onSale && inStock && `${numFormater.format(price)}`}
+                </span>
+              )}
             </div>
           ) : (
             <div className="product-item__bottom-nostock">

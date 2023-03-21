@@ -14,7 +14,7 @@ export const activeProductsGridSlice = createSlice({
   },
 })
 
-const activeProductsGridSelector = (state) => state.activeProductsGridSlice
+export const activeProductsGridSelector = (state) => state.activeProductsGridSlice
 
 export const { setActiveGrid } = activeProductsGridSlice.actions
 

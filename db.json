@@ -227,7 +227,7 @@
       "img": "./images/hydrocycles/hydrocycle1.png",
       "title": "Гидроцикл BRP SeaDoo GTI 130hp SE Black Mango",
       "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "1 049 500",
+      "price": "1049500",
       "popularity": 2,
       "onSale": false,
       "inStock": true
@@ -237,8 +237,8 @@
       "img": "./images/hydrocycles/hydrocycle2.png",
       "title": "Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic",
       "engTitle": "BRPSeaDooGTI155hpSELongBlueMetallic",
-      "price": "1 100 475",
-      "oldPrice": "1 200 990",
+      "price": "1100475",
+      "oldPrice": "1200990",
       "popularity": 1,
       "onSale": true,
       "inStock": true
@@ -248,8 +248,8 @@
       "img": "./images/hydrocycles/hydrocycle3.png",
       "title": "Гидроцикл BRP SeaDoo GTR 230hp X California green",
       "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "1 323 700",
-      "oldPrice": "1 410 420",
+      "price": "1323700",
+      "oldPrice": "1410420",
       "popularity": 4,
       "onSale": true,
       "inStock": true
@@ -259,8 +259,8 @@
       "img": "./images/hydrocycles/hydrocycle4.png",
       "title": "Гидроцикл BRP SeaDoo GTR 230hp STD Black Gulfstream",
       "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "1 150 785",
-      "oldPrice": "1 180 790",
+      "price": "1150785",
+      "oldPrice": "1180790",
       "popularity": 2,
       "onSale": true,
       "inStock": false
@@ -270,7 +270,7 @@
       "img": "./images/hydrocycles/hydrocycle5.png",
       "title": "Гидроцикл BRP SeaDoo GTX 300hp LTD Liquid Metal",
       "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "1 543 000",
+      "price": "1543000",
       "popularity": 3,
       "onSale": false,
       "inStock": true
@@ -280,8 +280,8 @@
       "img": "./images/hydrocycles/hydrocycle6.png",
       "title": "Гидроцикл BRP SeaDoo Spark 60hp 2 up",
       "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "732 345",
-      "oldPrice": "832 190",
+      "price": "732345",
+      "oldPrice": "832190",
       "popularity": 5,
       "onSale": true,
       "inStock": true
@@ -291,7 +291,7 @@
       "img": "./images/hydrocycles/hydrocycle7.png",
       "title": "Гидроцикл BRP SeaDoo Spark GTS 90hp Rental",
       "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "857 666",
+      "price": "857666",
       "popularity": 1,
       "onSale": true,
       "inStock": false
@@ -301,7 +301,7 @@
       "img": "./images/hydrocycles/hydrocycle1.png",
       "title": "Гидроцикл BRP SeaDoo GTI 130hp SE Black Mango",
       "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "1 049 500",
+      "price": "1049500",
       "popularity": 2,
       "onSale": false,
       "inStock": true
@@ -311,8 +311,8 @@
       "img": "./images/hydrocycles/hydrocycle2.png",
       "title": "Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic",
       "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "1 100 475",
-      "oldPrice": "1 200 990",
+      "price": "1100475",
+      "oldPrice": "1200990",
       "popularity": 1,
       "onSale": true,
       "inStock": true
@@ -322,8 +322,8 @@
       "img": "./images/hydrocycles/hydrocycle3.png",
       "title": "Гидроцикл BRP SeaDoo GTR 230hp X California green",
       "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "1 323 700",
-      "oldPrice": "1 410 420",
+      "price": "1323700",
+      "oldPrice": "1410420",
       "popularity": 4,
       "onSale": true,
       "inStock": true
@@ -333,8 +333,8 @@
       "img": "./images/hydrocycles/hydrocycle4.png",
       "title": "Гидроцикл BRP SeaDoo GTR 230hp STD Black Gulfstream",
       "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "1 150 785",
-      "oldPrice": "1 180 790",
+      "price": "1150785",
+      "oldPrice": "1180790",
       "popularity": 2,
       "onSale": true,
       "inStock": false
@@ -344,7 +344,7 @@
       "img": "./images/hydrocycles/hydrocycle5.png",
       "title": "Гидроцикл BRP SeaDoo GTX 300hp LTD Liquid Metal",
       "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "1 543 000",
+      "price": "1543000",
       "popularity": 3,
       "onSale": false,
       "inStock": true
@@ -354,8 +354,8 @@
       "img": "./images/hydrocycles/hydrocycle6.png",
       "title": "Гидроцикл BRP SeaDoo Spark 60hp 2 up",
       "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "732 345",
-      "oldPrice": "832 190",
+      "price": "732345",
+      "oldPrice": "832190",
       "popularity": 5,
       "onSale": true,
       "inStock": true
@@ -365,7 +365,7 @@
       "img": "./images/hydrocycles/hydrocycle7.png",
       "title": "Гидроцикл BRP SeaDoo Spark GTS 90hp Rental",
       "engTitle": "BRPSeaDooGTI130hpSEBlackMango",
-      "price": "857 666",
+      "price": "857666",
       "popularity": 1,
       "onSale": true,
       "inStock": false
