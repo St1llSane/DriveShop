@@ -18,8 +18,9 @@
 
     &__wrapper {
       display: flex;
-      align-items: center;
+			flex-direction: row;
       justify-content: space-between;
+      align-items: center;
       width: 100%;
       max-width: 720px;
       margin: 0 auto;
@@ -39,16 +40,20 @@
     }
 
     &__bottom {
-      margin-top: 0;
+			margin: auto 0;
 
       &-instock {
-        padding-bottom: 0;
-
+				margin-bottom: 0;
+				
         span:nth-child(2) {
           position: unset;
           display: block;
         }
       }
+
+			&-nostock {
+				margin-bottom: 0;
+			}
     }
   }
 }
