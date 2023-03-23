@@ -11,6 +11,10 @@
   position: relative;
   @extend %hover-card;
 
+	&.popular {
+		width: 270px;
+	}
+
   &__wrapper {
     height: inherit;
     display: flex;

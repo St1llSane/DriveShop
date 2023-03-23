@@ -13,8 +13,8 @@ import { useGetPopularSliderQuery } from '../redux/api/DriveShopApi'
 import '../styles/c_styles/popular-slider.scss'
 
 const PopularSlider = () => {
-	const dispatch = useDispatch()
-	const { data = [] } = useGetPopularSliderQuery()
+  const dispatch = useDispatch()
+  const { data = [] } = useGetPopularSliderQuery()
   const { itemsCount, sliderWidth, currentSlideIndex } = useSelector(
     popularSliderSelector
   )
@@ -58,7 +58,7 @@ const PopularSlider = () => {
           }}
         >
           {data.map((item) => (
-            <ProductItem item={item} key={item.id} />
+            <ProductItem item={item} popular={'popular'} key={item.id} />
           ))}
         </div>
       </div>

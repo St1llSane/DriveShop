@@ -14,7 +14,7 @@ const Products = () => {
     <>
       <div className={`products ${activeGridId === 2 ? 'list' : ''}`}>
         {data.map((item) => (
-          <ProductItem item={item} key={item.id} />
+          <ProductItem item={item} activeGrid={activeGridId === 2 ? 'list' : ''} key={item.id} />
         ))}
       </div>
     </>

@@ -3,16 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useBuyButton } from '../hooks/useBuyButton'
 import { useFavButton } from '../hooks/useFavButton'
-import { activeProductsGridSelector } from '../redux/slices/activeProductsGridSlice'
 import { cartSelector } from '../redux/slices/cartSlice'
 import { setCurrentProduct } from '../redux/slices/currentProductSlice'
 import { favoriteItemSelector } from '../redux/slices/favoriteItemSlice'
 import '../styles/c_styles/product-item.scss'
 
-const ProductItem = ({ item }) => {
+const ProductItem = (props) => {
   const dispatch = useDispatch()
-  const { activeGridId } = useSelector(activeProductsGridSelector)
-  const { id, img, title, engTitle, price, oldPrice, onSale, inStock } = item
+  const { id, img, title, engTitle, price, oldPrice, onSale, inStock } =
+    props.item
   const { favItems } = useSelector(favoriteItemSelector)
   const { favButtonHandler } = useFavButton()
   const { cart } = useSelector(cartSelector)
@@ -27,6 +26,7 @@ const ProductItem = ({ item }) => {
     onSale,
     inStock,
   }
+  console.log(props.class)
 
   const numFormater = new Intl.NumberFormat(undefined, {
     currency: 'RUB',
@@ -47,7 +47,11 @@ const ProductItem = ({ item }) => {
   }
 
   return (
-    <div className={`product-item ${activeGridId === 2 ? 'list' : ''}`}>
+    <div
+      className={`product-item ${props.popular ? props.popular : ''} ${
+        props.activeGrid ? props.activeGrid : ''
+      }`}
+    >
       <div className="product-item__wrapper">
         <div className="product-item__top">
           {onSale && inStock && <span>Скидка</span>}
