@@ -4,7 +4,7 @@ export const DriveShopApi = createApi({
   reducerPath: 'DriveShopApi',
   tagTypes: ['Favorites', 'Cart'],
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3000/',
+    baseUrl: 'http://15f5b088.apimocker.com/',
   }),
   endpoints: (build) => ({
     getPicturesSlider: build.query({
@@ -23,7 +23,8 @@ export const DriveShopApi = createApi({
       query: () => `popular`,
     }),
     getProducts: build.query({
-      query: (location) => `${location}`,
+      query: (location) =>
+        `${location}`,
     }),
     getFavorites: build.query({
       query: () => `favorites`,
@@ -89,5 +90,5 @@ export const {
   useDeleteFavoriteMutation,
   useGetCartQuery,
   useAddCartItemMutation,
-	useDeleteCartItemMutation
+  useDeleteCartItemMutation,
 } = DriveShopApi

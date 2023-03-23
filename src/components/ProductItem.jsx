@@ -26,7 +26,6 @@ const ProductItem = (props) => {
     onSale,
     inStock,
   }
-  console.log(props.class)
 
   const numFormater = new Intl.NumberFormat(undefined, {
     currency: 'RUB',
