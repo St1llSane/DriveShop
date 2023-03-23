@@ -4,7 +4,7 @@ export const DriveShopApi = createApi({
   reducerPath: 'DriveShopApi',
   tagTypes: ['Favorites', 'Cart'],
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://15f5b088.apimocker.com/',
+    baseUrl: 'http://localhost:3000/',
   }),
   endpoints: (build) => ({
     getPicturesSlider: build.query({
