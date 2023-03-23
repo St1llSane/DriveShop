@@ -1,7 +1,7 @@
 @import '../vars.scss';
 
 .product-item {
-  width: 270px;
+  width: 100%;
   height: 385px;
   border: 1px solid $c-d-grey;
   border-radius: $b-r-small;
@@ -11,12 +11,12 @@
   position: relative;
   @extend %hover-card;
 
-	&__wrapper {
-		height: inherit;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
+  &__wrapper {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   &__top {
     position: absolute;
@@ -98,13 +98,13 @@
     transition: $def-transition;
 
     &-instock {
-			height: 46px;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			margin-bottom: 15px;
-			
+      height: 46px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+
       span:nth-child(2) {
         color: $c-d-grey;
         font-size: $f-def;
@@ -176,6 +176,56 @@
 
     &:hover {
       background-color: $c-accent-d-blue;
+    }
+  }
+
+	&.list {
+    max-width: 100%;
+    height: 220px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .product-item {
+      &__wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      &__content {
+        flex-direction: row;
+        margin-top: 0;
+        column-gap: 25px;
+
+        img {
+          width: 215px;
+          height: 130px;
+          object-fit: cover;
+          will-change: scale;
+        }
+      }
+
+      &__bottom {
+        margin: auto 0;
+
+        &-instock {
+          margin-bottom: 0;
+
+          span:nth-child(2) {
+            position: unset;
+            display: block;
+          }
+        }
+
+        &-nostock {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }
