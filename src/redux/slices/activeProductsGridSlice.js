@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  activeGridIndex: 'grid',
+  activeGridId: 1,
 }
 
 export const activeProductsGridSlice = createSlice({
@@ -9,7 +9,7 @@ export const activeProductsGridSlice = createSlice({
   initialState,
   reducers: {
     setActiveGrid: (state, action) => {
-      state.activeGridIndex = action.payload
+      state.activeGridId = action.payload
     },
   },
 })

@@ -6,8 +6,11 @@ import {
   headerFiltersSliceSelector,
   setSortIsActive,
   setActiveSortId,
-  setActiveGridId,
 } from '../../redux/slices/headerFiltersSlice'
+import {
+  activeProductsGridSelector,
+  setActiveGrid,
+} from '../../redux/slices/activeProductsGridSlice'
 import { useEffect, useRef } from 'react'
 import '../../styles/c_styles/ui_styles/header-filters.scss'
 
@@ -31,9 +34,8 @@ const grids = [
 
 const HeaderFilters = () => {
   const dispatch = useDispatch()
-  const { sortIsActive, activeSortId, activeGridId } = useSelector(
-    headerFiltersSliceSelector
-  )
+  const { sortIsActive, activeSortId } = useSelector(headerFiltersSliceSelector)
+  const { activeGridId } = useSelector(activeProductsGridSelector)
   const sortMenuRef = useRef(null)
 
   useEffect(() => {
@@ -59,7 +61,7 @@ const HeaderFilters = () => {
   }
 
   const setActiveGridHandler = (id) => {
-    dispatch(setActiveGridId(id))
+    dispatch(setActiveGrid(id))
   }
 
   return (

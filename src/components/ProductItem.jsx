@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useBuyButton } from '../hooks/useBuyButton'
 import { useFavButton } from '../hooks/useFavButton'
+import { activeProductsGridSelector } from '../redux/slices/activeProductsGridSlice'
 import { cartSelector } from '../redux/slices/cartSlice'
 import { setCurrentProduct } from '../redux/slices/currentProductSlice'
 import { favoriteItemSelector } from '../redux/slices/favoriteItemSlice'
@@ -10,6 +11,7 @@ import '../styles/c_styles/product-item.scss'
 
 const ProductItem = ({ item }) => {
   const dispatch = useDispatch()
+  const { activeGridId } = useSelector(activeProductsGridSelector)
   const { id, img, title, engTitle, price, oldPrice, onSale, inStock } = item
   const { favItems } = useSelector(favoriteItemSelector)
   const { favButtonHandler } = useFavButton()
@@ -33,11 +35,11 @@ const ProductItem = ({ item }) => {
   })
 
   const setFavItemHandler = async () => {
-    favButtonHandler(title, id, sendItem)
+    await favButtonHandler(title, id, sendItem)
   }
 
   const setCartItemHandler = async () => {
-    buyButtonHandler(title, id, sendItem)
+    await buyButtonHandler(title, id, sendItem)
   }
 
   const setCurrentProductHandler = () => {
@@ -45,7 +47,7 @@ const ProductItem = ({ item }) => {
   }
 
   return (
-    <div className="product-item">
+    <div className={`product-item ${activeGridId === 2 ? 'list' : ''}`}>
       <div className="product-item__wrapper">
         <div className="product-item__top">
           {onSale && inStock && <span>Скидка</span>}
