@@ -10,7 +10,6 @@ import '../styles/c_styles/products.scss'
 const Products = () => {
   const location = useLocation()
   const { activeSort } = useSelector(headerFiltersSliceSelector)
-  console.log(activeSort.filter)
   const { data = [], isLoading } = useGetProductsQuery({
     location: location.pathname,
     filter: activeSort.filter,
