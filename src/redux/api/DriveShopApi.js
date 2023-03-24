@@ -23,8 +23,7 @@ export const DriveShopApi = createApi({
       query: () => `popular`,
     }),
     getProducts: build.query({
-      query: (location) =>
-        `${location}`,
+      query: ({ location, filter }) => `${location}?_${filter}`,
     }),
     getFavorites: build.query({
       query: () => `favorites`,

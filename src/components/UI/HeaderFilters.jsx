@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   headerFiltersSliceSelector,
   setSortIsActive,
-  setActiveSortId,
+  setActiveSort,
 } from '../../redux/slices/headerFiltersSlice'
 import {
   activeProductsGridSelector,
@@ -15,10 +15,10 @@ import { useEffect, useRef } from 'react'
 import '../../styles/c_styles/ui_styles/header-filters.scss'
 
 const sortItems = [
-  { id: 1, name: 'По полулярности' },
-  { id: 2, name: 'По цене' },
-  { id: 3, name: 'По рейтингу' },
-  { id: 4, name: 'По наличию' },
+  { id: 1, name: 'По полулярности', filter: 'sort=popularity&_order=asc' },
+  { id: 2, name: 'По цене', filter: 'sort=price&_order=asc' },
+  { id: 3, name: 'По рейтингу', filter: 'sort=popularity&_order=asc' },
+  { id: 4, name: 'По наличию', filter: 'sort=inStock&_order=desc' },
 ]
 
 const grids = [
@@ -34,7 +34,7 @@ const grids = [
 
 const HeaderFilters = () => {
   const dispatch = useDispatch()
-  const { sortIsActive, activeSortId } = useSelector(headerFiltersSliceSelector)
+  const { sortIsActive, activeSort } = useSelector(headerFiltersSliceSelector)
   const { activeGridId } = useSelector(activeProductsGridSelector)
   const sortMenuRef = useRef(null)
 
@@ -55,8 +55,8 @@ const HeaderFilters = () => {
     dispatch(setSortIsActive(!sortIsActive))
   }
 
-  const setActiveSortHandler = (id) => {
-    dispatch(setActiveSortId(id))
+  const setActiveSortHandler = (item) => {
+    dispatch(setActiveSort(item))
     dispatch(setSortIsActive())
   }
 
@@ -78,14 +78,14 @@ const HeaderFilters = () => {
             className="header-filters__actions-sort--active"
             onClick={setSortIsActiveHandler}
           >
-            {sortItems[activeSortId - 1].name}
+            {sortItems[activeSort.id - 1].name}
             <IoIosArrowForward />
           </button>
           <ul className={sortIsActive ? 'active' : ''}>
             {sortItems.map((item) =>
-              item.id !== activeSortId ? (
+              item.id !== activeSort.id ? (
                 <li key={item.id}>
-                  <button onClick={() => setActiveSortHandler(item.id)}>
+                  <button onClick={() => setActiveSortHandler(item)}>
                     {item.name}
                   </button>
                 </li>
