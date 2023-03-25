@@ -28,7 +28,7 @@ const PageHistory = () => {
               (item === 'atvs' && 'Квадроциклы') ||
               (item === 'snowmobiles' && 'Снегоходы') ||
               (item === 'engines' && 'Двигатели') ||
-              (item === 'spareParts' && 'Детали') ||
+              (item === 'spareParts' && 'Запчасти') ||
               (item === currentProduct.engTitle && 'Страница продукта')}
           </Link>
         </li>
