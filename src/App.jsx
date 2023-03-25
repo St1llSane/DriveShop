@@ -20,12 +20,18 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="favorites/*" element={<Favorites />}>
-            <Route path={currentProduct.engTitle} element={<CurrentProduct />} />
+            <Route
+              path={currentProduct.engTitle}
+              element={<CurrentProduct />}
+            />
           </Route>
           <Route path="cart/*" element={<Cart />}>
-            <Route path={currentProduct.engTitle} element={<CurrentProduct />} />
+            <Route
+              path={currentProduct.engTitle}
+              element={<CurrentProduct />}
+            />
           </Route>
-					<Route path={currentProduct.engTitle} element={<CurrentProduct />} />
+          <Route path={currentProduct.engTitle} element={<CurrentProduct />} />
           <Route path=":category/*" element={<ProductsPage />} />
         </Routes>
       </div>

@@ -1,5 +1,4 @@
 import Intro from '../components/Intro'
-import Search from '../components/Search'
 import Categories from '../components/Categories'
 import SaleBanner from '../components/SaleBanner'
 import Popular from '../components/Popular'
@@ -9,11 +8,10 @@ const Main = () => {
   return (
     <main className="main">
       <div className="main__first-screen">
-        <Search />
         <Intro />
+        <SaleBanner />
       </div>
       <Categories />
-      <SaleBanner />
       <Popular>Популярные товары</Popular>
     </main>
   )
