@@ -29,11 +29,9 @@ const Products = () => {
   ))
 
   return (
-    <>
-      <div className={`products ${activeGridId === 2 ? 'list' : ''}`}>
-        {isLoading ? skeleton : content}
-      </div>
-    </>
+    <div className={`products ${activeGridId === 2 ? 'list' : ''}`}>
+      {isLoading ? skeleton : content}
+    </div>
   )
 }
 
