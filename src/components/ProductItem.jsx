@@ -110,7 +110,7 @@ const ProductItem = (props) => {
           </div>
         </div>
       ) : (
-        <ProductItemSkeleton />
+        <ProductItemSkeleton popular={'popular-item'} />
       )}
     </div>
   )

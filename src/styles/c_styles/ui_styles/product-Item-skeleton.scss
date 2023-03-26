@@ -54,6 +54,10 @@
 			margin-left: auto;
 		}
   }
+
+	&.popular-item {
+		width: 270px;
+	}
 }
 
 @keyframes skeleton-loading {

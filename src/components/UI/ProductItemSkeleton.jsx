@@ -1,8 +1,10 @@
 import '../../styles/c_styles/ui_styles/product-Item-skeleton.scss'
 
-const ProductItemSkeleton = () => {
+const ProductItemSkeleton = (props) => {
   return (
-    <div className="product-Item-skeleton">
+    <div
+      className={`product-Item-skeleton ${props.popular ? props.popular : ''}`}
+    >
       <div className="product-Item-skeleton__top skeleton"></div>
       <div className="product-Item-skeleton__middle">
         <div className="product-Item-skeleton__middle-img skeleton"></div>
