@@ -15,14 +15,16 @@ const filters = [
     'SeaDoo GTI 155',
     'SeaDoo GTR 230',
   ],
-  ['Страны', 'countries', 'radio', 'Все', 'Россия', 'Германия', 'Китай', 'CША'],
+  ['Страна', 'countries', 'radio', 'Все', 'Россия', 'Германия', 'Китай', 'CША'],
 ]
 
 const FiltersParameters = () => {
   return (
     <form className="filters-parameters">
       {filters.map((item) => (
-        <FiltersItem key={item[0]}>{item}</FiltersItem>
+        <FiltersItem filters={filters} key={item[0]}>
+          {item}
+        </FiltersItem>
       ))}
     </form>
   )

@@ -46,6 +46,7 @@ const persistConfig = {
     'cartSlice',
     'currentProductSlice',
     'activeProductsGridSlice',
+    'filtersParametersSlice',
   ],
 }
 
