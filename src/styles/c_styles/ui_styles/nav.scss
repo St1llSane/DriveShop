@@ -1,0 +1,21 @@
+@import '../../vars.scss';
+
+.nav {
+	background-color: $c-grey;
+	border-radius: $b-r-small;
+
+	ul {
+		display: flex;
+
+		li {
+			flex: 1;
+			text-align: center;
+
+			a {
+				display: block;
+				padding: 10px 0;
+				@extend %hover-underline;
+			}
+		}
+	}
+}
