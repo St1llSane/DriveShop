@@ -136,3 +136,31 @@ $slow-transition: all 0.25s ease;
     color: $c-accent-d-blue;
   }
 }
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+@mixin xl-d {
+  @media screen and (max-width: map-get($breakpoints, xl)) {
+    @content;
+  }
+}
+@mixin lg-d {
+  @media screen and (max-width: map-get($breakpoints, lg)) {
+    @content;
+  }
+}
+@mixin md-d {
+  @media screen and (max-width: map-get($breakpoints, md)) {
+    @content;
+  }
+}
+@mixin sm-d {
+  @media screen and (max-width: map-get($breakpoints, sm)) {
+    @content;
+  }
+}

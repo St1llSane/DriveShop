@@ -8,11 +8,11 @@ const Main = () => {
   return (
     <main className="main">
       <div className="main__first-screen">
-        <Intro />
-        <SaleBanner />
+        {/* <Intro /> */}
+        {/* <SaleBanner /> */}
       </div>
-      <Categories />
-      <Popular>Популярные товары</Popular>
+      {/* <Categories /> */}
+      {/* <Popular>Популярные товары</Popular> */}
     </main>
   )
 }

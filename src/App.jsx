@@ -35,7 +35,7 @@ function App() {
           <Route path=":category/*" element={<ProductsPage />} />
         </Routes>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
