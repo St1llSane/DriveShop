@@ -17,7 +17,13 @@ const Favorites = () => {
   return (
     <PageBase>
       <PageTop>Закладки</PageTop>
-      {isLoading ? skeleton : content}
+      {data.length === 0 ? (
+        <h4>Нет закладок</h4>
+      ) : isLoading ? (
+        skeleton
+      ) : (
+        content
+      )}
     </PageBase>
   )
 }

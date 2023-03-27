@@ -17,7 +17,13 @@ const Cart = () => {
   return (
     <PageBase>
       <PageTop>Корзина</PageTop>
-      {isLoading ? skeleton : content}
+      {data.length === 0 ? (
+        <h4>Корзина пуста</h4>
+      ) : isLoading ? (
+        skeleton
+      ) : (
+        content
+      )}
     </PageBase>
   )
 }

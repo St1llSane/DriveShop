@@ -1,3 +1,5 @@
+@import '../../vars.scss';
+
 .page-base {
   &__wrapper {
     display: grid;
@@ -5,5 +7,9 @@
     justify-content: space-between;
     column-gap: 25px;
     row-gap: 25px;
+
+    h4 {
+      font-size: $f-biggest;
+    }
   }
 }
