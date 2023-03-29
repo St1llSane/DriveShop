@@ -1,4 +1,5 @@
 import FiltersItem from './FiltersItem'
+import FiltersRange from './FiltersRange'
 import '../../styles/c_styles/ui_styles/filters-parameters.scss'
 
 const filters = [
@@ -17,7 +18,7 @@ const filters = [
   ],
   ['Страна', 'countries', 'radio', 'Все', 'Россия', 'Германия', 'Китай', 'CША'],
 ]
-
+// fdsfsdfsfsd
 const FiltersParameters = () => {
   return (
     <form className="filters-parameters">
@@ -26,6 +27,7 @@ const FiltersParameters = () => {
           {item}
         </FiltersItem>
       ))}
+			<FiltersRange />
     </form>
   )
 }
