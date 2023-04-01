@@ -1,26 +1,31 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useGetDearestProductQuery } from '../../redux/api/DriveShopApi'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+	filtersRangeSelector,
+	filtersRangeValuesSelector,
+	setRangeValues,
+} from '../../redux/slices/filtersRangeSlice'
 import '../../styles/c_styles/ui_styles/filters-range.scss'
 
 const FiltersRange = () => {
 	const location = useLocation()
+	const dispatch = useDispatch()
 	const { data = [], isLoading } = useGetDearestProductQuery({
 		location: location.pathname,
 		filter: 'sort=price&_order=desc&_start=0&_end=1',
 	})
 	const maxValue = data
-	const [rangeValue, setRangeValue] = useState({
-		min: 0,
-		max: 0,
-	})
 	const [rangeTrackPercantage, setRangeTrackPercantage] = useState({
 		minPercentage: 0,
 		maxPercentage: 100,
 	})
+	const { rangeValues } = useSelector(filtersRangeSelector)
+	const { min, max } = useSelector(filtersRangeValuesSelector)
 
 	useEffect(() => {
-		setRangeValue({ ...rangeValue, max: maxValue })
+		dispatch(setRangeValues({ min: 0, max: maxValue }))
 	}, [isLoading])
 
 	const gap = (maxValue / 100) * 1
@@ -28,23 +33,29 @@ const FiltersRange = () => {
 	const setRangeValueHandler = (e) => {
 		const { name, value } = e.target
 
-		setRangeValue({
-			...rangeValue,
-			[name]: parseInt(value),
-		})
-
-		if (name === 'min' && parseInt(value) > rangeValue.max - gap) {
-			setRangeValue({
-				...rangeValue,
-				min: parseInt(rangeValue.max - gap),
+		dispatch(
+			setRangeValues({
+				...rangeValues,
+				[name]: parseInt(value),
 			})
+		)
+
+		if (name === 'min' && parseInt(value) > max - gap) {
+			dispatch(
+				setRangeValues({
+					...rangeValues,
+					min: parseInt(max - gap),
+				})
+			)
 		}
 
-		if (name === 'max' && parseInt(value) < rangeValue.min + gap) {
-			setRangeValue({
-				...rangeValue,
-				max: parseInt(rangeValue.min + gap),
-			})
+		if (name === 'max' && parseInt(value) < min + gap) {
+			dispatch(
+				setRangeValues({
+					...rangeValues,
+					max: parseInt(min + gap),
+				})
+			)
 		}
 
 		setRangeTrackPercantageHandler()
@@ -53,8 +64,8 @@ const FiltersRange = () => {
 	const setRangeTrackPercantageHandler = () => {
 		setRangeTrackPercantage({
 			...rangeTrackPercantage,
-			minPercentage: (rangeValue.min / maxValue) * 100,
-			maxPercentage: (rangeValue.max / maxValue) * 100,
+			minPercentage: (min / maxValue) * 100,
+			maxPercentage: (max / maxValue) * 100,
 		})
 	}
 
@@ -80,7 +91,7 @@ const FiltersRange = () => {
 						name='min'
 						min='0'
 						max='1543000'
-						value={rangeValue.min}
+						value={min}
 						onInput={setRangeValueHandler}
 					/>
 					<input
@@ -88,18 +99,18 @@ const FiltersRange = () => {
 						name='max'
 						min='0'
 						max='1543000'
-						value={rangeValue.max}
+						value={max}
 						onInput={setRangeValueHandler}
 					/>
 				</div>
 				<div className='filters-range__input-values'>
 					<span className='filters-range__input-values_min'>
 						<span>от:</span>
-						<span>{rangeValue.min}</span>
+						<span>{min}</span>
 					</span>
 					<span className='filters-range__input-values_max'>
 						<span>до:</span>
-						<span>{rangeValue.max}</span>
+						<span>{max}</span>
 					</span>
 				</div>
 			</div>
