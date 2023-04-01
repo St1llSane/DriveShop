@@ -23,7 +23,7 @@ export const DriveShopApi = createApi({
 			query: () => `popular`,
 		}),
 		getProducts: build.query({
-			query: ({ location, filter }) => `${location}?_${filter}`,
+			query: ({ location, sort }) => `${location}?_${sort}`,
 		}),
 		getFavorites: build.query({
 			query: () => `favorites`,
@@ -77,7 +77,7 @@ export const DriveShopApi = createApi({
 		}),
 		getDearestProduct: build.query({
 			query: ({ location, filter }) => `${location}?_${filter}`,
-      transformResponse: (res) => {
+			transformResponse: (res) => {
 				return res[0].price
 			},
 		}),

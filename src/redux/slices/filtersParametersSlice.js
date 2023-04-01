@@ -1,13 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  defValue: 'Все',
   filters: {
-    availability: '',
-    filter: '',
-    brand: '',
-    model: '',
-    countries: '',
+    availability: 'Все',
+    filter: 'Все',
+    brand: 'Все',
+    model: 'Все',
+    countries: 'Все',
   },
 }
 
