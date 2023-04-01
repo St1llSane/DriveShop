@@ -17,7 +17,7 @@ import '../styles/c_styles/header.scss'
 const Header = () => {
 	const { favItems } = useSelector(favoriteItemSelector)
 	const { cart } = useSelector(cartSelector)
-	const isLg = useMediaQuery('max-width: 992px')
+	const isLg = useMediaQuery('(max-width: 992px)')
 
 	return (
 		<header className='header'>
@@ -65,7 +65,7 @@ const Header = () => {
 					</ul>
 				</div>
 			</div>
-      <Burger />
+			{isLg && <Burger />}
 			<Nav />
 		</header>
 	)

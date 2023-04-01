@@ -10,6 +10,10 @@ body {
   font-size: $f-def;
   font-weight: 400;
   background: $c-main-gradient;
+    
+  @include lg-d {
+    overflow: hidden
+  }
 }
 
 .app {

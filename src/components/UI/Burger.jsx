@@ -1,11 +1,13 @@
-import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { burgerSelector, setActive } from '../../redux/slices/burgerSlice'
 import '../../styles/c_styles/ui_styles/burger.scss'
 
 const Burger = () => {
-	const [active, setActive] = useState(false)
+	const dispatch = useDispatch()
+	const { active } = useSelector(burgerSelector)
 
 	const setActiveHandler = () => {
-		setActive((prev) => !prev)
+		dispatch(setActive(!active))
 	}
 
 	return (

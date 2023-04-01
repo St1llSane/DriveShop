@@ -14,6 +14,7 @@ import favoriteItemSlice from './slices/favoriteItemSlice'
 import cartSlice from './slices/cartSlice'
 import currentProductSlice from './slices/currentProductSlice'
 import activeProductsGridSlice from './slices/activeProductsGridSlice'
+import burgerSlice from './slices/burgerSlice'
 import {
 	persistStore,
 	persistReducer,
@@ -38,6 +39,7 @@ const rootReducer = combineReducers({
 	cartSlice,
 	currentProductSlice,
 	activeProductsGridSlice,
+	burgerSlice,
 })
 
 const persistConfig = {
