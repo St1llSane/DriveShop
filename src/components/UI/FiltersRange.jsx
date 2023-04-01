@@ -1,7 +1,15 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import { useGetDearestProductQuery } from '../../redux/api/DriveShopApi'
 import '../../styles/c_styles/ui_styles/filters-range.scss'
 
 const FiltersRange = () => {
+	const location = useLocation()
+	const { data = [], isLoading } = useGetDearestProductQuery({
+		location: location.pathname,
+		filter: 'sort=price&_order=desc&_start=0&_end=1',
+	})
+	const maxValue = data
 	const [rangeValue, setRangeValue] = useState({
 		min: 0,
 		max: 0,
@@ -10,12 +18,12 @@ const FiltersRange = () => {
 		minPercentage: 0,
 		maxPercentage: 100,
 	})
-	const maxValue = 1543000
-	const gap = (maxValue / 100) * 1
 
 	useEffect(() => {
 		setRangeValue({ ...rangeValue, max: maxValue })
-	}, [])
+	}, [isLoading])
+
+	const gap = (maxValue / 100) * 1
 
 	const setRangeValueHandler = (e) => {
 		const { name, value } = e.target

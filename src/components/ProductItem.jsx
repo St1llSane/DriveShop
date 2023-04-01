@@ -86,7 +86,7 @@ const ProductItem = (props) => {
                   <span>{numFormater.format(price)}</span>
                   {inStock && (
                     <span>
-                      {onSale && inStock && `${numFormater.format(price)}`}
+                      {onSale && inStock && `${numFormater.format(oldPrice)}`}
                     </span>
                   )}
                 </div>
