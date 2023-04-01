@@ -1,121 +1,149 @@
 @import '../vars.scss';
 
 .header {
-  padding: 10px 0;
+	padding: 10px 0;
 
-  &-top {
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-    margin-bottom: 25px;
+	&-top {
+		display: flex;
+		align-items: center;
+		font-weight: 500;
+		margin-bottom: 25px;
 
-    .menu,
-    &__right {
-      flex: 1;
-    }
+		@include lgx-d {
+			flex-wrap: wrap;
+		}
 
-    .menu {
-      display: flex;
-      column-gap: 35px;
+		@include lg-d {
+			flex-direction: column;
+      row-gap: 15px;
+		}
 
-      li {
-        a {
-          transition: $def-transition;
+		.menu,
+		&__right {
+			flex: 1;
+		}
 
-          &:hover {
-            color: $c-accent-d-blue;
-          }
-        }
-      }
-    }
+		.menu {
+			display: flex;
+			column-gap: 35px;
 
-    .logo {
-      text-align: center;
-
-      a {
-        display: inline-block;
-
-        &:hover,
-        &:hover h2 {
-          color: $c-accent-d-blue;
-          border-color: $c-accent-d-blue;
-        }
-
-        svg {
-          font-size: 4.4rem;
-          margin-top: -3px;
-          transition: $def-transition;
-        }
-
-        h2 {
-          font-size: $f-big;
-          font-weight: 500;
-          text-transform: uppercase;
-          margin-top: -7px;
-          border-top: 2px solid $c-main;
-          transition: $def-transition;
-        }
-      }
-    }
-
-    &__right {
-      display: flex;
-      align-items: center;
-      column-gap: 40px;
-
-      &_address {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 2px;
-        flex: 1;
-
-        svg {
-          font-size: $f-huge;
-        }
+      @include sm-d {
+        display: none;
       }
 
-      &_list {
-        display: flex;
-        gap: 7px;
-        margin-right: 13px;
+			li {
+				a {
+					transition: $def-transition;
 
-        li {
-          position: relative;
+					&:hover {
+						color: $c-accent-d-blue;
+					}
+				}
+			}
+		}
+
+		.logo {
+			text-align: center;
+
+			@include lgx-d {
+				width: 100%;
+				order: -1;
+				margin-bottom: 15px;
+			}
+
+      @include lg-d {
+        margin-bottom: 0;
+      }
+
+			a {
+				display: inline-block;
+
+				&:hover,
+				&:hover h2 {
+					color: $c-accent-d-blue;
+					border-color: $c-accent-d-blue;
+				}
+
+				svg {
+					font-size: 4.4rem;
+					margin-top: -3px;
+					transition: $def-transition;
+				}
+
+				h2 {
+					font-size: $f-big;
+					font-weight: 500;
+					text-transform: uppercase;
+					margin-top: -7px;
+					border-top: 2px solid $c-main;
+					transition: $def-transition;
+				}
+			}
+		}
+
+		&__right {
+			display: flex;
+			align-items: center;
+			column-gap: 40px;
+
+      @include lg-d {
+        flex-direction: column;
+        row-gap: 15px;
+      }
+
+			&_address {
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				gap: 2px;
+				flex: 1;
+
+				svg {
+					font-size: $f-huge;
+				}
+			}
+
+			&_list {
+				display: flex;
+				gap: 7px;
+				margin-right: 13px;
+
+				li {
+					position: relative;
 
 					&:first-child {
 						margin-right: 14px;
 					}
 
-          a {
-            font-size: $f-huge;
-            height: 22px;
-            display: block;
-            position: relative;
-            transition: $def-transition;
+					a {
+						font-size: $f-huge;
+						height: 22px;
+						display: block;
+						position: relative;
+						transition: $def-transition;
 
-            &:hover {
-              color: $c-accent-d-blue;
-            }
+						&:hover {
+							color: $c-accent-d-blue;
+						}
 
-            span {
-              position: absolute;
-              right: -13px;
-              bottom: -6px;
-              width: 17px;
-              height: 17px;
-              color: $c-white;
-              font-size: 1.2rem;
-              font-weight: 400;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              background-color: $c-accent-blue;
-              border-radius: $b-r-max;
-            }
-          }
-        }
-      }
-    }
-  }
+						span {
+							position: absolute;
+							right: -13px;
+							bottom: -6px;
+							width: 17px;
+							height: 17px;
+							color: $c-white;
+							font-size: 1.2rem;
+							font-weight: 400;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							background-color: $c-accent-blue;
+							border-radius: $b-r-max;
+						}
+					}
+				}
+			}
+		}
+	}
 }

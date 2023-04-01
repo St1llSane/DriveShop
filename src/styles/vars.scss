@@ -26,141 +26,151 @@ $text-sh-def: 0 0 0 $c-main;
 $def-transition: all 0.15s ease;
 $slow-transition: all 0.25s ease;
 
-%container {
-  width: 100%;
-  max-width: 1270px;
-  margin: 0 auto;
-  padding: 0 35px;
-}
-
-%full-screen-h {
-  min-height: calc(100vh - 146px);
-}
-
-%hover-underline {
-  position: relative;
-  transition: $def-transition;
-
-  &.active {
-    text-shadow: $text-sh-def;
-  }
-
-  &.active::after {
-    width: 100%;
-  }
-
-  &:hover {
-    text-shadow: $text-sh-def;
-  }
-
-  &:hover::after {
-    width: 100%;
-  }
-
-  &[data-nav-color='blue']::after {
-    background-color: $c-accent-d-blue;
-  }
-  &[data-nav-color='red']::after {
-    background-color: $c-red;
-  }
-  &[data-nav-color='white']::after {
-    background-color: $c-d-grey;
-  }
-  &[data-nav-color='brown']::after {
-    background-color: $c-brown;
-  }
-
-  &::after {
-    position: absolute;
-    content: '';
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    transition: $def-transition;
-  }
-}
-
-%card-content-hover {
-  position: relative;
-
-  &:hover span {
-    opacity: 1;
-  }
-
-  span {
-    position: absolute;
-    top: 40%;
-    transform: translateY(-40%);
-    left: 0;
-    right: 0;
-    width: 240px;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: $b-r-small;
-    box-shadow: 0 1px 15px $c-d-grey;
-    padding: 14px 0;
-    text-transform: uppercase;
-    opacity: 0;
-    transition: $slow-transition;
-  }
-}
-
-%hover-card {
-  transition: $def-transition;
-
-  &:hover {
-    box-shadow: 0 1px 12px $c-d-grey;
-    border-color: transparent;
-  }
-}
-
-%title {
-  font-size: $f-biggest;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-%btn-hover-bg {
-  transition: $def-transition;
-
-  &:hover {
-    background-color: $c-accent-d-blue;
-  }
-}
-
-%btn-hover-text {
-  transition: $def-transition;
-
-  &:hover {
-    color: $c-accent-d-blue;
-  }
-}
-
 $breakpoints: (
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	lgx: 1070px,
+	xl: 1200px,
 );
 
 @mixin xl-d {
-  @media screen and (max-width: map-get($breakpoints, xl)) {
-    @content;
-  }
+	@media screen and (max-width: map-get($breakpoints, xl)) {
+		@content;
+	}
+}
+@mixin lgx-d {
+	@media screen and (max-width: map-get($breakpoints, lgx)) {
+		@content;
+	}
 }
 @mixin lg-d {
-  @media screen and (max-width: map-get($breakpoints, lg)) {
-    @content;
-  }
+	@media screen and (max-width: map-get($breakpoints, lg)) {
+		@content;
+	}
 }
 @mixin md-d {
-  @media screen and (max-width: map-get($breakpoints, md)) {
-    @content;
-  }
+	@media screen and (max-width: map-get($breakpoints, md)) {
+		@content;
+	}
 }
 @mixin sm-d {
-  @media screen and (max-width: map-get($breakpoints, sm)) {
-    @content;
+	@media screen and (max-width: map-get($breakpoints, sm)) {
+		@content;
+	}
+}
+
+%container {
+	width: 100%;
+	max-width: 1270px;
+	margin: 0 auto;
+	padding: 0 35px;
+
+  @include lg-d {
+    padding: 0 15px;
   }
+}
+
+%full-screen-h {
+	min-height: calc(100vh - 146px);
+}
+
+%hover-underline {
+	position: relative;
+	transition: $def-transition;
+
+	&.active {
+		text-shadow: $text-sh-def;
+	}
+
+	&.active::after {
+		width: 100%;
+	}
+
+	&:hover {
+		text-shadow: $text-sh-def;
+	}
+
+	&:hover::after {
+		width: 100%;
+	}
+
+	&[data-nav-color='blue']::after {
+		background-color: $c-accent-d-blue;
+	}
+	&[data-nav-color='red']::after {
+		background-color: $c-red;
+	}
+	&[data-nav-color='white']::after {
+		background-color: $c-d-grey;
+	}
+	&[data-nav-color='brown']::after {
+		background-color: $c-brown;
+	}
+
+	&::after {
+		position: absolute;
+		content: '';
+		left: 0;
+		bottom: 0;
+		width: 0;
+		height: 2px;
+		transition: $def-transition;
+	}
+}
+
+%card-content-hover {
+	position: relative;
+
+	&:hover span {
+		opacity: 1;
+	}
+
+	span {
+		position: absolute;
+		top: 40%;
+		transform: translateY(-40%);
+		left: 0;
+		right: 0;
+		width: 240px;
+		margin: 0 auto;
+		background-color: rgba(255, 255, 255, 0.95);
+		border-radius: $b-r-small;
+		box-shadow: 0 1px 15px $c-d-grey;
+		padding: 14px 0;
+		text-transform: uppercase;
+		opacity: 0;
+		transition: $slow-transition;
+	}
+}
+
+%hover-card {
+	transition: $def-transition;
+
+	&:hover {
+		box-shadow: 0 1px 12px $c-d-grey;
+		border-color: transparent;
+	}
+}
+
+%title {
+	font-size: $f-biggest;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+%btn-hover-bg {
+	transition: $def-transition;
+
+	&:hover {
+		background-color: $c-accent-d-blue;
+	}
+}
+
+%btn-hover-text {
+	transition: $def-transition;
+
+	&:hover {
+		color: $c-accent-d-blue;
+	}
 }
