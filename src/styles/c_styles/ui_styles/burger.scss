@@ -1,0 +1,59 @@
+@import '../../vars.scss';
+
+.burger {
+	width: 36px;
+	height: 22px;
+  border: none;
+	position: absolute;
+  top: 35px;
+  right: 35px;
+  z-index: 10;
+
+  &.active {
+    span {
+      opacity: 0;
+    }
+    
+    &::before {
+      transform: rotate(-45deg);
+      top: 10px;
+    }
+
+    &::after {
+      transform: rotate(45deg);
+      bottom: 10px;
+    }
+  }
+
+	span {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 10px;
+		width: 100%;
+		height: 3px;
+		background-color: $c-main;
+    opacity: 1;
+    transition: $def-transition;
+	}
+
+	&::before,
+	&::after {
+		position: absolute;
+		content: '';
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 3px;
+		background-color: $c-main;
+    transition: $def-transition;
+	}
+
+	&::before {
+		top: 0;
+	}
+
+	&::after {
+		bottom: 0;
+	}
+}

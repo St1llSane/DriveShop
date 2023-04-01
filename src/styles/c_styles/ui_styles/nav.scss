@@ -4,6 +4,10 @@
 	background-color: $c-grey;
 	border-radius: $b-r-small;
 
+	@include lg-d {
+		
+	}
+
 	ul {
 		display: flex;
 
